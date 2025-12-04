@@ -16,9 +16,24 @@ import {
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
 import limonData from "@/locals/en/media/limon.json"
+import limonFullData from "@/locals/en/media/limon_full.json"
 
 export default function LimonArticlePage() {
-  const article = limonData
+  const article = {
+    ...limonFullData,
+    title: limonData.title, // keep original name
+    subtitle: limonData.subtitle,
+    content: limonFullData.intro || limonFullData.content || [],
+    sections:
+      limonFullData.interview?.map((entry: { question: string; answer: string[] }) => ({
+        title: entry.question,
+        content: entry.answer,
+      })) ?? [],
+    imageAlt: limonFullData.title,
+    tags: limonFullData.tags || ["AI", "Machine Learning", "Kazakhstan"],
+    readTime: limonFullData.readTime || limonData.readTime,
+    publishedDate: limonFullData.publishedDate || limonData.publishedDate,
+  }
   const canonicalUrl = "https://anuar.best/media/limon"
   const structuredData = {
     "@context": "https://schema.org",
@@ -218,13 +233,29 @@ export default function LimonArticlePage() {
                       </span>
                     </h2>
 
-                    <div className="space-y-8">
-                      {article.content.map((paragraph, index) => (
-                        <div key={index} className="bg-slate-800/30 rounded-xl p-6 border border-slate-600/30">
-                          <p className="text-slate-200 leading-relaxed text-lg">{paragraph}</p>
+                  <div className="space-y-8">
+                    {article.content.map((paragraph, index) => (
+                      <div key={index} className="bg-slate-800/30 rounded-xl p-6 border border-slate-600/30">
+                        <p className="text-slate-200 leading-relaxed text-lg">{paragraph}</p>
+                      </div>
+                    ))}
+                  </div>
+
+                  {/* Interview QA */}
+                  {article.sections && article.sections.length > 0 && (
+                    <div className="space-y-10 mt-12">
+                      {article.sections.map((section, idx) => (
+                        <div key={idx} className="bg-slate-800/40 rounded-2xl p-6 border border-slate-700/40 space-y-4">
+                          <h3 className="text-2xl font-semibold text-white">{section.title}</h3>
+                          {section.content.map((answer, aidx) => (
+                            <p key={aidx} className="text-slate-200 leading-relaxed text-lg">
+                              {answer}
+                            </p>
+                          ))}
                         </div>
                       ))}
                     </div>
+                  )}
                   </div>
 
                   {/* Wisdom Box */}

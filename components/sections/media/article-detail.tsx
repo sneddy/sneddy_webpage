@@ -46,11 +46,11 @@ export function ArticleDetail({ data }: ArticleProps) {
   // Get the correct URL for the article page
   const getArticleSlug = () => {
     const title = data.title.toLowerCase()
-    if (title.includes("uncomplicated algorithms") || title.includes("kazakhstanskaya pravda")) {
-      return "uncomplicated-algorithms"
+    if (title.includes("kazpravda") || title.includes("kazakhstanskaya pravda") || title.includes("algorithms")) {
+      return "kazpravda"
     }
     if (title.includes("brain drain") || title.includes("steppe")) {
-      return "brain-drain-kazakhstan"
+      return "steppe"
     }
     if (title.includes("data science") || title.includes("job market") || title.includes("zerttey")) {
       return "data-science-job-market"
@@ -58,8 +58,8 @@ export function ArticleDetail({ data }: ArticleProps) {
     if (title.includes("math olympiad") || title.includes("cdmo")) {
       return "from-math-olympiads-to-ml"
     }
-    if (title.includes("kazakhstan to global") || title.includes("limon")) {
-      return "from-kazakhstan-to-global-ai"
+    if (title.includes("kazakhstan to global") || title.includes("limon") || title.includes("ai innovator")) {
+      return "limon"
     }
     return ""
   }

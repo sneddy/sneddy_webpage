@@ -12,6 +12,7 @@ import steppeData from "@/locals/en/media/steppe.json"
 import zertteyData from "@/locals/en/media/zerttey.json"
 import cdmoData from "@/locals/en/media/cdmo.json"
 import limonData from "@/locals/en/media/limon.json"
+import limonFullData from "@/locals/en/media/limon_full.json"
 
 export default function ArticlePage({ params }: { params: { slug: string } }) {
   const [readingProgress, setReadingProgress] = useState(0)
@@ -21,14 +22,22 @@ export default function ArticlePage({ params }: { params: { slug: string } }) {
   const article = useMemo(() => {
     const map: Record<string, any> = {
       limon: {
-        ...limonData,
+        ...limonFullData,
         slug: "limon",
         category: "Interview",
-        readTime: limonData.readTime || "25 min read",
-        publishDate: limonData.publishedDate || "2024-12-15",
-        tags: ["AI", "Community", "Kazakhstan", "Education", "dsml.kz", "Kaggle", "Career", "Math Olympiad"],
+        readTime: limonFullData.readTime || "25 min read",
+        publishDate: limonFullData.publishedDate || "2024-12-15",
+        tags: limonFullData.tags || ["AI", "Community", "Kazakhstan", "Education", "dsml.kz", "Kaggle", "Career"],
         difficulty: "Intermediate",
         views: "3.5k",
+        content: limonFullData.intro || limonFullData.content || [],
+        sections:
+          limonFullData.interview?.map((entry: { question: string; answer: string[] }) => ({
+            title: entry.question,
+            content: entry.answer,
+          })) ?? [],
+        imageAlt: limonFullData.title,
+        preview: limonFullData.preview,
       },
       kazpravda: {
         ...kazpravdaData,
@@ -39,6 +48,7 @@ export default function ArticlePage({ params }: { params: { slug: string } }) {
         tags: ["Algorithms", "Career", "Kazakhstan", "Tech"],
         difficulty: "Beginner",
         views: "2.1k",
+        imageAlt: kazpravdaData.title,
       },
       steppe: {
         ...steppeData,
@@ -49,6 +59,7 @@ export default function ArticlePage({ params }: { params: { slug: string } }) {
         tags: ["Brain Drain", "Kazakhstan", "Education", "Policy"],
         difficulty: "Intermediate",
         views: "3.5k",
+        imageAlt: steppeData.title,
       },
       "data-science-job-market": {
         ...zertteyData,
@@ -59,6 +70,7 @@ export default function ArticlePage({ params }: { params: { slug: string } }) {
         tags: ["Data Science", "Job Market", "Career", "Analytics"],
         difficulty: "Advanced",
         views: "4.2k",
+        imageAlt: zertteyData.title,
       },
       "from-math-olympiads-to-ml": {
         ...cdmoData,
@@ -69,6 +81,47 @@ export default function ArticlePage({ params }: { params: { slug: string } }) {
         tags: ["Math Olympiad", "Machine Learning", "Career Path", "Education"],
         difficulty: "Intermediate",
         views: "1.8k",
+        imageAlt: cdmoData.title,
+      },
+      "uncomplicated-algorithms": {
+        ...kazpravdaData,
+        slug: "kazpravda",
+        category: "Interview",
+        readTime: kazpravdaData.readTime || "8 min read",
+        publishDate: kazpravdaData.publishedDate || "2019-09-05",
+        tags: ["Algorithms", "Career", "Kazakhstan", "Tech"],
+        difficulty: "Beginner",
+        views: "2.1k",
+        imageAlt: kazpravdaData.title,
+      },
+      "from-kazakhstan-to-global-ai": {
+        ...limonFullData,
+        slug: "limon",
+        category: "Interview",
+        readTime: limonFullData.readTime || "25 min read",
+        publishDate: limonFullData.publishedDate || "2024-12-15",
+        tags: limonFullData.tags || ["AI", "Community", "Kazakhstan", "Education", "dsml.kz", "Kaggle", "Career"],
+        difficulty: "Intermediate",
+        views: "3.5k",
+        content: limonFullData.intro || limonFullData.content || [],
+        sections:
+          limonFullData.interview?.map((entry: { question: string; answer: string[] }) => ({
+            title: entry.question,
+            content: entry.answer,
+          })) ?? [],
+        imageAlt: limonFullData.title,
+        preview: limonFullData.preview,
+      },
+      "brain-drain-kazakhstan": {
+        ...steppeData,
+        slug: "steppe",
+        category: "Analysis",
+        readTime: steppeData.readTime || "12 min read",
+        publishDate: steppeData.publishedDate || "2020-03-15",
+        tags: ["Brain Drain", "Kazakhstan", "Education", "Policy"],
+        difficulty: "Intermediate",
+        views: "3.5k",
+        imageAlt: steppeData.title,
       },
     }
 
@@ -285,7 +338,7 @@ export default function ArticlePage({ params }: { params: { slug: string } }) {
           >
             <Image
               src={article.imageUrl || "/placeholder.svg"}
-              alt={article.imageAlt}
+              alt={article.imageAlt || article.title}
               fill
               className="object-cover"
               priority

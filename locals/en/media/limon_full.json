@@ -1,0 +1,248 @@
+{
+    "title": "How Anuar Became the Overall Winner and 14th in the World AI Ranking, and Built an X-ray Model in Australia",
+    "subtitle": "An interview with Anuar Aimoldin about competitions, community building and applying AI from Kazakhstan to the world",
+    "preview": "Anuar Aimoldin is one of the most recognizable figures in the AI community in Central Asia, especially in Kazakhstan. He is among the top 15 Kaggle Masters in the world — on one of the largest data science and machine learning competition platforms owned by Google. He has victories at international Olympiads in mathematics and machine learning, as well as more than ten years of experience creating and deploying AI solutions across different industries. In this interview with Limon Media, he talks about how chance brought him into artificial intelligence, how to become not just a specialist but a thought leader, and why it is important to share knowledge with the community.",
+    "imageUrl": "https://swfxusemimczhhhfzjhc.supabase.co/storage/v1/object/public/articles//ods.jpg",
+    "publishedDate": "2024-01-15",
+    "readTime": "8 min read",
+    "language": "en",
+    "source": {
+      "name": "Limon.kg",
+      "description": "Leading news portal in Kyrgyzstan",
+      "url": "https://limon.kg/ru/news:83740"
+    },
+    "tags": [
+      "AI",
+      "Machine Learning",
+      "Kaggle",
+      "Kazakhstan",
+      "DSML KZ"
+    ],
+    "intro": [
+      "Anuar Aimoldin is one of the most recognizable representatives of the AI community in Central Asia, especially in Kazakhstan. He is among the top 15 Kaggle Masters in the world — on one of the largest platforms for data science and machine learning competitions, owned by Google.",
+      "He has wins at international Olympiads in mathematics and machine learning, as well as more than ten years of experience creating and implementing AI solutions across different industries.",
+      "In this interview with Limon Media, he talks about how chance led him into artificial intelligence, how to become not just a specialist but a thought leader, and why it is important to share knowledge with the community."
+    ],
+    "interview": [
+      {
+        "question": "Hello Anuar. Please introduce yourself to our readers.",
+        "answer": [
+          "Hello, and thank you for the invitation. My name is Anuar Aimoldin. I am the founder of the Kazakh data science community DSML KZ (dsml.kz). I have been working on projects in data analysis, machine learning and artificial intelligence for more than 10 years."
+        ]
+      },
+      {
+        "question": "Tell us a bit about your childhood. What were you interested in?",
+        "answer": [
+          "I was born in Russia, in the city of Kurgan — it is a border city next to Petropavlovsk. We lived there until the 10th grade, and then I moved to Kazakhstan. From childhood I was drawn to mathematics. It all started in the 2nd grade, when I took part in the Kangaroo math contest, and I remember doing quite well. Since then I began actively taking part in Olympiads.",
+          "We had a Center for Advanced Mathematical Education — a place where Olympiad students studied. There they not only developed our mathematical abilities, but also created a community with a competitive spirit. We competed not only in math, but also played football, Dota, took part in “What? Where? When?” and the quiz show “Svoya igra”. This competitive atmosphere from childhood formed an interest in growth and self-education."
+        ]
+      },
+      {
+        "question": "How did you get to your first Olympiad?",
+        "answer": [
+          "To be honest, it was quite random. I even once wrote an article for our circle about how much in life is determined by chance. For example, when there was a school math league, each school selected three seventh-graders, three sixth-graders and one fifth-grader. I was that fifth-grader simply because my friends shouted louder than the others when the teacher asked whom to send.",
+          "Once our teacher forgot to tell us that a city Olympiad was coming up, and I found out about it by chance — from a guy in the yard. He invited me to go, so I went. I thought it was just another school league, but it turned out to be a completely different event. I solved all the problems, took first place, but didn’t say anything at home — I thought they would scold me because I hadn’t been officially invited there.",
+          "There were many such moments — certain coincidences pushed me forward. When you are a child you do not always understand what is happening and you don’t make conscious decisions."
+        ]
+      },
+      {
+        "question": "How did you choose your university and field of study?",
+        "answer": [
+          "You could say it was a “vibe decision”, as people say now. There was no clear plan. I chose Moscow State University not because I knew who I wanted to become, but simply because that’s where the guys who solved problems well were going. I didn’t think of university as being about a future job. I just thought: where is the strongest math? Okay, that’s where I should go."
+        ]
+      },
+      {
+        "question": "What was your first professional experience?",
+        "answer": [
+          "After moving to Kazakhstan I continued taking part in Olympiads. In the 11th grade I won a bronze medal at the Asia-Pacific Olympiad — a prestigious international competition.",
+          "Later, at university, I started working. I studied at the Kazakhstan branch of Moscow State University — the first years in Astana, then in Moscow. My first job was at the Nazarbayev Intellectual Schools: I was invited to prepare school students for Olympiads. I worked with students in grades 7–8 and 9–10. Once they even trusted me with second-graders — a whole class of 30–40 kids. It was an interesting challenge: you are not really an adult yourself yet, and the kids are already shouting and demanding attention.",
+          "Later, in my 4th–5th year, already in Moscow, I went to my first job interview. It was an IT integrator that developed consulting solutions, mainly for data storage. I remember that during the interview I literally fell asleep — in the most direct sense. They started telling me about the importance of organizing databases, and I, out of habit from university, just put my head on the desk and dozed off. Of course, they didn’t hire me after that.",
+          "At that time I didn’t understand how things worked. I thought the main thing was to be able to solve problems. But with experience came the realization that everything is built on interaction between people. Many people go to interviews as if they were exams, thinking they just have to “pass” them. In reality it is closer to a negotiation. There are two sides, both interested, and you discuss whether you can be useful to each other. Back then I didn’t understand this — but moments like that shape your further professional development."
+        ]
+      },
+      {
+        "question": "How did your professional path develop after university?",
+        "answer": [
+          "When I graduated, I started looking for a job in Kazakhstan. There was a funny moment: Moscow State University gives these large A4-size diplomas with a thick cover, and we walked around with them like shields. I would come to interviews without a CV, just take out this huge diploma and say: guys, I love mathematics, give me whatever you have, I’ll solve it. And they would reply: do you know PHP? And I would answer: I don’t know PHP, but I love mathematics.",
+          "That is roughly how it all started. A complete lack of understanding of how the professional world works and what “industry” actually is. It took time to understand what I could offer the world and to find my place."
+        ]
+      },
+      {
+        "question": "What exactly attracted you to mathematics?",
+        "answer": [
+          "You know, there is a joke: “A physicist and a mathematician are given matches, a stove, a kettle and a tap with water. The task is to boil water. They light the stove, fill the kettle from the tap, put it on the stove and boil the water. New task: again you need to boil water, only now the fire is already burning and the kettle is already filled. The physicist puts the kettle on the fire and boils the water, while the mathematician puts out the fire, pours out the water and reduces the problem to one that has already been solved.”",
+          "It’s just a joke, but the essence is in the approach. When I see a math problem, I try to break it down into core ideas that I can later reuse in other situations. Or, if I see a beautiful solution, I try to remember not the steps but the essence — the main ideas it is built on. This way a compact model of the mathematical world forms in your head.",
+          "When I started dealing with the outside world, I constantly wanted to understand: why are interviews organized this way? Why does professional life work like this and not otherwise? Gradually I began to collect information and learn how to interact with people. I went from total misunderstanding to the point where I started giving career advice myself.",
+          "So for me, the approach is always important — going from the general to the particular. This style of thinking definitely helps in everything I do."
+        ]
+      },
+      {
+        "question": "We are also interested in the DSML KZ community that you founded. How did it all begin?",
+        "answer": [
+          "DSML KZ probably happened because I turned out to be one of the pioneers in the industry. It was 2014. There was almost no machine learning in Kazakhstan. It existed in universities, research organizations, and maybe in a couple of advanced financial companies that tried to forecast the stock market. But in everyday life there were almost no vacancies.",
+          "One of my first jobs was in a small startup. We were trying to understand how correct a liver fibrosis study had been. There is a procedure called fibroscan. It sends an ultrasound wave and an elastic wave at the same time. The first measures how the second passes through the liver, which allows you to measure its stiffness.",
+          "Back then the situation with hepatitis in Kazakhstan was serious, almost at the level of a pandemic. Accurate diagnosis was crucial, because treatment was very expensive and difficult. So this startup lived at the intersection of medicine and IT and helped detect incorrect fibroscan readings. At the beginning we didn’t have a clear product — we were exploring where we could be useful. I dived into the recommendations of various international hepatology associations to understand how everything worked.",
+          "I didn’t yet know what classical machine learning was. But essentially we were doing the early stages of ML: I wrote a program that helped us view and analyze cases. We just didn’t call it that. Everything was very intuitive. I would literally sit and carefully look through each image, thinking about how we could find and generalize a solution.",
+          "Today data scientists train artificial neural networks, but back then I had to train my own biological ones — simply because we didn’t know any other way to work. There was a funny story: I would sit, look at images and doze off. And in my sleep I would see myself doing the same thing — scrolling through images. It was both an intellectual job — because no one but you and your brain could solve the task — and at the same time very monotonous: you had to look through hundreds of cases, identify patterns yourself and extract them using classical computer vision methods.",
+          "After that job I had a strong motivation to automate processes. I had already heard about machine learning — not as a hot market topic but as an idea. I simply wanted to know how it worked. It was around 2015–2016, when the first online courses started to appear. The Stanford course was already well known, and Russian-language courses were starting to appear from Yandex, HSE, MIPT. That was enough to give me the push I needed — after that I eagerly went through courses and mastered new tools.",
+          "Things got a bit easier. I got an internship at Yandex and later worked there as a Data Scientist. As for the community, my idea was not just to move forward but to help others. Metaphorically, I liked the idea of climbing a mountain not alone, but going a bit higher and throwing down a rope so that others could climb too.",
+          "So I was one of the first to actively share knowledge: I created a community where I posted useful courses, shared ideas, especially for beginners — how to study machine learning, what is useful to know (statistics, programming), how to prepare for interviews.",
+          "The industry was young and everyone did things in their own way. No one really knew how to run interviews properly — to be honest, no one really knows even today."
+        ]
+      },
+      {
+        "question": "Where did you share all this? On which platforms?",
+        "answer": [
+          "At first it was just a Telegram chat where I pinned the most important messages. Over time it grew an infrastructure: to protect the community from spam we created separate channels — with important news and with job postings. At first there were only ML jobs, later we added general IT vacancies. Then we started organizing events.",
+          "It was around 2016. Now large companies like Beeline, Yandex, inDrive, Kolesa Group organize their own machine learning events. Back then it was just us. It was at the level of: if you want to give a talk, write to me and I’ll organize it. Someone would offer a venue, someone helped with equipment. We held events in Almaty and Astana. We tried to record them for YouTube — that’s how our own channel appeared. Later we added LinkedIn and Instagram. And just recently we launched a website as well — your readers can check it out at dsml.kz."
+        ]
+      },
+      {
+        "question": "Starting something is one thing, but keeping people interested for many years is another. What helps you keep going?",
+        "answer": [
+          "I think I just never really had the question of whether I should continue. You just do it, that’s all. Maybe some moments motivated me. I remember one birthday when I was already heading the AI department at BTS Digital, had some achievements — Kaggle champion, various projects. Guests came over, and no one said: happy birthday, Anuar, Kaggle champion. Or: happy birthday, head of AI at BTS. Everyone said: thank you for the community.",
+          "In that moment you realize that what you are doing has real social value. And maintaining that value at a stable level is actually not that hard — it becomes a habit. But then you want to take the next step. And that step requires enormous effort. We’ll see if we manage to reach a new level."
+        ]
+      },
+      {
+        "question": "Let’s talk about competitions for a moment. What is Kaggle and what is its main purpose?",
+        "answer": [
+          "Let me philosophize a bit, if you don’t mind. I first thought about this when I was reflecting on professional athletes. Imagine: you are a young football player, your senses are sharpened, and every few days you go out onto the field in front of tens or even hundreds of thousands of fans who either support you or don’t. Either way you get a powerful surge of emotion and adrenaline. And most likely you become dependent on it.",
+          "Then your career ends, but that emotional reinforcement disappears. I think Olympiad competitors, even if they don’t have a whole stadium behind them, still experience something similar — a competitive drive, a desire for recognition and positive social reinforcement. And when you finish that chapter of your life, you want to find a comparable source of motivation. Kaggle became that platform.",
+          "Secondly, it was probably the most effective way to learn machine learning in practice. There were courses, they gave you a base, but it wasn’t enough to really grow. Kaggle allowed you to test your ideas in real-world conditions. You come up with something — and immediately see how competitive your approach is. It was an honest challenge.",
+          "Sometimes you can build a model that is not particularly sophisticated, but it works well enough in real conditions — and that’s fine for everyone. We live in a time when business often chooses “do it fast” over “do it perfectly”. As long as the product works, everything is okay. Problems start only when an entire system is built out of such quick-and-dirty components.",
+          "On Kaggle it’s different — if you make even a small mistake, dozens of people will overtake you. Often thousandths of a percent decide everything. And that’s great: you clearly know where you stand in the ranking and how your solutions compare to others. It’s a real school.",
+          "Third, Kaggle constantly gives you the opportunity to try yourself in completely different industries. In a regular job you usually spend at least a year in one place if you’re a responsible person. Kaggle lets you, while keeping your commitments to your main job, take part in other projects. The competitions themselves are designed to be as applied as possible."
+        ]
+      },
+      {
+        "question": "How is Kaggle different from platforms like Codeforces or math Olympiads?",
+        "answer": [
+          "It is closer to reality. You work with real business cases and try to solve them. If you solve enough of them, you develop a certain business “eye” — you begin to understand what kinds of problems exist and how data can be applied. One of the most difficult stages in any project is to formulate the problem and start solving it.",
+          "Another important aspect is the support of the community. In my DSML KZ community I always tried to support people who participate in competitions. We highlight even small local successes — maybe someone didn’t make it into the top 100 but got a bronze medal in the top 200; we will definitely talk about it. That way people get positive reinforcement from the community: they are congratulated, they are noticed, and they want to keep going.",
+          "A Kaggle competition lasts 2–3 months and in structure is very similar to real project work. It’s not just a course where you complete an assignment — here you are given a real problem and at the end they expect a complete solution. Over those 2–3 months you essentially gain the experience of participating in a real project."
+        ]
+      },
+      {
+        "question": "How did you manage to get into the top 15 worldwide? From what level did you start and how did you move toward that result?",
+        "answer": [
+          "There are several aspects. First, of course, there are certain techniques that help you win. You can learn these techniques from other participants. After each competition, the top teams share their solutions — and you can learn from them. Even during a competition many participants publish their approaches. They may not be among the winners, but they often have interesting ideas you can borrow.",
+          "Second, even if you know all the techniques and have solid experience, that still doesn’t guarantee victory. There are thousands of such people on Kaggle. I think there are around 200,000 registered users on the platform now. You can be at the level of “I know everything technically” and still not be at the top.",
+          "That’s where what I call an “elegant idea” comes into play. You must not just solve things mechanically, but put some soul into it. You have to understand the meaning of the data. Is there some peculiarity? Maybe there is a lot of noise, maybe the organizers split the data poorly, maybe the metric is unusual and you need an algorithm tailored exactly to it.",
+          "This is already a creative process. There is no strict checklist for it — it’s closer to research work. It all depends on you. But over time you develop intuition. The more problems you solve, the better you sense how to work with data and what might be wrong with it.",
+          "Personally, my strong mathematical background helps a lot. It’s not mandatory, but it is my advantage. Other participants have their own strengths: some are better with images, some with text, some with time series or tabular data. The tasks on the platform are very diverse, especially now with many competitions focused on improving large language models. Everyone has a chance to play to their strengths and achieve results. There is no universal recipe, of course."
+        ]
+      },
+      {
+        "question": "You say there are many participants. How does the selection process work? Did you also go through it?",
+        "answer": [
+          "On Kaggle it works a bit differently. I think there is a big difference between Kaggle and, say, coding contests or math Olympiads. Those are closer to a classic Olympiad format — problems for speed and accuracy with strict time limits. Kaggle tasks are closer to project work.",
+          "Yes, the competition is still intense and the bar is high. Even minimal differences in model quality can strongly affect the result. But the format is different: no one gives you a task to solve in half an hour. Everything revolves around real-world cases and long-term work.",
+          "That’s why there are no selection stages there, like in typical Olympiads. It’s enough just to register, download the data and start working. The main goal is not to build a ranking but to solve an applied problem. The ranking is a side effect. The platform hosts many competitions at the same time with different prize pools. You can sign up for any of them and take part.",
+          "Your rating is built based on your performance across competitions. Depending on how well you do, you get points. If you win, you get points; if you don’t make the podium, you don’t. The number of points depends not only on your place but also on the team size. If you win alone, you get more points; if you win in a team of ten, you get fewer. I have taken part in many projects. Right now I have three gold medals and six silver ones, and in one of the competitions I won an absolute first place."
+        ]
+      },
+      {
+        "question": "Did you compete alone or as part of a team?",
+        "answer": [
+          "It depends on the competition. Usually everyone starts alone, and as the competition goes on, people talk, look at each other’s results and may decide to join forces. It’s important that team members are at roughly the same level — dragging along someone much weaker just doesn’t make sense. So in some projects I competed solo, and in others as part of a team."
+        ]
+      },
+      {
+        "question": "Which competition did you find the most interesting?",
+        "answer": [
+          "I should probably talk about the SIIM-ACR Pneumothorax Segmentation competition, which I won solo. It’s a pretty significant achievement, because there are not many people in Kaggle’s history who have won such competitions alone. Usually the winners are teams. In this competition you had to build an AI model that detects whether there is a rupture of the lung — a pneumothorax — on an X-ray image. It is quite hard to spot even for experienced radiologists, because a pneumothorax is not always clearly visible on a scan. The task was not only to detect pneumothorax, but also to mark on the image exactly where the lung is ruptured.",
+          "The competition lasted three months. At first I joined just to learn how to solve image segmentation tasks, where a model has to highlight specific regions on an image. I didn’t have experience with such models and wanted to learn. It was surprising that after a month of work I was already in the top five, and in the end I took first place.",
+          "Here is how such competitions usually work. It all starts with a training dataset. In this case these were X-ray images with labels indicating whether there is pneumothorax and where exactly. There is also a test dataset on which the organizers evaluate your model. You upload your predictions to Kaggle, which calculates your position among all participants. You don’t know the correct answers for these images — they are checked by the internal system. You see only partial information about your place; the final results are revealed later, based on a private test set.",
+          "During the competition I was sitting around third place on the public leaderboard, but on the private test I ended up first. The secret is that it is not enough to show an excellent result on the public part of the data — you need to build a model that will perform well on any dataset, even if you don’t know the true labels. That is the essence of such competitions.",
+          "Each competition is essentially a complete project. In the end you have a working model that solves the given problem, such as pneumothorax detection. The difference between first and fifth place in such competitions is not that big, but even if you rank 200th or 300th it is still a great result. You have built a project that can be used in the real world, for example in a hospital. In that sense, taking part in such competitions is an opportunity to create a project that can be applied in industry."
+        ]
+      },
+      {
+        "question": "What place did you take in the global ranking?",
+        "answer": [
+          "My highest position in the global ranking was 14th place, which came from the results of many competitions I took part in, especially in 2019.",
+          "These competitions are very demanding — you work on them for two or three months, and to win you have to invest a lot of time. Once you start operating at an international level, it becomes difficult to keep dedicating that much time to finish each competition successfully. Some people manage it, but it’s tough. At the early stages of a career, though, such competitions are an excellent way to gain real experience. It’s great, because in a small town or village you are unlikely to meet someone who says, “I have a dataset of X-rays, let’s build something with it.” If you live in a big city, maybe there are such opportunities, but in small places it’s almost impossible. Through platforms like Kaggle you can join such projects regardless of where you live.",
+          "Moreover, it was thanks to the pneumothorax competition that I was invited to a conference in Texas, where I was supposed to present my solution. I didn’t manage to get my visa in time, so I recorded a video presentation instead. Later some doctors wrote to me, thanking me for useful insights. That kind of feedback helps you step onto the global stage.",
+          "If you go to my Kaggle profile, you’ll see that my peak position was 14th. I’m not active now — I haven’t competed for the last five years — but that best result stays in the history. So far, for participants from Kazakhstan it is still the highest ranking; the closest is Miras Amir, who reached 15th place at his peak."
+        ]
+      },
+      {
+        "question": "Anuar, could you share how to join Kaggle competitions? Who can take part and what key skills are needed?",
+        "answer": [
+          "Absolutely anyone can participate. You just go to the website, choose a competition, download the data and start working. The required skills depend on the specifics of a particular competition, but almost always it is about what we now call artificial intelligence: machine learning, neural networks, statistics and programming."
+        ]
+      },
+      {
+        "question": "It’s probably a good time to move on to the next topic — your international experience.",
+        "answer": [
+          "When I decided to gain international experience, I was already in a leadership role — Head of AI at BTS Digital — and managing a team of about 20 talented people. I’m very proud of that period, because we built the first team in the region that could deliver full-scale AI projects. In Kazakhstan there were individual specialists, but no such teams.",
+          "What’s more, we trained our own AI specialists. When I joined the company, I immediately agreed with a friend — who is now a co-founder of one of Kazakhstan’s first AI startups, Higgsfield AI — that we would run a one-month course on artificial intelligence. Even at that stage we already had around 15 engineers in the team who could design and implement ideas. We worked on projects like call-center automation, a face-based authentication system for the Kazakh e-government portal eGov, and a news media aggregator called AINews.",
+          "Because of all this, I hesitated: should I even go abroad for international experience, given that I already had some social capital in the region? But at that time my English was not very strong, and I realised that if I didn’t go then, I would probably never really learn it properly. It was the perfect moment to break through the language barrier and, at the same time, to gain a unique experience."
+        ]
+      },
+      {
+        "question": "How did you end up in Australia, and what project were you working on?",
+        "answer": [
+          "After I won the pneumothorax competition, it turned out that an Australian lab, Harrison.ai, had also taken part. They didn’t win, even though they had strong research teams and powerful GPU servers. When the competition ended, we had a call and they invited me to join them.",
+          "Some time later I was already flying to Sydney. Interestingly, my flight was the last one departing from Kazakhstan before the borders were closed because of COVID. If it had been one day later, I wouldn’t have been able to leave.",
+          "It was an excellent experience. The team in Australia was essentially doing the same thing I did for the pneumothorax competition — building AI models for X-ray images — but they wanted to scale it much further. Their project was a joint venture between Australian doctors and the country’s largest radiology network, I-MED. It turned out to be the third-largest medical imaging provider in the world. Their ambition was not just to solve one specific disease, but to build a system that could recognize a wide range of pathologies on chest X-rays.",
+          "To achieve this, they had a team of top-level researchers, including doctors and AI engineers, as well as a hub in Vietnam where hundreds of radiologists annotated data for training. In the CIS, companies often face situations where each employee has to perform a minor miracle for a project to take off — especially in healthcare, with strict regulations and tight controls. In Australia, it was very different: everything went according to plan. When we needed a dataset, we got a million labeled X-ray images. All deadlines were met, and there were people whose responsibility was to make sure that not a single important document was missed for regulatory approvals.",
+          "Working with such data allowed us to build a model that recognizes more than 100 different pathologies. We published our results in The Lancet — one of the largest and most cited medical journals in the world. The model showed excellent performance: for most conditions, doctors who used our model’s suggestions diagnosed diseases significantly better than those who did not use such assistance. This improvement was statistically confirmed, which is especially important for this kind of publication. We also reported that on average our model was about 10% better than the baseline performance of typical doctors on these pathologies.",
+          "Thanks to our model, the amount of paperwork for doctors decreased by about 20%. As is often the case in hospitals, doctors spend more time filling out forms than actually consulting patients. We addressed that: the model could reliably identify X-rays that clearly had no pathologies, which allowed us to generate standardized reports automatically. As a result, doctors had more time for self-education and for focusing on more complex cases. That is probably the most important outcome we achieved at Harrison.ai."
+        ]
+      },
+      {
+        "question": "How comfortable was it for you to live and work in Australia?",
+        "answer": [
+          "I really liked Australia. I’ve travelled quite a bit, and it’s one of the best countries to live in. You are close to nature, the food is great, the environment is clean, and people are wonderful. It feels like a kind of World Team — it’s hard to say which culture dominates, it’s half Asia and half Western civilization. That makes the country very diverse.",
+          "You never really feel like a visitor or an immigrant there. I even saw statistics that in every second household people speak a language other than English at home."
+        ]
+      },
+      {
+        "question": "Which culture would you say dominates in Australia?",
+        "answer": [
+          "Cultural life there is very mixed. For example, at Harrison.ai every Friday someone from the team would give a presentation about their life and their journey. It was great — you could learn how people from completely different countries grew up, and almost no stories repeated.",
+          "In our group there were many people from Vietnam and China, as well as Brazilians and colleagues from Egypt, Germany and France. It was all very diverse and interesting.",
+          "There is, however, a downside. To move there, you have to be ready to leave your social circles at home behind. From Abu Dhabi it’s about a 14-hour flight, and if you add the trip from Kazakhstan to Abu Dhabi, the whole journey takes about 20 hours. When I lived there, COVID was still ongoing and there were very few flights. So if you decide to live in Australia, you have to be prepared to start your life almost from scratch.",
+          "If you are ready for that, it’s one of the best places to live: it’s safe, social inequality is relatively low, people are kind, and overall the country is fantastic."
+        ]
+      },
+      {
+        "question": "How long did you live there?",
+        "answer": [
+          "About a year. After that I lived for about a year in Austria, and for the last couple of years I’ve been in the UAE. I love the joke that I didn’t want to move too far from Australia, so I only moved two letters away — to Austria (laughs)."
+        ]
+      },
+      {
+        "question": "What are you working on now? What are you focused on and what goals do you set for yourself?",
+        "answer": [
+          "Right now I’m again focused on the community. We recently launched our website — and that became possible largely thanks to the development of AI. It is much easier today to work with technology even if you are not a specialist in a specific area. For example, I am not a front-end engineer, and earlier it was hard for me to implement such a project. But with the new tools that have appeared in recent years, it became realistic to build something on your own — without a team and without a large budget.",
+          "Creating the website is an important step for the community. Previously we kept postponing this project because it required a high level of involvement: you had to find a developer, allocate money, and maintain everything. Now I can do it with my own hands, in the way I see and consider right. That gives much more flexibility. I hope the website will help us reach a new level.",
+          "In addition, together with the Federation of Competitive Programming of Kazakhstan we recently launched the first Olympiad in applied tasks for school students. The qualifier has already taken place and we have selected 40 finalists. It’s important to promote practical problem-solving among schoolchildren."
+        ]
+      },
+      {
+        "question": "What difficulties have you faced along the way?",
+        "answer": [
+          "I wouldn’t say there were any dramatic problems, but one difficulty was the language barrier — my weak English. Working abroad in Australia, Austria and the UAE, you feel that you are not in completely equal conditions with others, especially when it comes not just to solving technical tasks but also to leadership and communication with your team.",
+          "It was harder for me not because I lacked qualities, but because long conversations in English were simply exhausting. Over time it gets easier, of course, but at the beginning it was a real challenge."
+        ]
+      },
+      {
+        "question": "What lessons have you learned over 10 years in the industry?",
+        "answer": [
+          "First, don’t treat an interview as an exam — it’s more like a negotiation than a test you have to pass. Especially in Western culture, interviews are closer to a mutual conversation. It’s important to remember that the interviewer is just a regular person, and you can conduct the dialogue at a pace that is comfortable for you.",
+          "Second, don’t think of emigration as a goal in itself. There are real social elevators and growth opportunities within your own country, even if you’re not from a privileged background. In some fields there may even be more opportunity at home than abroad. As a nation we tend to idealize emigration, as if everyone who left has already “made it”. I think we should value people who build things inside the country no less than those who work at foreign corporations."
+        ]
+      },
+      {
+        "question": "Do you have a team, or do you work alone?",
+        "answer": [
+          "The community is the result of the daily effort of many people. There is a lot of work, but I see meaning in it. I want the community to become something large-scale. We have many passionate people, and if we manage to coordinate everyone, we will be able to implement big projects.",
+          "Interest in AI and machine learning is at its peak right now, which is a great moment to improve our internal processes and build a solid knowledge-sharing system. There are many ideas, but everything comes down to time and resources. We’ll see how long my energy lasts, but at the moment I’m very motivated."
+        ]
+      }
+    ]
+  }
+  
