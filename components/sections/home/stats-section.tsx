@@ -1,8 +1,7 @@
 "use client"
-import { motion } from "framer-motion"
+import { motion, useInView, useMotionValue, animate } from "framer-motion"
 import type React from "react"
-import { useInView } from "framer-motion"
-import { useRef, useEffect, useState } from "react"
+import { useRef, useEffect, useState, useMemo } from "react"
 import { Award, Users, BookOpen, TrendingUp, Target, Calendar } from "lucide-react"
 
 interface StatItemProps {
@@ -18,46 +17,44 @@ function StatItem({ icon, value, label, description, delay }: StatItemProps) {
   const isInView = useInView(ref, { once: true })
   const [displayValue, setDisplayValue] = useState(value)
   const [mounted, setMounted] = useState(false)
+  const counter = useMotionValue(0)
+
+  const { targetNumber, suffix } = useMemo(() => {
+    const numMatch = value.match(/[\d.]+/)
+    const numeric = numMatch ? Number.parseFloat(numMatch[0]) : null
+    const suffixText = numMatch ? value.slice(numMatch[0].length) : ""
+    return { targetNumber: numeric, suffix: suffixText }
+  }, [value])
 
   useEffect(() => {
     setMounted(true)
   }, [])
 
   useEffect(() => {
-    if (isInView && mounted) {
-      const numMatch = value.match(/\d+/)
-      if (numMatch) {
-        const targetNum = Number.parseInt(numMatch[0])
-        const suffix = value.replace(numMatch[0], "")
+    if (!mounted || !isInView || targetNumber === null) return
 
-        let current = 0
-        const increment = targetNum / 40
-        const timer = setInterval(() => {
-          current += increment
-          if (current >= targetNum) {
-            setDisplayValue(value)
-            clearInterval(timer)
-          } else {
-            setDisplayValue(Math.floor(current) + suffix)
-          }
-        }, 40)
+    const controls = animate(counter, targetNumber, {
+      duration: 1.2,
+      ease: "easeOut",
+      onUpdate: (latest) => {
+        const formatted = Number.isInteger(targetNumber)
+          ? Math.floor(latest).toString()
+          : latest.toFixed(1)
+        setDisplayValue(`${formatted}${suffix}`)
+      },
+    })
 
-        return () => clearInterval(timer)
-      }
-    }
-  }, [isInView, value, mounted])
-
-  const ItemWrapper = mounted ? motion.div : "div"
-  const itemProps = mounted
-    ? {
-        initial: { opacity: 0, y: 60 },
-        animate: isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 60 },
-        transition: { duration: 0.8, delay },
-      }
-    : {}
+    return () => controls.stop()
+  }, [counter, isInView, mounted, suffix, targetNumber])
 
   return (
-    <ItemWrapper ref={ref} className="group relative" {...itemProps}>
+    <motion.div
+      ref={ref}
+      className="group relative"
+      initial={{ opacity: 0, y: 60 }}
+      animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 60 }}
+      transition={{ duration: 0.8, delay }}
+    >
       <div className="relative p-8 bg-background/60 backdrop-blur-sm border border-border/50 rounded-2xl hover:border-primary/30 transition-all duration-500 group-hover:shadow-xl">
         {/* Background gradient on hover */}
         <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-secondary/5 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
@@ -75,7 +72,7 @@ function StatItem({ icon, value, label, description, delay }: StatItemProps) {
           </div>
         </div>
       </div>
-    </ItemWrapper>
+    </motion.div>
   )
 }
 
@@ -126,7 +123,7 @@ export function StatsSection() {
       <div className="absolute top-0 left-1/2 w-96 h-96 bg-primary/10 rounded-full blur-3xl transform -translate-x-1/2 -translate-y-1/2" />
       <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-secondary/10 rounded-full blur-3xl" />
 
-      <div className="container px-4 md:px-6 relative z-10">
+      <div className="container px-4 md:px-6 relative z-10 max-w-7xl">
         <motion.div
           className="text-center mb-20"
           initial={{ opacity: 0, y: 30 }}
