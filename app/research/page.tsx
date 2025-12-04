@@ -16,6 +16,7 @@ import {
   Heart,
   Zap,
   Quote,
+  MapPin,
 } from "lucide-react"
 import Link from "next/link"
 import { motion, useInView } from "framer-motion"
@@ -306,7 +307,7 @@ const HeroSection = () => (
         {/* Research stats */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-3xl mx-auto">
           <StatsCard icon={FileText} value="2" label="Publications" delay={0.1} color="primary" />
-          <StatsCard icon={Users} value="155+" label="Citations" delay={0.2} color="green" />
+          <StatsCard icon={Users} value="240+" label="Citations" delay={0.2} color="green" />
           <StatsCard icon={TrendingUp} value="250+" label="Clinics Deployed" delay={0.3} color="blue" />
         </div>
       </motion.div>
@@ -387,6 +388,82 @@ const FocusAreasSection = () => (
   </section>
 )
 
+const ConferenceSection = () => {
+  const talks = [
+    {
+      title: "Invited Speaker, NeurIPS 2025 Competition Track & Foundation Models for the Brain and Body Workshop",
+      location: "San Diego, CA",
+      highlight: "1st place in the NeurIPS EEG Foundation Challenge (combined two-challenge metric)",
+      link: {
+        label: "Competition Track",
+        url: "https://www.codabench.org/competitions/9975/#/results-tab",
+      },
+    },
+    {
+      title: "Invited Speaker, Conference on Machine Intelligence in Medical Imaging (C-MIMI 2019)",
+      location: "Austin, TX",
+      highlight: "Presented SIIM-ACR Pneumothorax Segmentation (1st place, one-person team)",
+      link: {
+        label: "Challenge",
+        url: "https://siim.org/research-journal/siim-machine-learning-challenges/pneumothorax-kaggle-challenge/",
+      },
+    },
+  ]
+
+  return (
+    <section className="py-20">
+      <div className="container px-4 md:px-6 max-w-7xl mx-auto">
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8 }}
+          className="text-center mb-12"
+        >
+          <h2 className="text-3xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
+            Conference Presentations
+          </h2>
+          <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
+            Invited talks highlighting competition wins and applied clinical AI work
+          </p>
+        </motion.div>
+
+        <div className="grid gap-6 md:grid-cols-2">
+          {talks.map((talk, idx) => (
+            <motion.div
+              key={talk.title}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: idx * 0.1 }}
+              className="rounded-2xl border border-border/60 bg-card/80 backdrop-blur-sm p-6 shadow-sm"
+            >
+              <div className="flex items-start justify-between gap-3 mb-3">
+                <div className="text-xl font-semibold leading-tight">{talk.title}</div>
+              </div>
+              <div className="text-sm text-muted-foreground flex items-center gap-2 mb-3">
+                <MapPin className="w-4 h-4" />
+                {talk.location}
+              </div>
+              <p className="text-sm text-foreground mb-4 leading-relaxed">{talk.highlight}</p>
+              {talk.link && (
+                <Link
+                  href={talk.link.url}
+                  target="_blank"
+                  className="inline-flex items-center gap-2 text-primary font-medium hover:underline"
+                >
+                  {talk.link.label}
+                  <ExternalLink className="w-4 h-4" />
+                </Link>
+              )}
+            </motion.div>
+          ))}
+        </div>
+      </div>
+    </section>
+  )
+}
+
 export default function ResearchPage() {
   const researchPapers = [
     {
@@ -430,6 +507,7 @@ export default function ResearchPage() {
     <div className="w-full min-h-screen bg-gradient-to-b from-background via-primary/2 to-background">
       <HeroSection />
       <FocusAreasSection />
+      <ConferenceSection />
 
       {/* Publications Section */}
       <section className="py-20">

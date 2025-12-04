@@ -87,9 +87,9 @@ export function StatsSection() {
     },
     {
       icon: <BookOpen className="h-8 w-8" />,
-      value: "98.4",
-      label: "Lancet Impact Factor",
-      description: "Published in top-tier medical journal",
+      value: "240+",
+      label: "Citations",
+      description: "Cited across research & clinical deployments",
     },
     {
       icon: <Users className="h-8 w-8" />,

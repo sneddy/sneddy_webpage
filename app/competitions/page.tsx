@@ -30,6 +30,24 @@ const mlCompetitionsData = {
   competitions: [
     // Gold medals first
     {
+      id: "neurips-eeg-foundation-2025",
+      title: "NeurIPS EEG Foundation Challenge",
+      year: "2025",
+      place: "1",
+      totalTeams: "N/A",
+      medal: "gold",
+      description:
+        "NeurIPS 2025 Competition Track challenge focused on EEG foundation models; achieved the top combined metric across two sub-challenges.",
+      specialAchievement: "Invited Speaker, NeurIPS 2025 Competition Track",
+      links: [
+        {
+          text: "Competition Track",
+          url: "https://www.codabench.org/competitions/9975/#/results-tab",
+          icon: "ExternalLink",
+        },
+      ],
+    },
+    {
       id: "siim-acr-pneumothorax",
       title: "SIIM-ACR Pneumothorax Segmentation",
       year: "2019",
@@ -44,7 +62,7 @@ const mlCompetitionsData = {
       links: [
         {
           text: "View Leaderboard",
-          url: "https://www.kaggle.com/competitions/siim-acr-pneumothorax-segmentation/leaderboard",
+          url: "https://siim.org/research-journal/siim-machine-learning-challenges/pneumothorax-kaggle-challenge/",
           icon: "ExternalLink",
         },
         {

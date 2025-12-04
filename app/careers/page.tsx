@@ -5,24 +5,8 @@ import { motion } from "framer-motion"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
-import { Input } from "@/components/ui/input"
-import {
-  MapPin,
-  ExternalLink,
-  Search,
-  TrendingUp,
-  Award,
-  Users,
-  Code,
-  Brain,
-  Zap,
-  Target,
-  Globe,
-  Building,
-  Clock,
-  Star,
-  GraduationCap,
-} from "lucide-react"
+import Image from "next/image"
+import { MapPin, ExternalLink, TrendingUp, Award, Users, Code, Brain, Zap, Target, Globe, Building, Clock, Star, GraduationCap } from "lucide-react"
 import Link from "next/link"
 
 const careersData = {
@@ -88,7 +72,8 @@ const careersData = {
       companyUrl: "https://www.careem.com",
       type: "Full-time",
       industry: "Super App / Mobility",
-      teamSize: "15+ engineers",
+      teamSize: "Org-wide marketplace teams",
+      logo: "/logos/careem_logo.svg",
       featured: true,
       achievements: [
         "Led $1.5M annual cost savings through marketplace optimization",
@@ -126,21 +111,24 @@ const careersData = {
       companyUrl: "https://checklens.ai/",
       type: "Full-time",
       industry: "Computer Vision / Retail",
-      teamSize: "Small R&D team",
+      teamSize: "Lean R&D pod",
+      logo: "/logos/checklens_logo.jpeg",
       featured: true,
       achievements: [
-        "Improved retail profitability by 0.5% for IKEA and Netto",
-        "Deployed AI systems recognizing 15,000+ products",
-        "Built automated checkout solutions for major retailers",
+        "Led Checkscan fraud-prevention system for IKEA and Netto",
+        "Owned full AI lifecycle from MVP to production",
+        "Real-time recognition of 15,000+ products with vectorized models",
       ],
       description: [
         {
-          title: "AI Checkout Automation:",
+          title: "Checkscan AI fraud prevention:",
           icon: <Code className="w-4 h-4" />,
           points: [
-            "Led Checkscan development for IKEA and Netto, improving profitability by 0.5%",
-            "Trained models for real-time product recognition (15,000+ items)",
-            "Automated video ingestion and annotation pipeline",
+            "Led Checkscan development, deployed to IKEA and Netto for fraud prevention",
+            "Owned end-to-end AI lifecycle: MVP, production rollout, continuous updates",
+            "Trained object detection and vectorization models for 15,000+ products",
+            "Designed two-stage tracking with gradient boosting + GNN on geometric/appearance/interaction features",
+            "Automated video ingestion, dataset/annotation creation, model zoo fine-tuning, conversion, and deployment for rapid store rollouts",
           ],
         },
       ],
@@ -156,20 +144,22 @@ const careersData = {
       type: "Full-time",
       industry: "Healthcare AI",
       teamSize: "R&D team",
+      logo: "/logos/harrison_ai.png",
       featured: true,
       achievements: [
-        "Published research in The Lancet (Impact Factor: 98.4)",
+        "Built Annalise CXR model covering 120+ pathologies",
         "Improved diagnostic accuracy by 45% in 250+ clinics",
-        "Reduced radiologist workload by 20%",
+        "Reduced radiologist workload by 20% via automation",
       ],
       description: [
         {
-          title: "Annalise CXR Solution:",
+          title: "Annalise CXR solution:",
           icon: <Brain className="w-4 h-4" />,
           points: [
-            "Built training pipeline for detecting 120+ chest X-ray pathologies",
-            "Improved diagnostic accuracy by 45% in 250+ Australian radiology clinics",
-            "Reduced radiologist workload by 20% through automated reporting",
+            "Trained combined multi-task AI (attributes, classification, segmentation) for 120+ chest X-ray pathologies",
+            "Ported winning Pneumothorax Segmentation innovations to production, boosting accuracy and efficiency across the pipeline",
+            "Deployed to 250+ Australian radiology clinics; +45% diagnostic accuracy and 20% workload reduction via automated reporting",
+            "Co-authored The Lancet Digital Health paper demonstrating radiologist accuracy gains",
           ],
         },
       ],
@@ -185,6 +175,7 @@ const careersData = {
       type: "Full-time",
       industry: "Digital Innovation",
       teamSize: "AI team (region-leading)",
+      logo: "/logos/bts_logo.png",
       featured: true,
       achievements: [
         "Built the leading AI team in Central Asia",
@@ -223,21 +214,18 @@ const careersData = {
       type: "Full-time",
       industry: "Postal Services",
       teamSize: "5 analysts",
+      logo: "/logos/kazpost_logo.jpg",
       featured: false,
       achievements: [
-        "Boosted annual revenue by 8% (KZT 1.6B, $5M)",
-        "Optimized 3,000+ branch operations",
-        "Implemented predictive analytics across postal network",
+        "Implemented integrated planning across 3,000+ branches; +8% revenue (KZT 1.6B / $5M)",
       ],
       description: [
         {
-          title: "Integrated Planning System:",
+          title: "Integrated planning:",
           icon: <TrendingUp className="w-4 h-4" />,
           points: [
-            "Implemented sales targets and compensation plans across 3,000+ branches",
-            "Boosted annual revenue by 8% (KZT 1.6B, $5M)",
-            "Developed time series forecasting models for performance prediction",
-            "Created performance-based branch clustering for targeted optimization",
+            "Set sales targets and compensation plans across 3,000+ branches",
+            "Built forecasting models and performance-based clustering to steer revenue growth",
           ],
         },
       ],
@@ -255,19 +243,16 @@ const careersData = {
       teamSize: "3 engineers",
       featured: false,
       achievements: [
-        "Developed medical imaging quality control systems",
-        "Supported Chronic Hepatitis C diagnosis and monitoring",
-        "Implemented automated fiber scanning verification",
+        "Built CV-based quality control for fiber scanning in ultrasound/MRI",
+        "Supported Chronic Hepatitis C diagnosis and monitoring workflows",
       ],
       description: [
         {
-          title: "Medical Imaging Quality Control:",
+          title: "Medical imaging QC:",
           icon: <Zap className="w-4 h-4" />,
           points: [
-            "Created a computer vision-based quality control system for fiber scanning",
-            "Developed verification algorithms for ultrasound and MRI imaging",
-            "Supported diagnosis and treatment monitoring of Chronic Hepatitis C",
-            "Implemented image processing pipeline for medical data analysis",
+            "Created CV quality control for fiber scanning across ultrasound/MRI data",
+            "Enabled verification for diagnosis and treatment monitoring of Chronic Hepatitis C",
           ],
         },
       ],
@@ -282,22 +267,20 @@ const careersData = {
       companyUrl: "https://yandex.com/",
       type: "Internship",
       industry: "Search Engine / Tech",
-      teamSize: "10+ data scientists",
+      teamSize: "Search/antifraud team",
+      logo: "/logos/yandex.png",
       featured: false,
       achievements: [
-        "Worked on content filtering algorithms",
-        "Improved search result quality metrics",
-        "Collaborated with senior data scientists on research",
+        "Built antifraud algorithms for fake reviews in Yandex Market",
+        "Strengthened Safe Search content filtering",
       ],
       description: [
         {
-          title: "Safe Search Department:",
+          title: "Safe Search internship:",
           icon: <Award className="w-4 h-4" />,
           points: [
-            "Developed algorithms for content filtering and classification",
-            "Worked on machine learning models to detect inappropriate content",
-            "Participated in the improvement of search result quality metrics",
-            "Collaborated with senior data scientists on research projects",
+            "Developed antifraud detection for fake reviews in Yandex Market",
+            "Contributed to Safe Search content filtering and classification models",
           ],
         },
       ],
@@ -346,36 +329,12 @@ const getTypeColor = (type: string) => {
 }
 
 export default function CareersPage() {
-  const [searchTerm, setSearchTerm] = useState("")
-  const [selectedIndustry, setSelectedIndustry] = useState("all")
-  const [selectedType, setSelectedType] = useState("all")
-  const [showFeaturedOnly, setShowFeaturedOnly] = useState(false)
   const [activeTab, setActiveTab] = useState("experience")
   const [expandedItems, setExpandedItems] = useState<Set<string>>(new Set())
 
-  const industries = useMemo(() => {
-    const allIndustries = careersData.experiences.map((exp) => exp.industry)
-    return ["all", ...Array.from(new Set(allIndustries))]
-  }, [])
-
-  const types = useMemo(() => {
-    const allTypes = careersData.experiences.map((exp) => exp.type)
-    return ["all", ...Array.from(new Set(allTypes))]
-  }, [])
-
   const filteredExperiences = useMemo(() => {
-    return careersData.experiences.filter((exp) => {
-      const matchesSearch =
-        exp.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
-        exp.company.toLowerCase().includes(searchTerm.toLowerCase()) ||
-        exp.industry.toLowerCase().includes(searchTerm.toLowerCase())
-      const matchesIndustry = selectedIndustry === "all" || exp.industry === selectedIndustry
-      const matchesType = selectedType === "all" || exp.type === selectedType
-      const matchesFeatured = !showFeaturedOnly || exp.featured
-
-      return matchesSearch && matchesIndustry && matchesType && matchesFeatured
-    })
-  }, [searchTerm, selectedIndustry, selectedType, showFeaturedOnly])
+    return careersData.experiences
+  }, [])
 
   const toggleExpanded = (id: string) => {
     const newExpanded = new Set(expandedItems)
@@ -589,92 +548,8 @@ export default function CareersPage() {
 
       {/* Experience Section */}
       {activeTab === "experience" && (
-        <>
-          {/* Filters Section */}
-          <div className="container max-w-7xl mx-auto px-4 mb-12">
-            <motion.div
-              className="bg-card/50 backdrop-blur-sm border rounded-2xl p-4 sm:p-6"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.4, duration: 0.6 }}
-            >
-              <div className="flex flex-col gap-4">
-                {/* Search */}
-                <div className="relative">
-                  <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-muted-foreground w-4 h-4" />
-                  <Input
-                    placeholder="Search by role, company, or industry..."
-                    value={searchTerm}
-                    onChange={(e) => setSearchTerm(e.target.value)}
-                    className="pl-10 bg-background/50 h-10"
-                  />
-                </div>
-
-                {/* Filters Row */}
-                <div className="flex flex-col sm:flex-row gap-3">
-                  {/* Industry Filter */}
-                  <select
-                    value={selectedIndustry}
-                    onChange={(e) => setSelectedIndustry(e.target.value)}
-                    className="px-4 py-2 rounded-lg border bg-background/50 text-sm flex-1 h-10"
-                  >
-                    {industries.map((industry) => (
-                      <option key={industry} value={industry}>
-                        {industry === "all" ? "All Industries" : industry}
-                      </option>
-                    ))}
-                  </select>
-
-                  {/* Type Filter */}
-                  <select
-                    value={selectedType}
-                    onChange={(e) => setSelectedType(e.target.value)}
-                    className="px-4 py-2 rounded-lg border bg-background/50 text-sm flex-1 h-10"
-                  >
-                    {types.map((type) => (
-                      <option key={type} value={type}>
-                        {type === "all" ? "All Types" : type}
-                      </option>
-                    ))}
-                  </select>
-
-                  {/* Featured Toggle */}
-                  <Button
-                    variant={showFeaturedOnly ? "default" : "outline"}
-                    size="sm"
-                    onClick={() => setShowFeaturedOnly(!showFeaturedOnly)}
-                    className="flex items-center gap-2 h-10 px-4 flex-1 sm:flex-none"
-                  >
-                    <Star className="w-4 h-4" />
-                    <span className="hidden sm:inline">Featured Only</span>
-                    <span className="sm:hidden">Featured</span>
-                  </Button>
-                </div>
-              </div>
-
-              <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 mt-4 pt-4 border-t">
-                <div className="text-sm text-muted-foreground">
-                  Showing {filteredExperiences.length} of {careersData.experiences.length} positions
-                </div>
-                <Button
-                  variant="ghost"
-                  size="sm"
-                  onClick={() => {
-                    setSearchTerm("")
-                    setSelectedIndustry("all")
-                    setSelectedType("all")
-                    setShowFeaturedOnly(false)
-                  }}
-                  className="text-sm self-start sm:self-auto"
-                >
-                  Clear Filters
-                </Button>
-              </div>
-            </motion.div>
-          </div>
-
-          {/* Show All/Collapse All Button */}
-          <div className="flex justify-center mb-6">
+        <div className="container max-w-7xl mx-auto px-4 pb-20 space-y-8">
+          <div className="flex justify-end">
             <Button
               variant="outline"
               size="sm"
@@ -685,202 +560,179 @@ export default function CareersPage() {
                   setExpandedItems(new Set(filteredExperiences.map((exp) => exp.id)))
                 }
               }}
-              className="flex items-center gap-2"
+              className="text-sm"
             >
-              {expandedItems.size === filteredExperiences.length ? (
-                <>
-                  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 15l7-7 7 7" />
-                  </svg>
-                  Collapse All
-                </>
-              ) : (
-                <>
-                  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-                  </svg>
-                  Expand All
-                </>
-              )}
+              {expandedItems.size === filteredExperiences.length ? "Collapse all" : "Expand all"}
             </Button>
           </div>
 
-          {/* Experiences */}
-          <div className="container max-w-7xl mx-auto px-4 pb-20">
-            <motion.div className="space-y-8" variants={containerVariants} initial="hidden" animate="visible">
+          {/* Timeline */}
+          <div>
+            <motion.div
+              className="grid gap-8 md:gap-10 md:grid-cols-2"
+              variants={containerVariants}
+              initial="hidden"
+              animate="visible"
+            >
               {filteredExperiences.map((exp, index) => {
                 const isExpanded = expandedItems.has(exp.id)
                 return (
-                  <motion.div key={exp.id} variants={itemVariants} className="group">
-                    <Card
-                      className={`border-l-4 transition-all duration-300 hover:shadow-xl hover:scale-[1.02] ${
-                        exp.featured
-                          ? "border-l-gradient-to-b from-primary to-purple-600 bg-gradient-to-r from-card to-primary/5"
-                          : "border-l-primary/50"
-                      }`}
-                    >
-                      <CardHeader className="pb-4">
-                        <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between gap-4">
-                          <div className="flex-1">
-                            <div className="flex items-center gap-3 mb-2">
-                              <CardTitle className="text-xl group-hover:text-primary transition-colors">
-                                {exp.title}
-                              </CardTitle>
+                  <motion.div key={exp.id} variants={itemVariants} className="relative">
+                    <Card className="overflow-hidden border border-border/60 bg-card/80 backdrop-blur-md shadow-lg hover:border-primary/40 transition-colors">
+                      <CardHeader className="pb-3">
+                        <div className="flex flex-col gap-3">
+                          <div className="flex items-center gap-3 flex-wrap">
+                            {exp.logo && (
+                              <div className="relative w-10 h-10 rounded-lg overflow-hidden border border-border/60 bg-muted/50">
+                                <Image
+                                  src={exp.logo}
+                                  alt={`${exp.company} logo`}
+                                  fill
+                                  className="object-contain"
+                                  sizes="40px"
+                                  priority={false}
+                                />
+                              </div>
+                            )}
+                            <div className="flex items-center gap-3 flex-wrap">
+                              <CardTitle className="text-xl lg:text-2xl leading-tight">{exp.title}</CardTitle>
                               {exp.featured && (
-                                <Badge
-                                  variant="secondary"
-                                  className="bg-gradient-to-r from-primary/20 to-purple-600/20"
-                                >
+                                <Badge variant="secondary" className="bg-gradient-to-r from-primary/20 to-purple-600/20">
                                   <Star className="w-3 h-3 mr-1" />
                                   Featured
                                 </Badge>
                               )}
                             </div>
-
-                            <CardDescription className="flex flex-wrap items-center gap-4 text-base">
-                              <Link
-                                href={exp.companyUrl}
-                                target="_blank"
-                                className="text-primary hover:underline font-medium flex items-center gap-1"
-                              >
-                                {exp.company}
-                                <ExternalLink className="w-3 h-3" />
-                              </Link>
-                              <span className="flex items-center gap-1">
-                                <MapPin className="w-4 h-4" />
-                                {exp.location}
-                              </span>
-                              <span className="flex items-center gap-1">
-                                <Clock className="w-4 h-4" />
-                                {exp.duration}
-                              </span>
-                            </CardDescription>
                           </div>
-
-                          <div className="flex flex-col items-start lg:items-end gap-2">
-                            <Badge variant="secondary" className="text-sm">
-                              {exp.period}
+                          <div className="flex flex-wrap items-center gap-3 text-sm text-muted-foreground">
+                            <Link
+                              href={exp.companyUrl}
+                              target="_blank"
+                              className="text-primary hover:underline font-medium flex items-center gap-1"
+                            >
+                              {exp.company}
+                              <ExternalLink className="w-3 h-3" />
+                            </Link>
+                            <span className="flex items-center gap-1">
+                              <MapPin className="w-4 h-4" />
+                              {exp.location}
+                            </span>
+                            <span className="flex items-center gap-1">
+                              <Clock className="w-4 h-4" />
+                              {exp.period} · {exp.duration}
+                            </span>
+                          </div>
+                          <div className="flex flex-wrap gap-2">
+                            <Badge className={getTypeColor(exp.type)}>{exp.type}</Badge>
+                            <Badge variant="outline" className="flex items-center gap-1">
+                              {getIndustryIcon(exp.industry)}
+                              <span>{exp.industry}</span>
                             </Badge>
-                            <div className="flex flex-wrap gap-2">
-                              <Badge className={getTypeColor(exp.type)}>{exp.type}</Badge>
-                              <Badge variant="outline" className="flex items-center gap-1">
-                                {getIndustryIcon(exp.industry)}
-                                <span className="hidden sm:inline">{exp.industry}</span>
-                                <span className="sm:hidden">{exp.industry.split(" ")[0]}</span>
-                              </Badge>
-                            </div>
+                            <Badge variant="outline" className="flex items-center gap-1">
+                              <Users className="w-4 h-4" />
+                              {exp.teamSize}
+                            </Badge>
                           </div>
-                        </div>
 
-                        {/* Compact Key Achievements - Always visible */}
-                        {exp.achievements && (
-                          <div className="mt-4 p-3 bg-primary/5 rounded-lg">
-                            <h4 className="font-medium mb-2 flex items-center gap-2 text-sm">
-                              <Award className="w-4 h-4 text-primary" />
-                              Key Achievements
-                            </h4>
-                            <div className="grid grid-cols-1 gap-1">
-                              {exp.achievements
-                                .slice(0, isExpanded ? exp.achievements.length : 2)
-                                .map((achievement, idx) => (
-                                  <div key={idx} className="text-sm text-muted-foreground flex items-start gap-2">
-                                    <div className="w-1.5 h-1.5 bg-primary rounded-full mt-2 flex-shrink-0" />
-                                    {achievement}
-                                  </div>
-                                ))}
-                              {!isExpanded && exp.achievements.length > 2 && (
-                                <div className="text-xs text-muted-foreground/70 mt-1">
-                                  +{exp.achievements.length - 2} more achievements
-                                </div>
+                          {exp.achievements && exp.achievements.length > 0 && (
+                            <div className="flex flex-wrap gap-2 pt-1">
+                              {exp.achievements.slice(0, 2).map((ach, i) => (
+                                <Badge
+                                  key={i}
+                                  variant="outline"
+                                  className="text-xs text-muted-foreground border-border/70 bg-background/60"
+                                >
+                                  {ach}
+                                </Badge>
+                              ))}
+                              {exp.achievements.length > 2 && (
+                                <Badge variant="outline" className="text-xs text-muted-foreground border-dashed">
+                                  +{exp.achievements.length - 2} more
+                                </Badge>
                               )}
                             </div>
-                          </div>
-                        )}
+                          )}
+                        </div>
                       </CardHeader>
 
                       {/* Expandable Content */}
                       {isExpanded && (
-                        <CardContent className="space-y-6 pt-0">
-                          {exp.description.map((section, idx) => (
-                            <div key={idx} className="space-y-3">
-                              <h3 className="font-medium flex items-center gap-2 text-primary">
-                                {section.icon}
-                                {section.title}
+                        <CardContent className="pt-0 space-y-6">
+                          {exp.achievements && (
+                            <div className="p-4 rounded-lg border border-primary/15 bg-primary/5">
+                              <h3 className="font-medium flex items-center gap-2 text-primary mb-2">
+                                <Award className="w-4 h-4" />
+                                Key achievements
                               </h3>
-                              <ul className="space-y-2 ml-6">
-                                {section.points.map((point, pidx) => (
-                                  <li key={pidx} className="text-muted-foreground flex items-start gap-3">
-                                    <div className="w-1.5 h-1.5 bg-primary/60 rounded-full mt-2 flex-shrink-0" />
-                                    <span className="leading-relaxed">{point}</span>
+                              <ul className="space-y-2">
+                                {exp.achievements.map((ach, i) => (
+                                  <li key={i} className="text-sm text-muted-foreground leading-relaxed flex gap-2">
+                                    <span className="text-primary">•</span>
+                                    <span>{ach}</span>
                                   </li>
                                 ))}
                               </ul>
                             </div>
-                          ))}
+                          )}
 
-                          {/* Team Size & Additional Info */}
-                          <div className="flex flex-wrap gap-4 pt-4 border-t text-sm text-muted-foreground">
-                            <span className="flex items-center gap-1">
-                              <Users className="w-4 h-4" />
-                              Team: {exp.teamSize}
-                            </span>
-                            <span className="flex items-center gap-1">
-                              <Building className="w-4 h-4" />
-                              {exp.industry}
-                            </span>
+                          <div className="grid gap-6 md:grid-cols-2">
+                            {exp.description.map((section, idx) => (
+                              <div
+                                key={idx}
+                                className="p-4 rounded-lg border border-border/60 bg-background/40 space-y-3 h-full"
+                              >
+                                <h3 className="font-medium flex items-center gap-2 text-primary">
+                                  {section.icon}
+                                  {section.title}
+                                </h3>
+                                <ul className="space-y-2">
+                                  {section.points.map((point, pidx) => (
+                                    <li key={pidx} className="text-sm text-muted-foreground leading-relaxed flex gap-2">
+                                      <span className="text-primary">•</span>
+                                      <span>{point}</span>
+                                    </li>
+                                  ))}
+                                </ul>
+                              </div>
+                            ))}
                           </div>
                         </CardContent>
                       )}
 
-                      {/* Show More/Less Button */}
+                      {/* Toggle */}
                       <div className="px-6 pb-4">
                         <Button
                           variant="ghost"
                           size="sm"
                           onClick={() => toggleExpanded(exp.id)}
-                          className="w-full text-sm hover:bg-primary/5 transition-colors"
+                          className="w-full text-sm hover:bg-primary/5"
                         >
-                          {isExpanded ? (
-                            <>
-                              <svg className="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 15l7-7 7 7" />
-                              </svg>
-                              Show Less
-                            </>
-                          ) : (
-                            <>
-                              <svg className="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-                              </svg>
-                              Show More Details
-                            </>
-                          )}
+                          {isExpanded ? "Show less" : "View full scope"}
                         </Button>
                       </div>
                     </Card>
                   </motion.div>
                 )
               })}
-            </motion.div>
 
-            {filteredExperiences.length === 0 && (
-              <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="text-center py-12">
-                <div className="text-muted-foreground mb-4">No positions match your current filters</div>
+              {filteredExperiences.length === 0 && (
+                <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="text-center py-12">
+                  <div className="text-muted-foreground mb-4">No roles match your current filters</div>
                 <Button
                   variant="outline"
                   onClick={() => {
-                    setSearchTerm("")
                     setSelectedIndustry("all")
                     setSelectedType("all")
                     setShowFeaturedOnly(false)
                   }}
                 >
-                  Clear All Filters
-                </Button>
-              </motion.div>
-            )}
+                    Reset filters
+                  </Button>
+                </motion.div>
+              )}
+            </motion.div>
           </div>
-        </>
+        </div>
       )}
     </div>
   )
