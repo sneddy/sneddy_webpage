@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Zerttey Preview</title>
+  <script>
+    // This function helps pass the theme from the parent page
+    function setTheme(isDark) {
+      document.documentElement.classList.toggle('dark', isDark);
+    }
+    
+    // Listen for messages from the parent page
+    window.addEventListener('message', function(event) {
+      if (event.data.theme) {
+        setTheme(event.data.theme === 'dark');
+      }
+    });
+  </script>
+  <style>
+    /* Basic reset and styles to match the parent page */
+    :root {
+      --background: 0 0% 100%;
+      --foreground: 240 10% 3.9%;
+      --card: 0 0% 100%;
+      --card-foreground: 240 10% 3.9%;
+      --muted: 240 4.8% 95.9%;
+      --muted-foreground: 240 3.8% 46.1%;
+      --primary: 191 100% 39%;
+      --border: 240 5.9% 90%;
+    }
+    
+    .dark {
+      --background: 240 10% 3.9%;
+      --foreground: 0 0% 98%;
+      --card: 240 10% 3.9%;
+      --card-foreground: 0 0% 98%;
+      --muted: 240 3.7% 15.9%;
+      --muted-foreground: 240 5% 64.9%;
+      --primary: 191 100% 39%;
+      --border: 240 3.7% 15.9%;
+    }
+    
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", sans-serif;
+    }
+    
+    body {
+      background-color: hsl(var(--background));
+      color: hsl(var(--foreground));
+    }
+    
+    .card {
+      border-radius: 0.5rem;
+      border: 1px solid hsl(var(--border));
+      background-color: hsl(var(--card));
+      color: hsl(var(--card-foreground));
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+      overflow: hidden;
+    }
+    
+    .card-content {
+      padding: 1.5rem;
+    }
+    
+    .card-title {
+      font-size: 1.5rem;
+      font-weight: 600;
+      line-height: 1.2;
+      margin-bottom: 0.5rem;
+    }
+    
+    .card-subtitle {
+      font-size: 1.125rem;
+      color: hsl(var(--muted-foreground));
+      margin-bottom: 1rem;
+    }
+    
+    .source-info {
+      font-size: 0.875rem;
+      color: hsl(var(--muted-foreground));
+      margin-bottom: 1rem;
+    }
+    
+    .preview-text {
+      margin-bottom: 1rem;
+    }
+    
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 0.375rem;
+      font-size: 0.875rem;
+      font-weight: 500;
+      height: 2.5rem;
+      padding-left: 1rem;
+      padding-right: 1rem;
+      background-color: transparent;
+      border: 1px solid hsl(var(--border));
+      color: hsl(var(--foreground));
+      cursor: pointer;
+      transition: background-color 0.2s, color 0.2s;
+      text-decoration: none;
+      margin-bottom: 2rem;
+    }
+    
+    .button:hover {
+      background-color: hsl(var(--muted));
+    }
+    
+    .image-container {
+      position: relative;
+      width: 100%;
+      max-width: 28rem;
+      margin: 0 auto;
+      aspect-ratio: 16 / 9;
+      overflow: hidden;
+    }
+    
+    .image-container img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <div class="card-content">
+      <h2 class="card-title">Data Science Job Market in Kazakhstan</h2>
+      <p class="card-subtitle">Research insights on data science development</p>
+      
+      <div class="source-info">
+        <strong>Zerttey Research</strong> — Independent research platform
+      </div>
+      
+      <p class="preview-text">In the "Data Science in Kazakhstan" research by Zerttey, Anuar Aymoldin, Head of Artificial Intelligence at BTS Digital, shared insights on the rapid development of the data science market in recent years. He highlighted the emergence of specialized programs at universities and anticipated increased competition for data analysis professionals, especially in the banking sector.</p>
+      
+      <a href="/media" class="button">Read More</a>
+    </div>
+    
+    <div class="image-container">
+      <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-5PxnGy7lO2v5x14ZQBX2IPszGdaJH9.png" alt="Portrait of Anuar Aimoldin">
+    </div>
+  </div>
+</body>
+</html>

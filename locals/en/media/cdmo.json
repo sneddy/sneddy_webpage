@@ -1,0 +1,33 @@
+{
+  "title": "From Math Olympiads to Machine Learning",
+  "subtitle": "A CDMO Graduate's Journey",
+  "source": {
+    "name": "CDMO",
+    "description": "Center for Advanced Mathematical Education, a community and training hub for school students pursuing Olympiad-level mathematics",
+    "url": "https://cdmo45.ru/graduates/anuar-aymoldin"
+  },
+  "preview": "As a one of the top graduates of the Center for Advanced Mathematical Education (CDMO)—a community and training hub for Olympiad-level math—I've shared how my math and problem-solving skills shaped my entire journey, taking me from unexpected early wins to a global career in data science.",
+  "content": [
+    "<h4 class='text-xl font-semibold mt-6 mb-3 text-primary'>Joining the CDMO</h4>",
+    "<p class='mb-6'>My journey into mathematics was full of random coincidences and odd decisions. It all started way back in 2005 with the School Mathematical League competitions. This league was basically a math \"carousel,\" where each school fielded a team made up of one 5th grader, three 6th graders, and three 7th graders. I ended up being the 5th grader for my school's team from Lyceum No. 12—mostly because my friends just shouted louder than the other kids when the teacher asked who should go.</p>",
+    "<p class='mb-6'>I definitely wasn't the star of the team; the \"older kids\" from 7th grade seemed so smart and grown-up. One day, one of them invited me to an individual citywide math Olympiad that our teacher forgot to mention. I actually won that competition, but I kept the victory to myself at school and at home. For some reason, I thought I'd get in trouble for wandering into events without being officially invited. Either way, that was the first time I heard about the local math club.</p>",
+    "<h4 class='text-xl font-semibold mt-6 mb-3 text-primary'>Math Subculture</h4>",
+    "<p class='mb-6'>Back then, everyone was really into subcultures—\"September is burning, the killer is crying,\" that kind of thing. Most people bonded over music. But <strong>we</strong> bonded over carefully organized sheets of problem sets (each proudly circled at the top), quizzes like ЧГК (a popular trivia game), soccer, singing around campfires, and mad dashes from the yard of School No. 38 to the nearest computer club. We were scared of the mythical \"leshiy,\" we'd bet each other quintillions of \"fofan\" points (and somehow managed to put them on the line), and we'd put \"assassins\" to sleep. They called us \"elmëshata,\" but we only ever called each other by last name.</p>",
+    "<p class='mb-6'>For me, CDMO will always be a kind of subculture, and those sunny days at LMSH (the Summer Math School) are some of my best childhood memories.</p>",
+    "<p class='mb-6'>I finished high school in Kazakhstan and managed to snag a bronze medal at the Asia-Pacific Mathematics Olympiad, which was my biggest achievement during my school years.</p>",
+    "<h4 class='text-xl font-semibold mt-6 mb-3 text-primary'>Life after CDMO</h4>",
+    "<p class='mb-6'>After graduation, I decided to apply to the Faculty of Computational Mathematics and Cybernetics at Moscow State University. For some reason, I assumed Mechanics and Mathematics was pure math, while Computational Mathematics and Cybernetics was math plus physics. Turns out it was math plus programming.</p>",
+    "<p class='mb-6'>I finished university with pretty much zero idea of what I wanted to do next. I started my job search the same way I made most decisions—randomly and without much preparation—banking on the \"grand prestige\" of my MSU diploma like some kind of ancient holy relic.</p>",
+    "<p class='mb-6'>Interviews for analyst positions usually went great when it came to logic puzzles, but then I'd lose steam when the conversation moved to databases or data warehouses, and it was clear I wasn't even pretending to be excited. Interviews for developer jobs quickly ended when they realized I didn't know any technologies. I remember one exchange:<br><br>- \"Do you know PHP?\"<br>- \"No.\"<br>- <em>[Five questions about PHP later]</em> \"...You really don't know PHP, do you?\"</p>",
+    "<p class='mb-6'>Eventually, I landed wherever they'd have me. After switching a few jobs, about a year after graduating, I discovered data analysis and machine learning. This was in 2015, and there were almost no job openings in that field. But I wasn't worried; I was captivated by how elegantly and practically mathematical models could be used across such different areas—telecom, banking, IT, even healthcare and manufacturing.</p>",
+    "<h4 class='text-xl font-semibold mt-6 mb-3 text-primary'>Machine Learning</h4>",
+    "<p class='mb-6'>I spent four months holed up with online courses on algorithms, statistics, and machine learning—plus dealing with a bit of social disapproval for being unemployed—but it was totally worth it. That one non-random, well-thought-out decision let me finally pivot my career and jump headfirst into this exciting new world.</p>",
+    "<p class='mb-6'>From there, I ended up at the Yandex School of Data Analysis, with its never-ending deadlines, then an internship at Yandex, a job leading an ML development team of 10 people at a major Kazakh IT company, building a dedicated data science community with lots of meetups and seminars, and winning competitions on Kaggle, the international platform for data science challenges.</p>",
+    "<p class='mb-6'>Now I'm a Senior Machine Learning Engineer at a medical startup in Australia. To create a solution that could help any doctor working with X-ray images, I no longer need a deep understanding of medicine or anatomy myself. And the path that led me here started the moment my friends out-shouted some other guy's friends, and I ended up in CDMO.</p>",
+    "<div class='text-sm text-muted-foreground mt-6'>Review from 03.01.2021</div>"
+  ],
+  "readMoreText": "Read More",
+  "readFullArticleText": "Read Full Article",
+  "imageUrl": "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/photo_2020-08-09_08-19-47.jpg-nT2pMWbDeTIfRRVwCgr2OfTI9xL651.jpeg",
+  "imageAlt": "Anuar Aimoldin standing at night in Sydney with the Opera House visible in the background, wearing a yellow t-shirt with 'bári jaqsy bolady' text and a navy blue jacket"
+}

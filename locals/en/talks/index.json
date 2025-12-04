@@ -1,0 +1,54 @@
+{
+  "title": "Talks & Podcasts",
+  "talks": [
+    {
+      "title": "Delivery Optimization (part 1): Matching order-courier",
+      "event": "Data Science Conference Talk",
+      "videoId": "gv1s2xEbUU0",
+      "thumbnail": "/placeholder.svg?height=200&width=360"
+    },
+    {
+      "title": "Delivery Optimization (part 2): ETA Prediction, FakeGPS Detection and shifts planning",
+      "event": "AI and Machine Learning Workshop",
+      "videoId": "tpiSdcDdxTE",
+      "thumbnail": "/placeholder.svg?height=200&width=360"
+    },
+    {
+      "title": "Winning solution of the Pneumothorax Segmentation Challenge",
+      "event": "C-MIMI 2019 (Austin, Texas)",
+      "videoId": "Wuf0wE3Mrxg",
+      "thumbnail": "/placeholder.svg?height=200&width=360"
+    },
+    {
+      "title": "ML for the Youngest",
+      "event": "Beginners talk about different directions of machine learning",
+      "videoId": "uKjJENmhoSw",
+      "thumbnail": "/placeholder.svg?height=200&width=360"
+    },
+    {
+      "title": "Career in Data Science",
+      "event": "Russian language talk about DS career paths",
+      "videoId": "O4fODysqKwI",
+      "thumbnail": "/placeholder.svg?height=200&width=360"
+    },
+    {
+      "title": "DSML.KZ Community and AI Olympiad",
+      "event": "Community presentation about DSML KZ and AI initiatives",
+      "videoId": "ohCIlrwUumY",
+      "thumbnail": "/placeholder.svg?height=200&width=360"
+    }
+  ],
+  "podcasts": [
+    {
+      "title": "Kitchen Podcast",
+      "description": "Mathematics, \"Smekalochka,\" and Artificial Intelligence",
+      "embedUrl": "https://www.listennotes.com/podcasts/kitchen-podcast/2-ануар-аймолдин-поможет-ли-RJvobQ6wVFZ/embed/"
+    },
+    {
+      "title": "RCG Podcast",
+      "description": "A casual conversation about data science and machine learning",
+      "embedUrl": "https://zvuk.com/embed/episode?id=85052036",
+      "embedType": "iframe"
+    }
+  ]
+}

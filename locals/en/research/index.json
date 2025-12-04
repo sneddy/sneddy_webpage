@@ -1,0 +1,62 @@
+{
+  "title": "Research",
+  "description": "My research focuses on applying machine learning to healthcare, particularly in medical imaging and diagnostics.",
+  "publications": [
+    {
+      "title": "Effect of a comprehensive deep-learning model on the accuracy of chest x-ray interpretation by radiologists: a retrospective, multireader multicase study",
+      "journal": "The Lancet Digital Health",
+      "impactFactor": "98.4",
+      "date": "August 2021",
+      "authors": "Jarrel CY Seah, Cyril H M Tang, Quinlan D Buchheit, Xavier G Holt, Jeffrey B Wardman, Anuar Aimoldin, et al.",
+      "url": "https://www.thelancet.com/journals/landig/article/PIIS2589-7500(21)00106-0/fulltext",
+      "pdfUrl": "/Lancet_paper.pdf",
+      "metrics": {
+        "citations": 130,
+        "captures": 233,
+        "mentions": 168,
+        "socialMedia": 328
+      },
+      "summary": "Our deep learning model significantly improved radiologists' accuracy in interpreting chest x-rays across 127 clinical findings. The model alone outperformed unassisted radiologists for 94% of findings, demonstrating the potential of AI to enhance diagnostic capabilities in clinical practice.",
+      "background": "Chest x-rays are widely used in clinical practice; however, interpretation can be hindered by human error and a lack of experienced thoracic radiologists. Deep learning has the potential to improve the accuracy of chest x-ray interpretation. We therefore aimed to assess the accuracy of radiologists with and without the assistance of a deep-learning model.",
+      "methods": "In this retrospective study, a deep-learning model was trained on 821,681 images (284,649 patients) from five data sets from Australia, Europe, and the USA. 2,568 enriched chest x-ray cases from adult patients (≥16 years) who had at least one frontal chest x-ray were included in the test dataset; cases were representative of inpatient, outpatient, and emergency settings. 20 radiologists reviewed cases with and without the assistance of the deep-learning model with a 3-month washout period.",
+      "findings": "Unassisted radiologists had a macroaveraged AUC of 0.713 (95% CI 0.645–0.785) across the 127 clinical findings, compared with 0.808 (0.763–0.839) when assisted by the model. The deep-learning model statistically significantly improved the classification accuracy of radiologists for 102 (80%) of 127 clinical findings, was statistically non-inferior for 19 (15%) findings, and no findings showed a decrease in accuracy when radiologists used the deep-learning model. Unassisted radiologists had a macroaveraged mean AUC of 0.713 (0.645–0.785) across all findings, compared with 0.957 (0.954–0.959) for the model alone. Model classification alone was significantly more accurate than unassisted radiologists for 117 (94%) of 124 clinical findings predicted by the model and was non-inferior to unassisted radiologists for all other clinical findings.",
+      "interpretation": "This study shows the potential of a comprehensive deep-learning model to improve chest x-ray interpretation across a large breadth of clinical practice."
+    },
+    {
+      "title": "Efficiency Analysis of First-Order Stochastic Optimization Algorithms for Image Registration",
+      "journal": "Norwegian Journal of Development of the International Science",
+      "date": "2020",
+      "authors": "Voronov S., Amir M., Kozlov A., Zinollayev A., Aimoldin A.",
+      "url": "https://nor-ijournal.com/wp-content/uploads/2023/09/NJD_49_1.pdf",
+      "pdfUrl": "/optimization_paper.pdf",
+      "abstract": "This work presents a comparative experimental analysis of different first-order stochastic optimization algorithms for image registration in spatial domain: stochastic gradient descent, Momentum, Nesterov momentum, Adagrad, RMSprop, Adam. Correlation coefficient is considered as the objective function. Experiments are performed on synthetic data generated via wave model with different noise-to-signal ratio and real-world images.",
+      "introduction": "Image registration is referred to as a process by which the most accurate match is determined between two images, which may have been taken at the same or different times, by the same or different sensors, from the same or different viewpoints. The goal of the registration process is to determine the optimal transformation, which will align the two images.",
+      "methods": "The paper analyzes several modifications of the \"classical\" stochastic gradient descent: Momentum, Nesterov momentum, Adagrad, RMSprop, and Adam. These algorithms are very effective, especially in training artificial neural networks.",
+      "experiments": "Experiments were performed on both synthetic data with different noise-to-signal ratios and real-world satellite images. The number of iterations before convergence of mismatch Euclidean distance was used as the performance criterion.",
+      "conclusion": "The comparative analysis shows that in each case \"classical\" stochastic gradient descent shows the worst result in terms of the convergence rate. The best results are provided by Adam and RMSprop optimizations, with Adam algorithm being almost always preferable as it has less variance than RMSprop."
+    }
+  ],
+  "ongoingResearch": [
+    {
+      "title": "Advanced AI for Medical Imaging",
+      "description": "Developing next-generation deep learning models for medical diagnostics",
+      "content": "Building on our work published in The Lancet Digital Health, we are developing more advanced deep learning architectures that can interpret multiple imaging modalities simultaneously, including X-rays, CT scans, and MRIs. This research aims to create a unified diagnostic assistant that can provide comprehensive analysis across different imaging types. The project focuses on improving model interpretability, reducing computational requirements, and enhancing integration with clinical workflows. We are collaborating with multiple hospitals to ensure the models meet real-world clinical needs."
+    },
+    {
+      "title": "Multimodal Learning for Healthcare",
+      "description": "Combining imaging, text, and structured data for comprehensive diagnostics",
+      "content": "This research explores how combining multiple data modalities (medical images, clinical notes, lab results, and patient history) can improve diagnostic accuracy and treatment recommendations. We are developing novel architectures that can process and integrate these diverse data types to provide more holistic insights for healthcare providers."
+    }
+  ],
+  "collaborations": {
+    "title": "Academic and Industry Partnerships",
+    "description": "Collaborative research initiatives",
+    "content": "I actively collaborate with researchers from various institutions and companies to advance the field of AI in healthcare. These collaborations span multiple countries and disciplines, bringing together expertise in machine learning, medicine, and healthcare systems.",
+    "partners": [
+      "Harrison.ai (Australia)",
+      "Moscow State University (Russia)",
+      "Nazarbayev University (Kazakhstan)",
+      "Various healthcare providers and research institutions"
+    ]
+  }
+}

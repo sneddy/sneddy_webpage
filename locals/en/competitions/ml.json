@@ -1,0 +1,158 @@
+{
+  "title": "Machine Learning Competitions",
+  "description": "Achievements in Kaggle competitions and machine learning challenges",
+  "stats": {
+    "rank": "#14",
+    "totalUsers": "200,000+",
+    "goldMedals": 3,
+    "silverMedals": 6,
+    "totalCompetitions": 12
+  },
+  "competitions": [
+    {
+      "id": "pneumothorax",
+      "title": "SIIM-ACR Pneumothorax Segmentation",
+      "rank": 1,
+      "medal": "gold",
+      "participants": 1475,
+      "year": 2019,
+      "description": "Medical image segmentation challenge for detecting pneumothorax in chest X-rays",
+      "achievement": "Won as a solo participant, invited to speak at C-MIMI conference",
+      "tags": ["Medical Imaging", "Segmentation", "Computer Vision"],
+      "link": "https://www.kaggle.com/c/pneumothorax-segmentation"
+    },
+    {
+      "id": "home-credit-default",
+      "title": "Home Credit Default Risk",
+      "rank": 18,
+      "medal": "gold",
+      "participants": 7198,
+      "year": 2018,
+      "description": "Achieved 18th place in Home Credit's machine learning competition focused on predicting loan default risk. This challenge involved working with complex tabular data including demographic information, credit history, and behavioral patterns to assess creditworthiness. The competition aimed to help Home Credit expand financial inclusion by providing loans to underserved populations while maintaining responsible lending practices.",
+      "impact": "The developed models help financial institutions make more accurate lending decisions, potentially expanding access to credit for underbanked populations while minimizing default risk.",
+      "url": "https://www.kaggle.com/competitions/home-credit-default-risk/leaderboard",
+      "tags": ["Tabular Data", "Risk Assessment", "Feature Engineering", "Financial ML"]
+    },
+    {
+      "id": "avito-demand-prediction",
+      "title": "Avito Demand Prediction Challenge",
+      "rank": 12,
+      "medal": "gold",
+      "participants": 1917,
+      "year": 2018,
+      "description": "Secured 12th place in Avito's demand prediction challenge, which required predicting the popularity of online advertisements. This complex multimodal problem involved analyzing text descriptions, images, and categorical features to forecast how much interest an ad would generate. The challenge combined natural language processing, computer vision, and traditional machine learning techniques to solve a real-world e-commerce problem.",
+      "impact": "The solution helps optimize ad placement and pricing strategies for online marketplaces, improving user experience and business outcomes.",
+      "url": "https://www.kaggle.com/competitions/avito-demand-prediction/leaderboard",
+      "tags": ["Multimodal ML", "NLP", "Computer Vision", "E-commerce"]
+    },
+    {
+      "id": "quickdraw-doodle-recognition",
+      "title": "Quick, Draw! Doodle Recognition Challenge",
+      "rank": 49,
+      "medal": "silver",
+      "participants": 1309,
+      "year": 2018,
+      "description": "Google Research featured prediction competition focused on building a better classifier for the Quick, Draw! dataset. The task was to improve pattern recognition solutions for handwriting recognition with robust applications in OCR (Optical Character Recognition), ASR (Automatic Speech Recognition) & NLP (Natural Language Processing).",
+      "achievement": "Advanced pattern recognition techniques for doodle classification",
+      "tags": ["Computer Vision", "Pattern Recognition", "OCR", "Google Research"],
+      "link": "https://www.kaggle.com/competitions/quickdraw-doodle-recognition/leaderboard"
+    },
+    {
+      "id": "microsoft-malware-prediction",
+      "title": "Microsoft Malware Prediction",
+      "rank": 55,
+      "medal": "silver",
+      "participants": 2410,
+      "year": 2019,
+      "description": "Microsoft challenged the data science community to develop techniques to predict if a machine will soon be hit with malware. With more than one billion enterprise and consumer customers, Microsoft provided an unprecedented malware dataset to encourage open-source progress on effective techniques for predicting malware occurrences before damage happens.",
+      "achievement": "Advanced cybersecurity prediction models for malware detection",
+      "tags": ["Cybersecurity", "Malware Detection", "Predictive Analytics", "Microsoft"],
+      "link": "https://www.kaggle.com/competitions/microsoft-malware-prediction/leaderboard"
+    },
+    {
+      "id": "talkingdata-adtracking-fraud",
+      "title": "TalkingData AdTracking Fraud Detection Challenge",
+      "rank": 81,
+      "medal": "silver",
+      "participants": 3943,
+      "year": 2018,
+      "description": "TalkingData, China's largest independent big data service platform, challenged participants to build an algorithm that predicts whether a user will download an app after clicking a mobile app ad. They handle 3 billion clicks per day, of which 90% are potentially fraudulent. The dataset covered approximately 200 million clicks over 4 days.",
+      "achievement": "Advanced fraud detection algorithms for mobile advertising",
+      "tags": ["Fraud Detection", "Mobile Advertising", "Big Data", "Click Prediction"],
+      "link": "https://www.kaggle.com/competitions/talkingdata-adtracking-fraud-detection/leaderboard"
+    },
+    {
+      "id": "freesound-audio-tagging",
+      "title": "Freesound Audio Tagging 2019",
+      "rank": 21,
+      "medal": "silver",
+      "participants": 880,
+      "year": 2019,
+      "description": "Achieved 21st place in the Freesound Audio Tagging challenge, focusing on automatic audio classification and tagging. This competition required developing models to identify and classify various sounds and audio events from the Freesound database. The challenge involved working with audio signal processing, spectrograms, and deep learning techniques specialized for audio data.",
+      "impact": "Contributes to advancing automatic audio content analysis, with applications in music recommendation, sound effect libraries, and audio accessibility tools.",
+      "url": "https://www.kaggle.com/competitions/freesound-audio-tagging-2019/leaderboard",
+      "tags": ["Audio Processing", "Signal Processing", "Deep Learning", "Classification"]
+    },
+    {
+      "id": "rsna-intracranial-hemorrhage",
+      "title": "RSNA Intracranial Hemorrhage Detection",
+      "rank": 33,
+      "medal": "silver",
+      "participants": 1345,
+      "year": 2019,
+      "description": "Intracranial hemorrhage, bleeding that occurs inside the cranium, is a serious health problem requiring rapid and often intensive medical treatment. In this competition, hosted by the Radiological Society of North America (RSNA), participants were challenged to build an algorithm to detect acute intracranial hemorrhage and its subtypes from head CT scans, aiming to help reduce the time to diagnosis.",
+      "impact": "Advanced automated diagnosis of critical brain conditions, potentially saving lives through faster medical intervention.",
+      "url": "https://www.kaggle.com/competitions/rsna-intracranial-hemorrhage-detection/leaderboard",
+      "tags": ["Medical AI", "Computer Vision", "Multi-label Classification", "Emergency Medicine"]
+    },
+    {
+      "id": "imaterialist-fashion-2019",
+      "title": "iMaterialist (Fashion) 2019 at FGVC6",
+      "rank": 24,
+      "medal": "silver",
+      "participants": 241,
+      "year": 2019,
+      "description": "The iMaterialist (Fashion) 2019 competition, part of the Fine-Grained Visual Categorization Workshop (FGVC6) at CVPR, challenged participants to develop algorithms for accurate segmentation and attribute labeling of fashion images. This competition represented an important step toward real-world applications in fashion AI, requiring models to not only identify clothing items but also understand their detailed attributes and precise pixel-level segmentation.",
+      "impact": "Contributed to advancing fashion AI technology for e-commerce and retail applications.",
+      "url": "https://www.kaggle.com/competitions/imaterialist-fashion-2019-FGVC6/leaderboard",
+      "tags": ["Computer Vision", "Fashion AI", "Segmentation", "Fine-grained Classification"]
+    },
+    {
+      "id": "shopee-matching",
+      "title": "Shopee - Price Match Guarantee",
+      "rank": 67,
+      "medal": "silver",
+      "participants": 2426,
+      "year": 2021,
+      "description": "Matching products across different listings using images and text",
+      "achievement": "Multi-modal learning combining vision and NLP",
+      "tags": ["Multi-modal", "Similarity", "E-commerce"],
+      "link": "https://www.kaggle.com/c/shopee-product-matching"
+    },
+    {
+      "id": "cassava-leaf",
+      "title": "Cassava Leaf Disease Classification",
+      "rank": 89,
+      "medal": "silver",
+      "participants": 3900,
+      "year": 2021,
+      "description": "Identifying diseases in cassava plants from leaf images",
+      "achievement": "Agricultural AI for crop disease detection",
+      "tags": ["Agriculture", "Classification", "Plant Disease"],
+      "link": "https://www.kaggle.com/c/cassava-leaf-disease-classification"
+    },
+    {
+      "id": "ods-community-recognition",
+      "title": "ODS Community Recognition",
+      "rank": "ML Competition Progress Award",
+      "year": 2019,
+      "participants": "Community Award",
+      "type": "community",
+      "medal": "gold",
+      "description": "Received recognition from the Open Data Science (ODS) community for outstanding progress and contributions in machine learning competitions. ODS is one of the largest data science communities, bringing together professionals and enthusiasts from around the world. This award recognizes consistent high performance across multiple competitions and active contribution to the ML community through knowledge sharing and mentorship.",
+      "impact": "Demonstrates commitment to advancing the broader data science community through competition excellence and knowledge sharing.",
+      "url": "#",
+      "tags": ["Community Recognition", "ML Excellence", "Knowledge Sharing", "Mentorship"]
+    }
+  ]
+}

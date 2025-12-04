@@ -1,0 +1,46 @@
+{
+  "title": "Maths Olympiads",
+  "intro": "Before diving into machine learning, I participated in various mathematics olympiads during my school years. These competitions helped develop the problem-solving skills that would later become essential in my data science career.",
+  "olympiads": [
+    {
+      "title": "XXI Asian Pacific Math Olympiad",
+      "year": "2009",
+      "result": "Bronze Medal",
+      "description": "The Asia Pacific Mathematical Olympiad (APMO) is an annual high-level competition that challenges high-school students across the Asia–Pacific region to solve advanced problems in algebra, geometry, number theory, and combinatorics. Regularly participating countries include Australia, Canada, China, Hong Kong, Indonesia, Japan, Korea, Malaysia, Mexico, New Zealand, the Philippines, Russia, Singapore, Taiwan, Thailand, the United States, and Vietnam. Over the years, top-performing teams have often hailed from China, Japan, Korea, Russia, and the United States.",
+      "links": [
+        {
+          "text": "View Leaderboard",
+          "url": "https://www.apmo-official.org/static/results/apmo2009_res.pdf",
+          "icon": "ExternalLink"
+        },
+        {
+          "text": "View Problems",
+          "url": "https://www.apmo-official.org/static/problems/apmo2009_prb.pdf",
+          "icon": "ExternalLink"
+        }
+      ],
+      "medal": "bronze",
+      "medalEmoji": "🥉"
+    },
+    {
+      "title": "VIII Silk Road Math Olympiad",
+      "year": "2009",
+      "result": "Diploma of Honorable Mention",
+      "description": "A regional Olympiad-style contest for high-school students from countries along the historic Silk Road, including Kazakhstan, Uzbekistan, Kyrgyzstan, Turkmenistan, Turkey, Azerbaijan, and China. The competition featured challenging problems in algebra, geometry, number theory, and combinatorics, promoting mathematical excellence and fostering collaboration among participating countries.",
+      "links": [
+        {
+          "text": "View Scoreboard",
+          "url": "https://scoreboard.bc-pf.org/en/results/math/silk-road-mathematical-competition/2009",
+          "icon": "ExternalLink"
+        },
+        {
+          "text": "View Problems",
+          "url": "https://artofproblemsolving.com/community/c714830_2009_silk_road",
+          "icon": "ExternalLink"
+        }
+      ],
+      "medal": "honorable",
+      "medalEmoji": "🏆"
+    }
+  ]
+}

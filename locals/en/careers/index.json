@@ -1,0 +1,142 @@
+{
+  "title": "Careers",
+  "experiences": [
+    {
+      "title": "Senior Machine Learning Engineer",
+      "company": "Careem",
+      "location": "Dubai, UAE",
+      "period": "2023 - Present",
+      "companyUrl": "https://www.careem.com",
+      "description": [
+        {
+          "title": "Matching and ETA Systems:",
+          "points": [
+            "Launched priority-based dispatching reducing delivery time by 2% and courier time by 2.5%",
+            "Designed real-time GPS spoofing detection, reducing affected orders by 93%",
+            "Improved ETA accuracy by 10% through stage splitter system"
+          ]
+        },
+        {
+          "title": "Courier Operating Model Transformation:",
+          "points": [
+            "Built end-to-end planning system for zone definition and shift optimization",
+            "Achieved $1.5M annual savings through improved marketplace balance"
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Senior AI Engineer",
+      "company": "Checklens GmbH",
+      "location": "Salzburg, Austria",
+      "period": "2021 - 2022",
+      "companyUrl": "https://checklens.ai/",
+      "description": [
+        {
+          "title": "AI Checkout Automation:",
+          "points": [
+            "Led Checkscan development for IKEA and Netto, improving profitability by 0.5%",
+            "Trained models for real-time product recognition (15,000+ items)",
+            "Automated video ingestion and annotation pipeline"
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Senior AI Researcher",
+      "company": "Harrison.ai",
+      "location": "Sydney, Australia",
+      "period": "2020 - 2021",
+      "companyUrl": "https://harrison.ai/",
+      "description": [
+        {
+          "title": "Annalise CXR Solution:",
+          "points": [
+            "Built training pipeline for detecting 120+ chest X-ray pathologies",
+            "Improved diagnostic accuracy by 45% in 250+ Australian radiology clinics",
+            "Reduced radiologist workload by 20% through automated reporting"
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Head of Artificial Intelligence",
+      "company": "BTS Digital",
+      "location": "Astana, Kazakhstan",
+      "period": "2018 - 2020",
+      "companyUrl": "https://btsdigital.kz/eng",
+      "description": [
+        {
+          "title": "Leadership & Innovation:",
+          "points": [
+            "Established ML/AI function, launching Digital ID (facial recognition with anti-spoofing and 2M+ verifications/month)",
+            "Developed ASR service for electronic government services call center automation (supporting mixed bilingual dialogues)",
+            "Created AI-driven news aggregation platform with smart recommendations",
+            "Built the leading AI team in the region, defining vision and roadmap for strategic AI projects"
+          ]
+        },
+        {
+          "title": "Community Building:",
+          "points": [
+            "Drove AI talent development through industry-academia collaboration",
+            "Organized Kazakhstan's first AI course and open research seminars"
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Data Scientist",
+      "company": "Kazpost",
+      "location": "Astana, Kazakhstan",
+      "period": "2017 - 2018",
+      "companyUrl": "https://post.kz/",
+      "description": [
+        {
+          "title": "Integrated Planning System:",
+          "points": [
+            "Implemented sales targets and compensation plans across 3,000+ branches",
+            "Boosted annual revenue by 8% (KZT 1.6B, $5M)",
+            "Developed time series forecasting models for performance prediction",
+            "Created performance-based branch clustering for targeted optimization"
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Computer Vision Engineer",
+      "company": "Esculabs",
+      "location": "Astana, Kazakhstan",
+      "period": "2016 - 2017",
+      "companyUrl": "#",
+      "description": [
+        {
+          "title": "Medical Imaging Quality Control:",
+          "points": [
+            "Created a computer vision-based quality control system for fiber scanning",
+            "Developed verification algorithms for ultrasound and MRI imaging",
+            "Supported diagnosis and treatment monitoring of Chronic Hepatitis C",
+            "Implemented image processing pipeline for medical data analysis"
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Data Science Intern",
+      "company": "Yandex",
+      "location": "Moscow, Russia",
+      "period": "2016",
+      "companyUrl": "https://yandex.com/",
+      "description": [
+        {
+          "title": "Safe Search Department:",
+          "points": [
+            "Developed algorithms for content filtering and classification",
+            "Worked on machine learning models to detect inappropriate content",
+            "Participated in the improvement of search result quality metrics",
+            "Collaborated with senior data scientists on research projects"
+          ]
+        }
+      ]
+    }
+  ]
+}

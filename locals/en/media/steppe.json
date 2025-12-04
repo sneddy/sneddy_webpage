@@ -1,0 +1,25 @@
+{
+  "title": "Brain Drain in Kazakhstan",
+  "subtitle": "How BTS Digital nurtures a new generation of IT professionals",
+  "source": {
+    "name": "The Steppe",
+    "description": "multi-platform media outlet catering to modern Kazakhstanis in entrepreneurship, technology, education, and culture, with nearly half million unique users",
+    "url": "https://the-steppe.com/business/naivno-dumat-chto-zarubezhnye-kompanii-vsegda-luchshe-kak-bts-digital-vzrashchivaet-novoe-pokolenie-aytishnikov"
+  },
+  "preview": "In a discussion about the \"brain drain\" phenomenon, Anuar Aimoldin, Head of AI at BTS Digital, shared his personal story of returning to Kazakhstan and emphasized the company's mission to create opportunities for local tech talent.",
+  "content": [
+    "<strong>Anuar Aimoldin, Head of AI BTS Digital</strong>",
+    "Since my school days, I have been engaged in mathematics, so choosing a profession was obvious. In 2014, after returning to Kazakhstan upon graduating from Moscow State University's Faculty of Computational Mathematics and Cybernetics, I became interested in data analysis, as it relates to applied mathematics. It wasn't immediately clear how university knowledge could be practically applied.",
+    "<blockquote class=\"italic border-l-4 border-primary pl-4 py-2 my-4\">\"Many companies have only recently begun to understand that conclusions can be drawn not just from insights but from data analysis.\"</blockquote>",
+    "In 2016, I secured an internship at Yandex and simultaneously enrolled in their School of Data Analysis, which is regarded as one of the top programs in the post-Soviet Union space.",
+    "In 2018, when I received an offer from BTS Digital, I accepted due to the opportunity to work in a strong team on ambitious and large-scale projects.",
+    "In the field of data analysis, many talented individuals are underrated because the field is new, and extensive experience takes a back seat. While programming skills can be somewhat measured, how does one assess mathematical culture, intuition, and data sense? I understood the magnitude of this problem and wanted to make a change. During the interview, I discussed this and was given the opportunity to assemble my own team of data analysts. I didn't know what would come of it but decided to give people a chance to realize their potential. In Kazakhstan, few companies are willing to create a data analytics team.",
+    "<blockquote class=\"italic border-l-4 border-primary pl-4 py-2 my-4\">\"By the way, we have an open data science community in Kazakhstan, where we communicate and share news.\"</blockquote>",
+    "I believe BTS Digital can become a well-trodden path for recent university graduates. There are many unemployed graduates in the country. Due to lack of experience, they have limited opportunities, forcing them to change fields and seek something else.",
+    "Incidentally, alongside the offer from BTS Digital, I received a proposal from a London startup but chose the former. It's naive to think that foreign companies are always better: it's people who make the difference, not locations."
+  ],
+  "readMoreText": "Read More",
+  "readFullArticleText": "Read Full Article",
+  "imageUrl": "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-ZdhcYtibK6gcSxgE4NmJ9xWGw8oCVj.png",
+  "imageAlt": "Anuar Aimoldin during an interview at The Steppe"
+}

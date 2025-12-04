@@ -1,0 +1,40 @@
+{
+  "brand": {
+    "name": "Anuar Aimoldin",
+    "title": "AI Researcher & ML Engineer"
+  },
+  "links": [
+    {
+      "href": "/",
+      "label": "Home"
+    },
+    {
+      "href": "/careers",
+      "label": "Careers"
+    },
+    {
+      "href": "/research",
+      "label": "Research"
+    },
+    {
+      "href": "/competitions",
+      "label": "Competitions"
+    },
+    {
+      "href": "/talks",
+      "label": "Talks"
+    },
+    {
+      "href": "/community",
+      "label": "Community"
+    },
+    {
+      "href": "/media",
+      "label": "Media"
+    }
+  ],
+  "cta": {
+    "email": "aimoldin@gmail.com",
+    "telegram": "https://t.me/sneddy"
+  }
+}

@@ -1,0 +1,43 @@
+{
+  "title": "(Un)complicated Algorithms",
+  "subtitle": "Is it easy to teach a machine?",
+  "source": {
+    "name": "Kazakhstanskaya Pravda",
+    "description": "leading national newspaper of Kazakhstan, which is an official source of government documents and business information, publishing presidential decrees, government resolutions and new laws of the republic",
+    "url": "https://kazpravda.kz/n/nehitrye-algoritmy/"
+  },
+  "preview": "In an interview with \"Kazakhstanskaya Pravda,\" Kazakhstan's leading national newspaper, Anuar Aimoldin, founder of the Data Science Kazakhstan community, shared insights on the development of data science in the country and its significance for a wide audience.",
+  "excerpt": "Just five years ago, Anuar Aymoldin graduated from the Faculty of Computational Mathematics and Cybernetics at Moscow State University, followed by Yandex's School of Data Analysis. Now, he leads the Artificial Intelligence (AI) team at BTS Digital and jests that he has debunked the student stereotype: \"Once you start working, you need to forget everything you were taught at university.\"",
+  "content": [
+    "Just five years ago, Anuar Aymoldin graduated from the Faculty of Computational Mathematics and Cybernetics at Moscow State University, followed by Yandex's School of Data Analysis. Now, he leads the Artificial Intelligence (AI) team at BTS Digital and jests that he has debunked the student stereotype: \"Once you start working, you need to forget everything you were taught at university.\" On the contrary, his university knowledge has been more than useful in practice, and working in his field brings him great pleasure.",
+    "\"My domain is machine learning. I like that it lies at the intersection of programming and mathematics. This is precisely my specialty and my hobby. It's motivating to apply the knowledge gained at university in practice. We're fortunate to live in the 21st century, the age of information and digital technologies. It's a time when practically all university courses in mathematics and programming have found their purpose,\" Anuar shared.",
+    "The team works in three directions: analysis of text, images, and audio data, comprising 15 members.",
+    "When asked what machine learning is, Anuar cited Speech to Text and Text to Speech programs—where a machine converts voice data into text and vice versa. Voice assistants like Siri, Alexa, Google Assistant, and Yandex Alice operate on this principle. Humans handle the processing and coding for the machine, preparing data and \"teaching\" the machine to understand and transform it.",
+    "Those who write such programs are called Data Scientists. This profession emerged quite recently but has already become one of the most sought-after worldwide.",
+    "Various platforms host regular competitions in data analysis and machine learning. Anyone from any part of the world—be it a student, analyst, engineer, or Ph.D.—can register and compete with others. Each contest has its prize fund. While the prize size often influences the number of participants, most join these contests not for the money but for the unique competitive spirit and valuable experience."
+  ],
+  "sections": [
+    {
+      "title": "Fascinating Processes",
+      "content": [
+        "Recently, Anuar Aymoldin won a competition on the Kaggle platform, owned by Google and considered one of the most prestigious and renowned globally.",
+        "\"I had participated in these competitions before and even won 2 gold and 5 silver medals as part of a team. However, achieving an absolute victory solo is a first. Such an accomplishment on this platform is especially valued, as Kaggle has its own ranking, encompassing over a million registered participants worldwide. Thanks to this victory, I received a substantial cash prize and rose to 14th place in the overall user ranking,\" Anuar shared.",
+        "Organizations bring their proposals, projects, and contests to Kaggle, providing data and setting specific tasks for developers. One contest entails 2–3 months of intensive work, as the program must calculate everything, requiring constant adjustments in computations.",
+        "The organizer of the competition Anuar won was the Society for Imaging Informatics in Medicine, based in Texas. Participants were tasked with developing a computer program that could determine if a person has pneumothorax from an X-ray image and detect it for subsequent surgical intervention.",
+        "Pneumothorax is the accumulation of air in the pleural cavity due to damage to the lung or chest wall. It causes significant discomfort and pain during breathing, with the lung hardly expanding. Meanwhile, it's challenging for the human eye to immediately identify the location or even the presence of pneumothorax on an image.",
+        "\"The process of developing such programs is complex. The data collection and preparation stage is crucial. Then, code is written, embedding a mathematical model, and executed on a computer. Usually, the algorithm 'learns' for a long time, analyzing the provided data. We conduct various experiments to ensure the neural network learns to perform its task correctly. The human role is also significant, as there are different techniques and tricks that heavily depend on the engineer's outlook, ingenuity, and intuition,\" Anuar explained.",
+        "The algorithm operates on artificial neural networks: initially, it's fed many examples where a doctor has correctly marked areas of pneumothorax on an X-ray. These can also be images of healthy individuals with no markings.",
+        "\"About 10,000 such images were 'fed' to the algorithm, plus around 20,000 unmarked by doctors—for the algorithm to 'learn' to find them itself. Specialists refer to this as the learning process. The computer, like a small child, looks at many pictures and over time starts to learn and grasp the necessary patterns. The algorithm is based on special mathematical models for images—convolutional neural networks,\" Anuar clarified.",
+        "The competition featured 1,500 teams, including leading medical organizations, laboratories, enthusiasts, and students. For Kazakhstan, it turned out to be one of the most successful: several representatives from our country received medals of various merits, including students from the Kazakhstan branch of Moscow State University and Nazarbayev University.",
+        "What's next? Currently, there's only the algorithm, but it still needs to be \"boxed,\" meaning implemented. This process in medicine typically requires numerous checks. Everything must be precisely calibrated because people's health is at stake.",
+        "\"It's great that you can benefit people and ease the lives of medical workers without delving into medical intricacies at the same level. Of course, this doesn't negate the need for full immersion in the field. We and our partners are already moving in this direction; we'd like to establish connections with doctors and medical centers to implement the system,\" Anuar shared.",
+        "The young developer also plans to start a company working in artificial intelligence. This would allow deriving direct benefits from new technologies in the form of improved quality of life for the population, demonstrating their real value for business, and creating additional jobs for technical specialists and IT students.",
+        "In Kazakhstan, this industry is actively developing. Anuar and friends managed to create an entire community of machine learning enthusiasts on social media, with over 2,000 members. Open events are regularly organized in major cities, where more experienced specialists share their knowledge. Newcomers are always welcome and are guided on which materials to master to perform magic in the world of computer codes. Thus, the \"non-neural network\" of Kazakhstani developers in data analysis and artificial intelligence is evolving, \"learning,\" and growing."
+      ]
+    }
+  ],
+  "readMoreText": "Read More",
+  "readFullArticleText": "Read Full Article",
+  "imageUrl": "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/photo_2019-09-05_10-54-45.jpg-5YMR2hD4OW3nzhfakvujceIVPKKNxW.jpeg",
+  "imageAlt": "A person giving thumbs up and smiling at the camera, wearing a gray t-shirt with a triangle logo"
+}

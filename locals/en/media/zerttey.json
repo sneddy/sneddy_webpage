@@ -1,0 +1,56 @@
+{
+  "title": "Data Science Job Market in Kazakhstan",
+  "subtitle": "Insights from Zerttey Research (2020)",
+  "source": {
+    "name": "Zerttey Research",
+    "description": "Independent research platform focusing on technology trends in Central Asia",
+    "url": "https://zerttey.kolesa.group/datascience"
+  },
+  "preview": "In the \"Data Science in Kazakhstan\" research by Zerttey (2020), Anuar Aimoldin, Head of Artificial Intelligence at BTS Digital, shared insights on the rapid development of the data science market in recent years.",
+  "content": [
+    "The data science market in Kazakhstan has been actively developing over the past three years. During this period, there has been significant growth: large product, infrastructure, and research teams, as well as AI-driven startups, have emerged. Numerous meetups are being held, and our specialists are successfully participating in international machine learning competitions and producing interesting research projects.",
+    "It's encouraging that several universities have rolled out specialized data science programs, including master's programs at Nazarbayev University, KazNU, KBTU, Yessenov Data Lab at ALMA University, and Astana IT University. However, there remains a noticeable shortage of middle and senior specialists, as well as individuals with experience in leading data science companies. In the coming years, I anticipate even stronger competition for talent in the field of data analysis, especially in the banking sector."
+  ],
+  "extendedVersion": {
+    "title": "Full Version",
+    "content": [
+      "The data science scene in Kazakhstan has really leveled up over the last few years, ushering in a new wave of tech growth. More and more businesses are starting to see just how valuable data-driven decisions can be, and this has caused the demand for talented data professionals to skyrocket. We're also seeing a ton of data-focused events—meetups, conferences, and so on—where people come together to bounce ideas around and learn from each other."
+    ],
+    "sections": [
+      {
+        "title": "Major Drivers of the Job Market",
+        "content": [
+          "If we're talking about who's really pushing the data science boom right now, it's definitely the banking and telecom sectors. They're hiring like crazy and building out serious analytics teams. Hot on their heels are big tech players like BTS Digital and Kolesa, who also offer a bunch of data-centric roles and are constantly testing the limits of what's possible in the local market."
+        ]
+      },
+      {
+        "title": "Local Startups and Infrastructure Challenges",
+        "content": [
+          "There's a lot of buzz around startups in Kazakhstan, but for the most part, they're not doing a ton of advanced analytics yet. The main reason? Their big potential clients still don't have the right data infrastructure in place. Without solid pipelines and data systems to plug into, it's tough to build out truly sophisticated models or AI solutions. As a result, many of these startups end up focusing on BI tools and building out data warehouses—helping larger companies get their data game in shape—rather than diving into deep analytics. Until more businesses invest in the foundations needed for advanced data science, you probably won't see a huge wave of local startups specializing in high-level analytics."
+        ]
+      },
+      {
+        "title": "Educational Advances",
+        "content": [
+          "It's awesome to see that universities here are stepping up and launching specialized data science programs. Nazarbayev University, KazNU, KBTU, Yessenov Data Lab at ALMA University, and Astana IT University have all kicked off courses aimed at grooming the next generation of data pros. These programs are designed to help people tackle both the technical side of data science and the leadership aspects—which is super important as the market keeps growing."
+        ]
+      },
+      {
+        "title": "Ongoing Talent Shortage",
+        "content": [
+          "Even with these new programs, we're still looking at a shortage of mid-level and senior experts, not to mention leaders who've run entire data science teams. The demand is especially intense in banking and telecom, where there's a constant need for pros to handle everything from risk management to advanced customer analytics. Over the next few years, it'll probably get even more competitive as companies vie for the same pool of skilled candidates."
+        ]
+      },
+      {
+        "title": "Looking Ahead",
+        "content": [
+          "If you ask me, Kazakhstan's data science sector is only going up from here. Banks and telecom firms will keep driving demand, and big tech companies won't be far behind. Meanwhile, startups will likely catch up once they sort out their data infrastructure and secure more funding. Overall, it's a great time to dive into data science if you're just starting out, or level up if you're already in the field. The potential for growth, innovation, and impact is huge—and that's good news not just for data scientists, but for the entire country."
+        ]
+      }
+    ]
+  },
+  "readMoreText": "Read More",
+  "readFullArticleText": "Read Full Article",
+  "imageUrl": "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-ZYLOd72dZd0jE7b41FtRu8N6XcJ3N2.png",
+  "imageAlt": "Anuar Aimoldin discussing data science trends in Kazakhstan"
+}
