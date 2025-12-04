@@ -396,7 +396,7 @@ export default function CareersPage() {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6 }}
       >
-        <div className="container max-w-6xl mx-auto text-center">
+        <div className="container max-w-7xl mx-auto text-center">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -489,7 +489,7 @@ export default function CareersPage() {
       </motion.div>
 
       {/* Tab Navigation */}
-      <div className="container max-w-6xl mx-auto px-4 mb-8">
+      <div className="container max-w-7xl mx-auto px-4 mb-8">
         <div className="flex justify-center">
           <div className="bg-card/50 backdrop-blur-sm border rounded-xl p-1 flex w-full sm:w-auto">
             <button
@@ -520,7 +520,7 @@ export default function CareersPage() {
 
       {/* Education Section */}
       {activeTab === "education" && (
-        <div className="container max-w-6xl mx-auto px-4 pb-20">
+        <div className="container max-w-7xl mx-auto px-4 pb-20">
           <motion.div className="space-y-8" variants={containerVariants} initial="hidden" animate="visible">
             {careersData.education.map((edu, index) => (
               <motion.div key={index} variants={itemVariants}>
@@ -591,7 +591,7 @@ export default function CareersPage() {
       {activeTab === "experience" && (
         <>
           {/* Filters Section */}
-          <div className="container max-w-6xl mx-auto px-4 mb-12">
+          <div className="container max-w-7xl mx-auto px-4 mb-12">
             <motion.div
               className="bg-card/50 backdrop-blur-sm border rounded-2xl p-4 sm:p-6"
               initial={{ opacity: 0, y: 20 }}
@@ -706,7 +706,7 @@ export default function CareersPage() {
           </div>
 
           {/* Experiences */}
-          <div className="container max-w-6xl mx-auto px-4 pb-20">
+          <div className="container max-w-7xl mx-auto px-4 pb-20">
             <motion.div className="space-y-8" variants={containerVariants} initial="hidden" animate="visible">
               {filteredExperiences.map((exp, index) => {
                 const isExpanded = expandedItems.has(exp.id)

@@ -272,7 +272,7 @@ const HeroSection = () => (
       />
     </div>
 
-    <div className="container px-4 md:px-6">
+    <div className="container px-4 md:px-6 max-w-7xl mx-auto">
       <motion.div
         initial={{ opacity: 0, y: 30 }}
         animate={{ opacity: 1, y: 0 }}
@@ -317,7 +317,7 @@ const HeroSection = () => (
 // Research focus areas
 const FocusAreasSection = () => (
   <section className="py-20 bg-gradient-to-r from-primary/5 to-secondary/5">
-    <div className="container px-4 md:px-6">
+    <div className="container px-4 md:px-6 max-w-7xl mx-auto">
       <motion.div
         initial={{ opacity: 0, y: 30 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -433,7 +433,7 @@ export default function ResearchPage() {
 
       {/* Publications Section */}
       <section className="py-20">
-        <div className="container px-4 md:px-6">
+        <div className="container px-4 md:px-6 max-w-7xl mx-auto">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -459,7 +459,7 @@ export default function ResearchPage() {
 
       {/* Call to Action */}
       <section className="py-20 bg-gradient-to-r from-primary/10 to-secondary/10">
-        <div className="container px-4 md:px-6">
+        <div className="container px-4 md:px-6 max-w-7xl mx-auto">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}

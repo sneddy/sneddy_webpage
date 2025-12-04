@@ -40,7 +40,7 @@ export function CommunitySection() {
       <div className="absolute top-1/4 left-0 w-96 h-96 bg-primary/10 rounded-full blur-3xl transform -translate-x-1/2" />
       <div className="absolute bottom-1/4 right-0 w-96 h-96 bg-secondary/10 rounded-full blur-3xl transform translate-x-1/2" />
 
-      <div className="container px-4 md:px-6 relative z-10">
+      <div className="container px-4 md:px-6 relative z-10 max-w-7xl mx-auto">
         <div className="grid gap-16 lg:grid-cols-2 items-center max-w-7xl mx-auto">
           <motion.div
             className="space-y-10"

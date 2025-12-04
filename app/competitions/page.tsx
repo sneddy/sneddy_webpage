@@ -408,7 +408,7 @@ const CompetitionCard = ({ competition, index, type = "ml" }) => {
               {competition.title}
             </CardTitle>
 
-            <CardDescription className="text-sm">
+            <div className="text-sm text-muted-foreground space-y-2">
               {type === "ml" ? (
                 <>
                   {competition.place ? (
@@ -449,7 +449,7 @@ const CompetitionCard = ({ competition, index, type = "ml" }) => {
                   <span>{competition.result}</span>
                 </div>
               )}
-            </CardDescription>
+            </div>
           </CardHeader>
 
           <CardContent className="flex flex-col flex-grow">
@@ -521,7 +521,7 @@ const HeroSection = () => {
         />
       </div>
 
-      <div className="container px-4 md:px-6">
+      <div className="container px-4 md:px-6 max-w-7xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
@@ -591,7 +591,7 @@ const FeaturedSection = () => {
 
   return (
     <section className="py-20 bg-gradient-to-r from-primary/5 to-secondary/5">
-      <div className="container px-4 md:px-6">
+      <div className="container px-4 md:px-6 max-w-7xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -769,7 +769,7 @@ export default function CompetitionsPage() {
 
       {/* All Competitions Section */}
       <section className="py-20">
-        <div className="container px-4 md:px-6">
+        <div className="container px-4 md:px-6 max-w-7xl mx-auto">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -862,7 +862,7 @@ export default function CompetitionsPage() {
 
       {/* Call to Action */}
       <section className="py-20 bg-gradient-to-r from-primary/10 to-secondary/10">
-        <div className="container px-4 md:px-6">
+        <div className="container px-4 md:px-6 max-w-7xl mx-auto">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}

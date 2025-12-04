@@ -173,7 +173,7 @@ const HeroSection = () => (
       />
     </div>
 
-    <div className="container px-4 md:px-6">
+    <div className="container px-4 md:px-6 max-w-7xl mx-auto">
       <motion.div
         initial={{ opacity: 0, y: 30 }}
         animate={{ opacity: 1, y: 0 }}
@@ -243,7 +243,7 @@ const HeroSection = () => (
 // Video section component (now comes before Story section)
 const VideoSection = () => (
   <section className="py-20 bg-gradient-to-r from-primary/5 to-secondary/5">
-    <div className="container px-4 md:px-6">
+    <div className="container px-4 md:px-6 max-w-7xl mx-auto">
       <motion.div
         initial={{ opacity: 0, y: 30 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -318,7 +318,7 @@ const VideoSection = () => (
 // Story section component (now comes after Video section)
 const StorySection = () => (
   <section className="py-20 relative">
-    <div className="container px-4 md:px-6">
+    <div className="container px-4 md:px-6 max-w-7xl mx-auto">
       <motion.div
         initial={{ opacity: 0, y: 30 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -419,7 +419,7 @@ const StorySection = () => (
 // Channels section component
 const ChannelsSection = () => (
   <section className="py-20">
-    <div className="container px-4 md:px-6">
+    <div className="container px-4 md:px-6 max-w-7xl mx-auto">
       <motion.div
         initial={{ opacity: 0, y: 30 }}
         whileInView={{ opacity: 1, y: 0 }}

@@ -1,7 +1,7 @@
 export default function CareersLoading() {
   return (
     <div className="min-h-screen bg-gradient-to-b from-background via-background to-primary/5">
-      <div className="container max-w-6xl mx-auto px-4 py-20">
+      <div className="container max-w-7xl mx-auto px-4 py-20">
         {/* Hero Section Skeleton */}
         <div className="text-center mb-16">
           <div className="h-16 bg-muted rounded-lg mb-6 animate-pulse" />
