@@ -11,11 +11,13 @@ import navigationData from "@/locals/en/navigation.json"
 export function Navigation() {
   const [isOpen, setIsOpen] = useState(false)
   const [scrolled, setScrolled] = useState(false)
+  const [mounted, setMounted] = useState(false)
   const pathname = usePathname()
 
   const navigationLinks = navigationData?.links || []
 
   useEffect(() => {
+    setMounted(true)
     const handleScroll = () => {
       setScrolled(window.scrollY > 50)
     }
@@ -25,11 +27,18 @@ export function Navigation() {
 
   const toggleMenu = () => setIsOpen(!isOpen)
 
+  const HeaderWrapper = mounted ? motion.header : "header"
+  const headerProps = mounted
+    ? {
+        initial: { y: -100 },
+        animate: { y: 0 },
+        transition: { duration: 0.6 },
+      }
+    : {}
+
   return (
-    <motion.header
-      initial={{ y: -100 }}
-      animate={{ y: 0 }}
-      transition={{ duration: 0.6 }}
+    <HeaderWrapper
+      {...headerProps}
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         scrolled ? "bg-background/95 backdrop-blur-md border-b border-border/50" : "bg-transparent"
       }`}
@@ -64,13 +73,16 @@ export function Navigation() {
                 }`}
               >
                 {link.label}
-                {pathname === link.href && (
+                {pathname === link.href && mounted && (
                   <motion.div
                     layoutId="activeTab"
                     className="absolute inset-0 bg-primary/10 rounded-md -z-10"
                     initial={false}
                     transition={{ type: "spring", stiffness: 500, damping: 30 }}
                   />
+                )}
+                {pathname === link.href && !mounted && (
+                  <div className="absolute inset-0 bg-primary/10 rounded-md -z-10" />
                 )}
               </Link>
             ))}
@@ -104,7 +116,7 @@ export function Navigation() {
             </Button>
           </div>
 
-          {/* Mobile Menu Button - Better touch target */}
+          {/* Mobile Menu Button */}
           <div className="md:hidden">
             <button
               onClick={toggleMenu}
@@ -180,6 +192,6 @@ export function Navigation() {
           )}
         </AnimatePresence>
       </nav>
-    </motion.header>
+    </HeaderWrapper>
   )
 }

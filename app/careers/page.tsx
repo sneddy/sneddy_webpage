@@ -351,6 +351,7 @@ export default function CareersPage() {
   const [selectedType, setSelectedType] = useState("all")
   const [showFeaturedOnly, setShowFeaturedOnly] = useState(false)
   const [activeTab, setActiveTab] = useState("experience")
+  const [expandedItems, setExpandedItems] = useState<Set<string>>(new Set())
 
   const industries = useMemo(() => {
     const allIndustries = careersData.experiences.map((exp) => exp.industry)
@@ -375,6 +376,16 @@ export default function CareersPage() {
       return matchesSearch && matchesIndustry && matchesType && matchesFeatured
     })
   }, [searchTerm, selectedIndustry, selectedType, showFeaturedOnly])
+
+  const toggleExpanded = (id: string) => {
+    const newExpanded = new Set(expandedItems)
+    if (newExpanded.has(id)) {
+      newExpanded.delete(id)
+    } else {
+      newExpanded.add(id)
+    }
+    setExpandedItems(newExpanded)
+  }
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-background via-background to-primary/5">
@@ -662,120 +673,194 @@ export default function CareersPage() {
             </motion.div>
           </div>
 
+          {/* Show All/Collapse All Button */}
+          <div className="flex justify-center mb-6">
+            <Button
+              variant="outline"
+              size="sm"
+              onClick={() => {
+                if (expandedItems.size === filteredExperiences.length) {
+                  setExpandedItems(new Set())
+                } else {
+                  setExpandedItems(new Set(filteredExperiences.map((exp) => exp.id)))
+                }
+              }}
+              className="flex items-center gap-2"
+            >
+              {expandedItems.size === filteredExperiences.length ? (
+                <>
+                  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 15l7-7 7 7" />
+                  </svg>
+                  Collapse All
+                </>
+              ) : (
+                <>
+                  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                  </svg>
+                  Expand All
+                </>
+              )}
+            </Button>
+          </div>
+
           {/* Experiences */}
           <div className="container max-w-6xl mx-auto px-4 pb-20">
             <motion.div className="space-y-8" variants={containerVariants} initial="hidden" animate="visible">
-              {filteredExperiences.map((exp, index) => (
-                <motion.div key={exp.id} variants={itemVariants} className="group">
-                  <Card
-                    className={`border-l-4 transition-all duration-300 hover:shadow-xl hover:scale-[1.02] ${
-                      exp.featured
-                        ? "border-l-gradient-to-b from-primary to-purple-600 bg-gradient-to-r from-card to-primary/5"
-                        : "border-l-primary/50"
-                    }`}
-                  >
-                    <CardHeader className="pb-4">
-                      <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between gap-4">
-                        <div className="flex-1">
-                          <div className="flex items-center gap-3 mb-2">
-                            <CardTitle className="text-xl group-hover:text-primary transition-colors">
-                              {exp.title}
-                            </CardTitle>
-                            {exp.featured && (
-                              <Badge variant="secondary" className="bg-gradient-to-r from-primary/20 to-purple-600/20">
-                                <Star className="w-3 h-3 mr-1" />
-                                Featured
-                              </Badge>
-                            )}
+              {filteredExperiences.map((exp, index) => {
+                const isExpanded = expandedItems.has(exp.id)
+                return (
+                  <motion.div key={exp.id} variants={itemVariants} className="group">
+                    <Card
+                      className={`border-l-4 transition-all duration-300 hover:shadow-xl hover:scale-[1.02] ${
+                        exp.featured
+                          ? "border-l-gradient-to-b from-primary to-purple-600 bg-gradient-to-r from-card to-primary/5"
+                          : "border-l-primary/50"
+                      }`}
+                    >
+                      <CardHeader className="pb-4">
+                        <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between gap-4">
+                          <div className="flex-1">
+                            <div className="flex items-center gap-3 mb-2">
+                              <CardTitle className="text-xl group-hover:text-primary transition-colors">
+                                {exp.title}
+                              </CardTitle>
+                              {exp.featured && (
+                                <Badge
+                                  variant="secondary"
+                                  className="bg-gradient-to-r from-primary/20 to-purple-600/20"
+                                >
+                                  <Star className="w-3 h-3 mr-1" />
+                                  Featured
+                                </Badge>
+                              )}
+                            </div>
+
+                            <CardDescription className="flex flex-wrap items-center gap-4 text-base">
+                              <Link
+                                href={exp.companyUrl}
+                                target="_blank"
+                                className="text-primary hover:underline font-medium flex items-center gap-1"
+                              >
+                                {exp.company}
+                                <ExternalLink className="w-3 h-3" />
+                              </Link>
+                              <span className="flex items-center gap-1">
+                                <MapPin className="w-4 h-4" />
+                                {exp.location}
+                              </span>
+                              <span className="flex items-center gap-1">
+                                <Clock className="w-4 h-4" />
+                                {exp.duration}
+                              </span>
+                            </CardDescription>
                           </div>
 
-                          <CardDescription className="flex flex-wrap items-center gap-4 text-base">
-                            <Link
-                              href={exp.companyUrl}
-                              target="_blank"
-                              className="text-primary hover:underline font-medium flex items-center gap-1"
-                            >
-                              {exp.company}
-                              <ExternalLink className="w-3 h-3" />
-                            </Link>
-                            <span className="flex items-center gap-1">
-                              <MapPin className="w-4 h-4" />
-                              {exp.location}
-                            </span>
-                            <span className="flex items-center gap-1">
-                              <Clock className="w-4 h-4" />
-                              {exp.duration}
-                            </span>
-                          </CardDescription>
-                        </div>
-
-                        <div className="flex flex-col items-start lg:items-end gap-2">
-                          <Badge variant="secondary" className="text-sm">
-                            {exp.period}
-                          </Badge>
-                          <div className="flex flex-wrap gap-2">
-                            <Badge className={getTypeColor(exp.type)}>{exp.type}</Badge>
-                            <Badge variant="outline" className="flex items-center gap-1">
-                              {getIndustryIcon(exp.industry)}
-                              <span className="hidden sm:inline">{exp.industry}</span>
-                              <span className="sm:hidden">{exp.industry.split(" ")[0]}</span>
+                          <div className="flex flex-col items-start lg:items-end gap-2">
+                            <Badge variant="secondary" className="text-sm">
+                              {exp.period}
                             </Badge>
+                            <div className="flex flex-wrap gap-2">
+                              <Badge className={getTypeColor(exp.type)}>{exp.type}</Badge>
+                              <Badge variant="outline" className="flex items-center gap-1">
+                                {getIndustryIcon(exp.industry)}
+                                <span className="hidden sm:inline">{exp.industry}</span>
+                                <span className="sm:hidden">{exp.industry.split(" ")[0]}</span>
+                              </Badge>
+                            </div>
                           </div>
                         </div>
-                      </div>
 
-                      {/* Key Achievements */}
-                      {exp.achievements && (
-                        <div className="mt-4 p-4 bg-primary/5 rounded-lg">
-                          <h4 className="font-medium mb-2 flex items-center gap-2">
-                            <Award className="w-4 h-4 text-primary" />
-                            Key Achievements
-                          </h4>
-                          <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
-                            {exp.achievements.map((achievement, idx) => (
-                              <div key={idx} className="text-sm text-muted-foreground flex items-start gap-2">
-                                <div className="w-1.5 h-1.5 bg-primary rounded-full mt-2 flex-shrink-0" />
-                                {achievement}
-                              </div>
-                            ))}
+                        {/* Compact Key Achievements - Always visible */}
+                        {exp.achievements && (
+                          <div className="mt-4 p-3 bg-primary/5 rounded-lg">
+                            <h4 className="font-medium mb-2 flex items-center gap-2 text-sm">
+                              <Award className="w-4 h-4 text-primary" />
+                              Key Achievements
+                            </h4>
+                            <div className="grid grid-cols-1 gap-1">
+                              {exp.achievements
+                                .slice(0, isExpanded ? exp.achievements.length : 2)
+                                .map((achievement, idx) => (
+                                  <div key={idx} className="text-sm text-muted-foreground flex items-start gap-2">
+                                    <div className="w-1.5 h-1.5 bg-primary rounded-full mt-2 flex-shrink-0" />
+                                    {achievement}
+                                  </div>
+                                ))}
+                              {!isExpanded && exp.achievements.length > 2 && (
+                                <div className="text-xs text-muted-foreground/70 mt-1">
+                                  +{exp.achievements.length - 2} more achievements
+                                </div>
+                              )}
+                            </div>
                           </div>
-                        </div>
+                        )}
+                      </CardHeader>
+
+                      {/* Expandable Content */}
+                      {isExpanded && (
+                        <CardContent className="space-y-6 pt-0">
+                          {exp.description.map((section, idx) => (
+                            <div key={idx} className="space-y-3">
+                              <h3 className="font-medium flex items-center gap-2 text-primary">
+                                {section.icon}
+                                {section.title}
+                              </h3>
+                              <ul className="space-y-2 ml-6">
+                                {section.points.map((point, pidx) => (
+                                  <li key={pidx} className="text-muted-foreground flex items-start gap-3">
+                                    <div className="w-1.5 h-1.5 bg-primary/60 rounded-full mt-2 flex-shrink-0" />
+                                    <span className="leading-relaxed">{point}</span>
+                                  </li>
+                                ))}
+                              </ul>
+                            </div>
+                          ))}
+
+                          {/* Team Size & Additional Info */}
+                          <div className="flex flex-wrap gap-4 pt-4 border-t text-sm text-muted-foreground">
+                            <span className="flex items-center gap-1">
+                              <Users className="w-4 h-4" />
+                              Team: {exp.teamSize}
+                            </span>
+                            <span className="flex items-center gap-1">
+                              <Building className="w-4 h-4" />
+                              {exp.industry}
+                            </span>
+                          </div>
+                        </CardContent>
                       )}
-                    </CardHeader>
 
-                    <CardContent className="space-y-6">
-                      {exp.description.map((section, idx) => (
-                        <div key={idx} className="space-y-3">
-                          <h3 className="font-medium flex items-center gap-2 text-primary">
-                            {section.icon}
-                            {section.title}
-                          </h3>
-                          <ul className="space-y-2 ml-6">
-                            {section.points.map((point, pidx) => (
-                              <li key={pidx} className="text-muted-foreground flex items-start gap-3">
-                                <div className="w-1.5 h-1.5 bg-primary/60 rounded-full mt-2 flex-shrink-0" />
-                                <span className="leading-relaxed">{point}</span>
-                              </li>
-                            ))}
-                          </ul>
-                        </div>
-                      ))}
-
-                      {/* Team Size & Additional Info */}
-                      <div className="flex flex-wrap gap-4 pt-4 border-t text-sm text-muted-foreground">
-                        <span className="flex items-center gap-1">
-                          <Users className="w-4 h-4" />
-                          Team: {exp.teamSize}
-                        </span>
-                        <span className="flex items-center gap-1">
-                          <Building className="w-4 h-4" />
-                          {exp.industry}
-                        </span>
+                      {/* Show More/Less Button */}
+                      <div className="px-6 pb-4">
+                        <Button
+                          variant="ghost"
+                          size="sm"
+                          onClick={() => toggleExpanded(exp.id)}
+                          className="w-full text-sm hover:bg-primary/5 transition-colors"
+                        >
+                          {isExpanded ? (
+                            <>
+                              <svg className="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 15l7-7 7 7" />
+                              </svg>
+                              Show Less
+                            </>
+                          ) : (
+                            <>
+                              <svg className="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                              </svg>
+                              Show More Details
+                            </>
+                          )}
+                        </Button>
                       </div>
-                    </CardContent>
-                  </Card>
-                </motion.div>
-              ))}
+                    </Card>
+                  </motion.div>
+                )
+              })}
             </motion.div>
 
             {filteredExperiences.length === 0 && (

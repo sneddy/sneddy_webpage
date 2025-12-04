@@ -25,6 +25,10 @@
       "label": "Talks"
     },
     {
+      "href": "/community",
+      "label": "Community"
+    },
+    {
       "href": "/media",
       "label": "Media"
     }

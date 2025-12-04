@@ -28,6 +28,7 @@
     --chart-3: 30 80% 55%;
     --chart-4: 280 65% 60%;
     --chart-5: 340 75% 55%;
+    --radius: 0.5rem;
   }
 }
 
@@ -40,8 +41,30 @@
   }
 }
 
+/* Critical FOUC prevention - force dark theme immediately with hex colors for faster parsing */
 html {
   scroll-behavior: smooth;
+  color-scheme: dark;
+  background-color: #0a0e27;
+}
+
+html,
+body {
+  overflow-x: hidden;
+  background-color: #0a0e27;
+  color: #f8fafc;
+  min-height: 100vh;
+}
+
+/* Ensure images are visible immediately, no opacity transitions */
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Ensure dark class styles are always applied */
+.dark {
+  color-scheme: dark;
 }
 
 /* Custom scrollbar */
@@ -79,4 +102,10 @@ html {
   background: linear-gradient(-45deg, #ffd700, #00b2b2, #ffd700, #00b2b2);
   background-size: 400% 400%;
   animation: gradient-border 3s ease infinite;
+}
+
+/* Ensure smooth font rendering */
+* {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }

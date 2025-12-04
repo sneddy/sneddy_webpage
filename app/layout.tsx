@@ -3,8 +3,10 @@ import type { Metadata } from "next"
 import { Inter } from "next/font/google"
 import "./globals.css"
 import { Navigation } from "@/components/layout/navigation"
+import { ThemeProvider } from "@/components/theme-provider"
+import { Analytics } from "@vercel/analytics/next"
 
-const inter = Inter({ subsets: ["latin"] })
+const inter = Inter({ subsets: ["latin"], display: "swap", preload: true })
 
 export const metadata: Metadata = {
   title: "Anuar Aimoldin - AI Researcher & ML Engineer",
@@ -14,6 +16,15 @@ export const metadata: Metadata = {
     "AI researcher, machine learning engineer, computer vision, medical imaging, Kaggle, data science, artificial intelligence",
   authors: [{ name: "Anuar Aimoldin" }],
   creator: "Anuar Aimoldin",
+  icons: {
+    icon: [
+      { url: "/favicon.ico" },
+      { url: "/favicon-16x16.png", sizes: "16x16", type: "image/png" },
+      { url: "/icon", sizes: "32x32", type: "image/png" },
+    ],
+    apple: "/apple-touch-icon.png",
+    shortcut: "/favicon.ico",
+  },
   openGraph: {
     type: "website",
     locale: "en_US",
@@ -50,10 +61,56 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en" className="dark">
-      <body className={inter.className}>
-        <Navigation />
-        <main>{children}</main>
+    <html lang="en" className="dark" suppressHydrationWarning style={{ colorScheme: "dark" }}>
+      <head>
+        <style
+          dangerouslySetInnerHTML={{
+            __html: `
+          html,body{background-color:#0a0e27!important;color:#f8fafc!important;margin:0;padding:0}
+          html{color-scheme:dark!important}
+          *{box-sizing:border-box}
+          img{opacity:1!important}
+        `,
+          }}
+        />
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              (function() {
+                try {
+                  const html = document.documentElement;
+                  html.classList.add('dark');
+                  html.style.colorScheme = 'dark';
+                  html.style.backgroundColor = '#0a0e27';
+                  document.body.style.backgroundColor = '#0a0e27';
+                  document.body.style.color = '#f8fafc';
+                } catch (e) {}
+              })();
+            `,
+          }}
+        />
+        <link rel="icon" href="/favicon.ico" sizes="any" />
+        <link rel="icon" href="/favicon-16x16.png" type="image/png" sizes="16x16" />
+        <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+        <link rel="preload" as="image" href="/images/profile-photo.jpeg" fetchPriority="high" />
+      </head>
+      <body
+        className={inter.className}
+        suppressHydrationWarning
+        style={{ backgroundColor: "#0a0e27", color: "#f8fafc" }}
+      >
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="dark"
+          enableSystem={false}
+          disableTransitionOnChange
+          forcedTheme="dark"
+          storageKey="theme-preference"
+        >
+          <Navigation />
+          <main>{children}</main>
+          <Analytics />
+        </ThemeProvider>
       </body>
     </html>
   )
