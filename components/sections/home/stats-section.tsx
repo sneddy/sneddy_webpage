@@ -19,11 +19,14 @@ function StatItem({ icon, value, label, description, delay }: StatItemProps) {
   const [mounted, setMounted] = useState(false)
   const counter = useMotionValue(0)
 
-  const { targetNumber, suffix } = useMemo(() => {
-    const numMatch = value.match(/[\d.]+/)
+  const { targetNumber, prefix, suffix, isDecimal } = useMemo(() => {
+    const numMatch = value.match(/-?\d*\.?\d+/)
     const numeric = numMatch ? Number.parseFloat(numMatch[0]) : null
-    const suffixText = numMatch ? value.slice(numMatch[0].length) : ""
-    return { targetNumber: numeric, suffix: suffixText }
+    const matchIndex = numMatch?.index ?? 0
+    const prefixText = numMatch ? value.slice(0, matchIndex) : ""
+    const suffixText = numMatch ? value.slice(matchIndex + numMatch[0].length) : ""
+    const decimal = numMatch ? numMatch[0].includes(".") : false
+    return { targetNumber: numeric, prefix: prefixText, suffix: suffixText, isDecimal: decimal }
   }, [value])
 
   useEffect(() => {
@@ -37,15 +40,13 @@ function StatItem({ icon, value, label, description, delay }: StatItemProps) {
       duration: 1.2,
       ease: "easeOut",
       onUpdate: (latest) => {
-        const formatted = Number.isInteger(targetNumber)
-          ? Math.floor(latest).toString()
-          : latest.toFixed(1)
-        setDisplayValue(`${formatted}${suffix}`)
+        const formatted = isDecimal ? latest.toFixed(1) : Math.floor(latest).toString()
+        setDisplayValue(`${prefix}${formatted}${suffix}`)
       },
     })
 
     return () => controls.stop()
-  }, [counter, isInView, mounted, suffix, targetNumber])
+  }, [counter, isDecimal, isInView, mounted, prefix, suffix, targetNumber])
 
   return (
     <motion.div

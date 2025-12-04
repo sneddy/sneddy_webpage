@@ -52,6 +52,7 @@ export const metadata: Metadata = {
       "max-snippet": -1,
     },
   },
+  metadataBase: new URL("https://aimoldin.com"),
     generator: 'v0.app'
 }
 
