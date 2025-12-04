@@ -4,46 +4,31 @@ import { Github, Linkedin, Mail, Sparkles, MessageCircle } from "lucide-react"
 import Image from "next/image"
 import Link from "next/link"
 import heroData from "@/locals/en/home/hero.json"
-import { motion } from "framer-motion"
+import { motion, useReducedMotion } from "framer-motion"
 import { useEffect, useState } from "react"
 
 export function HeroSection() {
-  const [mounted, setMounted] = useState(false)
-  const [animationsReady, setAnimationsReady] = useState(false)
+  const prefersReducedMotion = useReducedMotion()
+  const enableMotion = !prefersReducedMotion
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 })
 
   useEffect(() => {
-    setMounted(true)
-    const animationTimer = setTimeout(() => setAnimationsReady(true), 200)
-    return () => clearTimeout(animationTimer)
-  }, [])
-
-  useEffect(() => {
-    if (!animationsReady) return
+    if (!enableMotion) return
 
     const handleMouseMove = (e: MouseEvent) => {
       setMousePosition({ x: e.clientX, y: e.clientY })
     }
     window.addEventListener("mousemove", handleMouseMove)
     return () => window.removeEventListener("mousemove", handleMouseMove)
-  }, [animationsReady])
-
-  const ContentWrapper = animationsReady ? motion.div : "div"
-  const contentProps = animationsReady
-    ? {
-        initial: { opacity: 0, x: 50 },
-        animate: { opacity: 1, x: 0 },
-        transition: { duration: 0.8, delay: 0.3 },
-      }
-    : {}
+  }, [enableMotion])
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-28 pb-20 sm:pt-32">
       {/* Enhanced Animated Background */}
       <div className="absolute inset-0">
         <div className="absolute inset-0 bg-gradient-to-br from-background via-background to-primary/5" />
         <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-secondary/5 to-transparent" />
-        {animationsReady && (
+        {enableMotion && (
           <div
             className="absolute inset-0 opacity-40 transition-opacity duration-300"
             style={{
@@ -54,7 +39,7 @@ export function HeroSection() {
       </div>
 
       {/* Enhanced Floating Elements - only render when mounted */}
-      {animationsReady && (
+      {enableMotion && (
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
           {[...Array(8)].map((_, i) => (
             <motion.div
@@ -107,7 +92,7 @@ export function HeroSection() {
       )}
 
       <div className="container px-4 md:px-6 relative z-10">
-        <div className="grid gap-16 lg:grid-cols-[450px_1fr] items-center max-w-7xl mx-auto">
+        <div className="grid grid-cols-1 gap-12 md:gap-16 lg:grid-cols-[460px_1fr] xl:grid-cols-[500px_1fr] items-center max-w-7xl mx-auto">
           {/* Enhanced Profile Image - static until mounted */}
           <div className="relative mx-auto lg:mx-0" style={{ opacity: 1 }}>
             <div className="relative">
@@ -132,10 +117,11 @@ export function HeroSection() {
           </div>
 
           {/* Enhanced Content */}
-          <ContentWrapper
+          <motion.div
             className="flex flex-col justify-center space-y-10 text-center lg:text-left"
-            style={{ opacity: mounted ? 1 : 1 }}
-            {...contentProps}
+            initial={false}
+            animate={enableMotion ? { opacity: 1, y: 0 } : undefined}
+            transition={{ duration: 0.8, delay: 0.15, ease: "easeOut" }}
           >
             {/* Enhanced Greeting */}
             <div className="space-y-6">
@@ -160,7 +146,7 @@ export function HeroSection() {
             {/* Enhanced Social Links */}
             <div className="space-y-4">
               {/* First row - GitHub and LinkedIn */}
-              <div className="flex gap-3 sm:gap-4 justify-center lg:justify-start">
+              <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center lg:justify-start">
                 <Link href="https://github.com/sneddy" target="_blank" className="flex-1 sm:flex-none">
                   <Button
                     variant="outline"
@@ -214,7 +200,7 @@ export function HeroSection() {
                 </Link>
               </div>
             </div>
-          </ContentWrapper>
+          </motion.div>
         </div>
       </div>
     </section>

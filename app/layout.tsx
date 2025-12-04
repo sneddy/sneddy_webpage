@@ -41,6 +41,7 @@ export const metadata: Metadata = {
       "AI Researcher and Machine Learning Engineer with expertise in computer vision, medical imaging, and competitive machine learning.",
     creator: "@sneddy",
   },
+  metadataBase: new URL("https://anuar.best"),
   robots: {
     index: true,
     follow: true,
@@ -52,7 +53,6 @@ export const metadata: Metadata = {
       "max-snippet": -1,
     },
   },
-  metadataBase: new URL("https://aimoldin.com"),
     generator: 'v0.app'
 }
 
