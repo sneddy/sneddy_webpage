@@ -1,3 +1,4 @@
+"use client"
 import Head from "next/head"
 import Link from "next/link"
 import {
@@ -12,13 +13,17 @@ import {
   Lightbulb,
   Star,
   BarChart3,
+  ChevronDown,
+  ChevronUp,
 } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
 import limonData from "@/locals/en/media/limon.json"
 import limonFullData from "@/locals/en/media/limon_full.json"
+import { useState } from "react"
 
 export default function LimonArticlePage() {
+  const [openSections, setOpenSections] = useState<Record<number, boolean>>({})
   const article = {
     ...limonFullData,
     title: limonData.title, // keep original name
@@ -243,17 +248,37 @@ export default function LimonArticlePage() {
 
                   {/* Interview QA */}
                   {article.sections && article.sections.length > 0 && (
-                    <div className="space-y-10 mt-12">
-                      {article.sections.map((section, idx) => (
-                        <div key={idx} className="bg-slate-800/40 rounded-2xl p-6 border border-slate-700/40 space-y-4">
-                          <h3 className="text-2xl font-semibold text-white">{section.title}</h3>
-                          {section.content.map((answer, aidx) => (
-                            <p key={aidx} className="text-slate-200 leading-relaxed text-lg">
-                              {answer}
-                            </p>
-                          ))}
-                        </div>
-                      ))}
+                    <div className="space-y-6 mt-12">
+                      {article.sections.map((section, idx) => {
+                        const isOpen = openSections[idx] ?? false
+                        return (
+                          <div
+                            key={idx}
+                            className="bg-slate-800/50 rounded-2xl border border-slate-700/40 overflow-hidden"
+                          >
+                            <button
+                              onClick={() => setOpenSections((prev) => ({ ...prev, [idx]: !isOpen }))}
+                              className="w-full flex items-center justify-between text-left px-5 py-4 hover:bg-slate-800/70 transition-colors"
+                            >
+                              <span className="text-lg md:text-xl font-semibold text-white">{section.title}</span>
+                              {isOpen ? (
+                                <ChevronUp className="h-5 w-5 text-slate-300" />
+                              ) : (
+                                <ChevronDown className="h-5 w-5 text-slate-300" />
+                              )}
+                            </button>
+                            {isOpen && (
+                              <div className="px-5 pb-5 space-y-3">
+                                {section.content.map((answer, aidx) => (
+                                  <p key={aidx} className="text-slate-200 leading-relaxed text-lg">
+                                    {answer}
+                                  </p>
+                                ))}
+                              </div>
+                            )}
+                          </div>
+                        )
+                      })}
                     </div>
                   )}
                   </div>
