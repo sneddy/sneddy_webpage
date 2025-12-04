@@ -40,34 +40,46 @@
   }
 }
 
+/* Critical FOUC prevention - force dark theme immediately */
 html {
   scroll-behavior: smooth;
+  color-scheme: dark !important;
+  /* Force dark background immediately to prevent white flash */
+  background-color: hsl(222.2 84% 4.9%) !important;
 }
 
-/* Add critical CSS to prevent FOUC */
-/* Prevent layout shift and flickering during page load */
 html,
 body {
   overflow-x: hidden;
-  /* Force dark theme immediately */
-  background-color: hsl(222.2 84% 4.9%);
-  color: hsl(210 40% 98%);
-}
-
-body {
+  /* Ensure dark theme colors are applied immediately */
+  background-color: hsl(222.2 84% 4.9%) !important;
+  color: hsl(210 40% 98%) !important;
   min-height: 100vh;
 }
 
-/* Prevent content from being visible before CSS loads */
+/* Ensure dark class styles are always applied */
 .dark {
-  color-scheme: dark;
+  color-scheme: dark !important;
 }
 
-/* Ensure immediate rendering without flash */
-@media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
-  }
+/* Force all major containers to have dark background during initial load */
+main,
+section,
+div {
+  transition: opacity 0.15s ease-in-out;
+}
+
+/* Prevent white flash on page transitions */
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: hsl(222.2 84% 4.9%);
+  z-index: -1;
+  pointer-events: none;
 }
 
 /* Custom scrollbar */
@@ -107,15 +119,14 @@ body {
   animation: gradient-border 3s ease infinite;
 }
 
-/* Prevent flash of unstyled content and transitions during page load */
-@media (prefers-reduced-motion: no-preference) {
-  html {
-    scroll-behavior: smooth;
-  }
-}
-
 /* Ensure smooth font rendering */
 * {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+/* Prevent layout shift from images */
+img {
+  max-width: 100%;
+  height: auto;
 }

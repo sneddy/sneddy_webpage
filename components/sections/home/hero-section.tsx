@@ -10,13 +10,9 @@ import { useEffect, useState } from "react"
 export function HeroSection() {
   const [mounted, setMounted] = useState(false)
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 })
-  const [animationReady, setAnimationReady] = useState(false)
 
   useEffect(() => {
-    setMounted(true)
-    const timer = setTimeout(() => {
-      setAnimationReady(true)
-    }, 100)
+    const timer = setTimeout(() => setMounted(true), 50)
     return () => clearTimeout(timer)
   }, [])
 
@@ -29,6 +25,15 @@ export function HeroSection() {
     window.addEventListener("mousemove", handleMouseMove)
     return () => window.removeEventListener("mousemove", handleMouseMove)
   }, [mounted])
+
+  const ContentWrapper = mounted ? motion.div : "div"
+  const contentProps = mounted
+    ? {
+        initial: { opacity: 0, x: 50 },
+        animate: { opacity: 1, x: 0 },
+        transition: { duration: 0.8, delay: 0.3 },
+      }
+    : {}
 
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
@@ -46,8 +51,8 @@ export function HeroSection() {
         )}
       </div>
 
-      {/* Enhanced Floating Elements */}
-      {animationReady && (
+      {/* Enhanced Floating Elements - only render when mounted */}
+      {mounted && (
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
           {[...Array(8)].map((_, i) => (
             <motion.div
@@ -70,11 +75,10 @@ export function HeroSection() {
                 top: `${25 + i * 8}%`,
               }}
             >
-              <div className="w-3 h-3 bg-gradient-to-r from-primary/30 to-secondary/30 rounded-full blur-sm" />
+              <div className="w-3 h-3 bg-gradient-to-r from-primary via-secondary to-primary rounded-full blur-sm" />
             </motion.div>
           ))}
 
-          {/* Additional sparkle effects */}
           {[...Array(5)].map((_, i) => (
             <motion.div
               key={`sparkle-${i}`}
@@ -102,7 +106,7 @@ export function HeroSection() {
 
       <div className="container px-4 md:px-6 relative z-10">
         <div className="grid gap-16 lg:grid-cols-[450px_1fr] items-center max-w-7xl mx-auto">
-          {/* Enhanced Profile Image */}
+          {/* Enhanced Profile Image - static until mounted */}
           <div className="relative mx-auto lg:mx-0">
             <div className="relative">
               {/* Multiple gradient layers for depth */}
@@ -119,83 +123,50 @@ export function HeroSection() {
                   loading="eager"
                   quality={100}
                 />
-
-                {/* Overlay gradient for better text contrast */}
                 <div className="absolute inset-0 bg-gradient-to-t from-black/10 via-transparent to-transparent" />
               </div>
             </div>
           </div>
 
           {/* Enhanced Content */}
-          <motion.div
+          <ContentWrapper
             className="flex flex-col justify-center space-y-10 text-center lg:text-left"
-            initial={animationReady ? { opacity: 0, x: 50 } : { opacity: 1, x: 0 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8, delay: 0.3 }}
+            {...contentProps}
           >
             {/* Enhanced Greeting */}
             <div className="space-y-6">
-              <motion.div
-                initial={animationReady ? { opacity: 0, y: 20 } : { opacity: 1, y: 0 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.5 }}
-              >
-                <motion.span
-                  className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-primary/10 via-secondary/10 to-primary/10 text-primary rounded-full text-sm font-medium mb-6 border border-primary/20"
-                  whileHover={animationReady ? { scale: 1.05 } : {}}
-                  transition={{ type: "spring", stiffness: 300 }}
-                >
+              <div>
+                <span className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-primary/10 via-secondary/10 to-primary/10 text-primary rounded-full text-sm font-medium mb-6 border border-primary/20">
                   <Sparkles className="w-4 h-4" />
                   Welcome to my portfolio
-                </motion.span>
-              </motion.div>
+                </span>
+              </div>
 
-              <motion.h1
-                className="text-4xl font-bold tracking-tight sm:text-5xl xl:text-7xl/none"
-                initial={animationReady ? { opacity: 0, y: 20 } : { opacity: 1, y: 0 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.7 }}
-              >
+              <h1 className="text-4xl font-bold tracking-tight sm:text-5xl xl:text-7xl/none">
                 <span className="bg-gradient-to-r from-foreground via-foreground to-foreground/70 bg-clip-text text-transparent">
                   {heroData.greeting}
                 </span>
-              </motion.h1>
+              </h1>
 
-              <motion.p
-                className="max-w-[650px] text-xl sm:text-2xl text-muted-foreground mx-auto lg:mx-0 leading-relaxed"
-                initial={animationReady ? { opacity: 0, y: 20 } : { opacity: 1, y: 0 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.9 }}
-              >
+              <p className="max-w-[650px] text-xl sm:text-2xl text-muted-foreground mx-auto lg:mx-0 leading-relaxed">
                 {heroData.subtitle}
-              </motion.p>
+              </p>
             </div>
 
-            {/* Enhanced Social Links - Better alignment */}
-            <motion.div
-              className="space-y-4"
-              initial={animationReady ? { opacity: 0, y: 20 } : { opacity: 1, y: 0 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 1.1 }}
-            >
+            {/* Enhanced Social Links */}
+            <div className="space-y-4">
               {/* First row - GitHub and LinkedIn */}
               <div className="flex gap-3 sm:gap-4 justify-center lg:justify-start">
                 <Link href="https://github.com/sneddy" target="_blank" className="flex-1 sm:flex-none">
-                  <motion.div
-                    whileHover={animationReady ? { scale: 1.05 } : {}}
-                    whileTap={animationReady ? { scale: 0.95 } : {}}
-                    className="w-full"
+                  <Button
+                    variant="outline"
+                    size="lg"
+                    className="gap-3 hover:bg-primary hover:text-primary-foreground transition-all duration-300 bg-transparent border-2 px-6 py-3 text-base w-full sm:w-auto min-w-[140px]"
                   >
-                    <Button
-                      variant="outline"
-                      size="lg"
-                      className="gap-3 hover:bg-primary hover:text-primary-foreground transition-all duration-300 bg-transparent border-2 px-6 py-3 text-base w-full sm:w-auto min-w-[140px]"
-                    >
-                      <Github className="h-5 w-5" />
-                      <span className="hidden sm:inline">{heroData.links.github}</span>
-                      <span className="sm:hidden">GitHub</span>
-                    </Button>
-                  </motion.div>
+                    <Github className="h-5 w-5" />
+                    <span className="hidden sm:inline">{heroData.links.github}</span>
+                    <span className="sm:hidden">GitHub</span>
+                  </Button>
                 </Link>
 
                 <Link
@@ -203,61 +174,43 @@ export function HeroSection() {
                   target="_blank"
                   className="flex-1 sm:flex-none"
                 >
-                  <motion.div
-                    whileHover={animationReady ? { scale: 1.05 } : {}}
-                    whileTap={animationReady ? { scale: 0.95 } : {}}
-                    className="w-full"
+                  <Button
+                    variant="outline"
+                    size="lg"
+                    className="gap-3 hover:bg-primary hover:text-primary-foreground transition-all duration-300 bg-transparent border-2 px-6 py-3 text-base w-full sm:w-auto min-w-[140px]"
                   >
-                    <Button
-                      variant="outline"
-                      size="lg"
-                      className="gap-3 hover:bg-primary hover:text-primary-foreground transition-all duration-300 bg-transparent border-2 px-6 py-3 text-base w-full sm:w-auto min-w-[140px]"
-                    >
-                      <Linkedin className="h-5 w-5" />
-                      <span className="hidden sm:inline">{heroData.links.linkedin}</span>
-                      <span className="sm:hidden">LinkedIn</span>
-                    </Button>
-                  </motion.div>
+                    <Linkedin className="h-5 w-5" />
+                    <span className="hidden sm:inline">{heroData.links.linkedin}</span>
+                    <span className="sm:hidden">LinkedIn</span>
+                  </Button>
                 </Link>
               </div>
 
-              {/* Second row - Email and Telegram stacked on mobile */}
+              {/* Second row - Email and Telegram */}
               <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center lg:justify-start">
                 <Link href="mailto:aimoldin@gmail.com" className="w-full sm:w-auto">
-                  <motion.div
-                    whileHover={animationReady ? { scale: 1.05 } : {}}
-                    whileTap={animationReady ? { scale: 0.95 } : {}}
-                    className="w-full"
+                  <Button
+                    size="lg"
+                    className="gap-3 bg-gradient-to-r from-primary to-secondary hover:from-primary/90 hover:to-secondary/90 transition-all duration-300 px-6 py-3 text-base font-semibold shadow-lg w-full sm:w-auto min-w-[180px]"
                   >
-                    <Button
-                      size="lg"
-                      className="gap-3 bg-gradient-to-r from-primary to-secondary hover:from-primary/90 hover:to-secondary/90 transition-all duration-300 px-6 py-3 text-base font-semibold shadow-lg w-full sm:w-auto min-w-[180px]"
-                    >
-                      <Mail className="h-5 w-5" />
-                      <span>aimoldin@gmail.com</span>
-                    </Button>
-                  </motion.div>
+                    <Mail className="h-5 w-5" />
+                    <span>aimoldin@gmail.com</span>
+                  </Button>
                 </Link>
 
                 <Link href="https://t.me/sneddy" target="_blank" className="w-full sm:w-auto">
-                  <motion.div
-                    whileHover={animationReady ? { scale: 1.05 } : {}}
-                    whileTap={animationReady ? { scale: 0.95 } : {}}
-                    className="w-full"
+                  <Button
+                    variant="outline"
+                    size="lg"
+                    className="gap-3 hover:bg-blue-500 hover:text-white transition-all duration-300 bg-transparent border-2 border-blue-500 text-blue-500 px-6 py-3 text-base w-full sm:w-auto min-w-[140px]"
                   >
-                    <Button
-                      variant="outline"
-                      size="lg"
-                      className="gap-3 hover:bg-blue-500 hover:text-white transition-all duration-300 bg-transparent border-2 border-blue-500 text-blue-500 px-6 py-3 text-base w-full sm:w-auto min-w-[140px]"
-                    >
-                      <MessageCircle className="h-5 w-5" />
-                      Telegram
-                    </Button>
-                  </motion.div>
+                    <MessageCircle className="h-5 w-5" />
+                    Telegram
+                  </Button>
                 </Link>
               </div>
-            </motion.div>
-          </motion.div>
+            </div>
+          </ContentWrapper>
         </div>
       </div>
     </section>

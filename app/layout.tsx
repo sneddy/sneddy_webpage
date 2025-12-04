@@ -60,24 +60,39 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en" suppressHydrationWarning className="dark">
+    <html lang="en" suppressHydrationWarning>
       <head>
-        <link rel="icon" href="/favicon.ico" sizes="any" />
-        <link rel="icon" href="/favicon-16x16.png" type="image/png" sizes="16x16" />
-        <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
-        <style
+        <script
           dangerouslySetInnerHTML={{
             __html: `
-              html, body {
-                background-color: hsl(222.2 84% 4.9%);
-                color: hsl(210 40% 98%);
-              }
+              (function() {
+                try {
+                  // Force dark mode immediately
+                  document.documentElement.classList.add('dark');
+                  document.documentElement.style.colorScheme = 'dark';
+                  document.documentElement.style.backgroundColor = 'hsl(222.2 84% 4.9%)';
+                  
+                  // Prevent any flash by setting styles on document element
+                  var style = document.createElement('style');
+                  style.innerHTML = 'html,body{background-color:hsl(222.2 84% 4.9%)!important;color:hsl(210 40% 98%)!important}';
+                  document.head.appendChild(style);
+                } catch (e) {}
+              })();
             `,
           }}
         />
+        <link rel="icon" href="/favicon.ico" sizes="any" />
+        <link rel="icon" href="/favicon-16x16.png" type="image/png" sizes="16x16" />
+        <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
       </head>
-      <body className={inter.className}>
-        <ThemeProvider attribute="class" defaultTheme="dark" enableSystem={false} disableTransitionOnChange>
+      <body className={inter.className} suppressHydrationWarning>
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="dark"
+          enableSystem={false}
+          disableTransitionOnChange
+          forcedTheme="dark"
+        >
           <Navigation />
           <main>{children}</main>
         </ThemeProvider>
