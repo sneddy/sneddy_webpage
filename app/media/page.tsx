@@ -168,12 +168,26 @@ export default function MediaPage() {
   const heroY = useTransform(scrollYProgress, [0, 1], ["0%", "20%"])
   const heroOpacity = useTransform(scrollYProgress, [0, 0.7], [1, 0])
 
+  const normalizedArticles = useMemo(
+    () =>
+      articlesData.map((article) => ({
+        ...article,
+        imageAlt: (article as { imageAlt?: string; title: string }).imageAlt ?? article.title,
+      })),
+    [],
+  )
+
   // Filter and sort articles
   const filteredAndSortedArticles = useMemo(() => {
-    return [...articlesData].sort(
+    return [...normalizedArticles].sort(
       (a, b) => new Date(b.publishDate).getTime() - new Date(a.publishDate).getTime(),
     )
-  }, [])
+  }, [normalizedArticles])
+
+  const clearFilters = () => {
+    // Placeholder to satisfy UI action; filters removed
+    window.scrollTo({ top: 0, behavior: "smooth" })
+  }
 
   const featuredArticles = filteredAndSortedArticles.filter((article) => article.featured)
   const regularArticles = filteredAndSortedArticles.filter((article) => !article.featured)
@@ -196,7 +210,7 @@ export default function MediaPage() {
       {/* Redesigned Hero Section */}
       <motion.section
         ref={heroRef}
-        className="relative py-32 overflow-hidden"
+        className="relative py-24 md:py-32 overflow-hidden"
         style={{ y: heroY, opacity: heroOpacity }}
       >
         {/* Enhanced Background with Geometric Patterns */}

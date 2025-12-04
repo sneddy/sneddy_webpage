@@ -717,16 +717,14 @@ export default function CareersPage() {
 
               {filteredExperiences.length === 0 && (
                 <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="text-center py-12">
-                  <div className="text-muted-foreground mb-4">No roles match your current filters</div>
-                <Button
-                  variant="outline"
-                  onClick={() => {
-                    setSelectedIndustry("all")
-                    setSelectedType("all")
-                    setShowFeaturedOnly(false)
-                  }}
-                >
-                    Reset filters
+                  <div className="text-muted-foreground mb-4">No roles to display right now</div>
+                  <Button
+                    variant="outline"
+                    onClick={() => {
+                      setExpandedItems(new Set())
+                    }}
+                  >
+                    Reset view
                   </Button>
                 </motion.div>
               )}

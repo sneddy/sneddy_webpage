@@ -1,10 +1,11 @@
 "use client"
+import Head from "next/head"
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
 import { ExternalLink, ArrowLeft, Clock, Calendar, Share2, Bookmark, Eye, ChevronUp } from "lucide-react"
 import Link from "next/link"
 import Image from "next/image"
-import { useState, useEffect } from "react"
+import { useState, useEffect, useMemo } from "react"
 import { motion } from "framer-motion"
 import kazpravdaData from "@/locals/en/media/kazpravda.json"
 import steppeData from "@/locals/en/media/steppe.json"
@@ -17,65 +18,62 @@ export default function ArticlePage({ params }: { params: { slug: string } }) {
   const [showScrollTop, setShowScrollTop] = useState(false)
   const [isBookmarked, setIsBookmarked] = useState(false)
 
-  // Get the article data based on the slug
-  const getArticleData = () => {
-    switch (params.slug) {
-      case "limon":
-        return {
-          ...limonData,
-          category: "Interview",
-          readTime: limonData.readTime || "25 min read",
-          publishDate: limonData.publishedDate || "2024-12-15",
-          tags: ["AI", "Community", "Kazakhstan", "Education", "dsml.kz", "Kaggle", "Career", "Math Olympiad"],
-          difficulty: "Intermediate",
-          views: "3.5k",
-        }
-      case "uncomplicated-algorithms":
-        return {
-          ...kazpravdaData,
-          category: "Interview",
-          readTime: "8 min read",
-          publishDate: "2023-03-15",
-          tags: ["Algorithms", "Career", "Kazakhstan", "Tech"],
-          difficulty: "Beginner",
-          views: "2.1k",
-        }
-      case "steppe":
-        return {
-          ...steppeData,
-          category: "Analysis",
-          readTime: steppeData.readTime || "12 min read",
-          publishDate: steppeData.publishedDate || "2023-02-20",
-          tags: ["Brain Drain", "Kazakhstan", "Education", "Policy"],
-          difficulty: "Intermediate",
-          views: "3.5k",
-        }
-      case "data-science-job-market":
-        return {
-          ...zertteyData,
-          category: "Market Research",
-          readTime: "15 min read",
-          publishDate: "2023-01-10",
-          tags: ["Data Science", "Job Market", "Career", "Analytics"],
-          difficulty: "Advanced",
-          views: "4.2k",
-        }
-      case "from-math-olympiads-to-ml":
-        return {
-          ...cdmoData,
-          category: "Career Story",
-          readTime: "10 min read",
-          publishDate: "2023-04-05",
-          tags: ["Math Olympiad", "Machine Learning", "Career Path", "Education"],
-          difficulty: "Intermediate",
-          views: "1.8k",
-        }
-      default:
-        return null
+  const article = useMemo(() => {
+    const map: Record<string, any> = {
+      limon: {
+        ...limonData,
+        slug: "limon",
+        category: "Interview",
+        readTime: limonData.readTime || "25 min read",
+        publishDate: limonData.publishedDate || "2024-12-15",
+        tags: ["AI", "Community", "Kazakhstan", "Education", "dsml.kz", "Kaggle", "Career", "Math Olympiad"],
+        difficulty: "Intermediate",
+        views: "3.5k",
+      },
+      kazpravda: {
+        ...kazpravdaData,
+        slug: "kazpravda",
+        category: "Interview",
+        readTime: kazpravdaData.readTime || "8 min read",
+        publishDate: kazpravdaData.publishedDate || "2019-09-05",
+        tags: ["Algorithms", "Career", "Kazakhstan", "Tech"],
+        difficulty: "Beginner",
+        views: "2.1k",
+      },
+      steppe: {
+        ...steppeData,
+        slug: "steppe",
+        category: "Analysis",
+        readTime: steppeData.readTime || "12 min read",
+        publishDate: steppeData.publishedDate || "2020-03-15",
+        tags: ["Brain Drain", "Kazakhstan", "Education", "Policy"],
+        difficulty: "Intermediate",
+        views: "3.5k",
+      },
+      "data-science-job-market": {
+        ...zertteyData,
+        slug: "data-science-job-market",
+        category: "Market Research",
+        readTime: "15 min read",
+        publishDate: "2023-01-10",
+        tags: ["Data Science", "Job Market", "Career", "Analytics"],
+        difficulty: "Advanced",
+        views: "4.2k",
+      },
+      "from-math-olympiads-to-ml": {
+        ...cdmoData,
+        slug: "from-math-olympiads-to-ml",
+        category: "Career Story",
+        readTime: "10 min read",
+        publishDate: "2023-04-05",
+        tags: ["Math Olympiad", "Machine Learning", "Career Path", "Education"],
+        difficulty: "Intermediate",
+        views: "1.8k",
+      },
     }
-  }
 
-  const article = getArticleData()
+    return map[params.slug]
+  }, [params.slug])
 
   // Reading progress tracking
   useEffect(() => {
@@ -134,8 +132,44 @@ export default function ArticlePage({ params }: { params: { slug: string } }) {
     )
   }
 
+  const canonicalUrl = `https://anuar.best/media/${article.slug}`
+  const structuredData = {
+    "@context": "https://schema.org",
+    "@type": "NewsArticle",
+    headline: article.title,
+    description: article.preview || article.subtitle,
+    datePublished: article.publishDate,
+    dateModified: article.publishDate,
+    author: {
+      "@type": "Person",
+      name: "Anuar Aimoldin",
+    },
+    publisher: {
+      "@type": "Organization",
+      name: article.source?.name || "anuar.best",
+      url: article.source?.url || canonicalUrl,
+    },
+    image: article.imageUrl,
+    mainEntityOfPage: canonicalUrl,
+  }
+
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900">
+      <Head>
+        <title>{`${article.title} | Anuar Aimoldin`}</title>
+        <meta name="description" content={article.preview || article.subtitle} />
+        <link rel="canonical" href={canonicalUrl} />
+        <meta property="og:title" content={`${article.title} | Anuar Aimoldin`} />
+        <meta property="og:description" content={article.preview || article.subtitle} />
+        <meta property="og:url" content={canonicalUrl} />
+        <meta property="og:type" content="article" />
+        <meta property="og:image" content={article.imageUrl} />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content={`${article.title} | Anuar Aimoldin`} />
+        <meta name="twitter:description" content={article.preview || article.subtitle} />
+        <meta name="twitter:image" content={article.imageUrl} />
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }} />
+      </Head>
       {/* Reading Progress Bar */}
       <div className="fixed top-0 left-0 w-full h-1 bg-slate-800 z-50">
         <motion.div

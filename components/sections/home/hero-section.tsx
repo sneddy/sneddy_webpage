@@ -23,7 +23,7 @@ export function HeroSection() {
   }, [enableMotion])
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-28 pb-20 sm:pt-32">
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-24 pb-16 sm:pt-32 sm:pb-24">
       {/* Enhanced Animated Background */}
       <div className="absolute inset-0">
         <div className="absolute inset-0 bg-gradient-to-br from-background via-background to-primary/5" />
@@ -92,9 +92,9 @@ export function HeroSection() {
       )}
 
       <div className="container px-4 md:px-6 relative z-10">
-        <div className="grid grid-cols-1 gap-12 md:gap-16 lg:grid-cols-[460px_1fr] xl:grid-cols-[500px_1fr] items-center max-w-7xl mx-auto">
+        <div className="grid grid-cols-1 gap-10 sm:gap-14 md:gap-16 lg:grid-cols-[460px_1fr] xl:grid-cols-[500px_1fr] items-center max-w-7xl mx-auto">
           {/* Enhanced Profile Image - static until mounted */}
-          <div className="relative mx-auto lg:mx-0" style={{ opacity: 1 }}>
+          <div className="relative mx-auto lg:mx-0 order-2 lg:order-1 w-full max-w-[360px] sm:max-w-[420px]" style={{ opacity: 1 }}>
             <div className="relative">
               {/* Multiple gradient layers for depth */}
               <div className="absolute inset-0 bg-gradient-to-r from-primary via-secondary to-primary rounded-3xl blur-2xl opacity-25 animate-pulse scale-110" />
@@ -118,7 +118,7 @@ export function HeroSection() {
 
           {/* Enhanced Content */}
           <motion.div
-            className="flex flex-col justify-center space-y-10 text-center lg:text-left"
+            className="flex flex-col justify-center space-y-10 text-center lg:text-left order-1 lg:order-2 w-full"
             initial={false}
             animate={enableMotion ? { opacity: 1, y: 0 } : undefined}
             transition={{ duration: 0.8, delay: 0.15, ease: "easeOut" }}

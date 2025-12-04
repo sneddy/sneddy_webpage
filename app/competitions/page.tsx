@@ -1,6 +1,7 @@
 "use client"
 
 import { useState, useMemo } from "react"
+import type { LucideIcon } from "lucide-react"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
@@ -25,8 +26,56 @@ import Link from "next/link"
 import { motion, AnimatePresence, useInView } from "framer-motion"
 import { useRef } from "react"
 
+type MedalType = "gold" | "silver" | "bronze" | "honorable"
+type ColorKey = "primary" | "gold" | "silver" | "bronze"
+type SizeKey = "sm" | "md" | "lg" | "xl"
+type IconName = "ExternalLink" | "Youtube" | "GitHub" | "FileText"
+
+interface CompetitionLink {
+  text: string
+  url: string
+  icon: IconName
+}
+
+interface BaseCompetition {
+  id: string
+  title: string
+  year: string
+  medal: MedalType
+  description: string
+  place?: string
+  totalTeams?: string
+  highlight?: string
+  links?: CompetitionLink[]
+  additionalInfo?: string
+  specialAchievement?: string
+  result?: string
+  type?: "ml" | "math" | "achievement"
+}
+
+interface MLCompetition extends BaseCompetition {
+  type?: "ml"
+}
+
+interface MathOlympiad extends BaseCompetition {
+  result: string
+  medal: "bronze" | "honorable"
+  medalEmoji?: string
+  type?: "math"
+}
+
+interface AchievementCompetition extends BaseCompetition {
+  highlight: string
+  type: "achievement"
+}
+
+type CompetitionEntry =
+  | (MLCompetition & { type: "ml" })
+  | (MathOlympiad & { type: "math" })
+  | AchievementCompetition
+
 // Define the competition data directly with updated competitions
-const mlCompetitionsData = {
+const mlCompetitionsData: { competitions: MLCompetition[] } = {
   competitions: [
     // Gold medals first
     {
@@ -237,7 +286,7 @@ const mlCompetitionsData = {
   ],
 }
 
-const mathOlympiadsData = {
+const mathOlympiadsData: { olympiads: MathOlympiad[] } = {
   olympiads: [
     {
       id: "apmo-2009",
@@ -287,7 +336,7 @@ const mathOlympiadsData = {
 }
 
 // Animated counter component
-const AnimatedCounter = ({ value, suffix = "", duration = 2 }) => {
+const AnimatedCounter = ({ value, suffix = "", duration = 2 }: { value: number | string; suffix?: string; duration?: number }) => {
   const ref = useRef(null)
   const isInView = useInView(ref, { once: true })
 
@@ -313,8 +362,20 @@ const AnimatedCounter = ({ value, suffix = "", duration = 2 }) => {
 }
 
 // Stats card component
-const StatsCard = ({ icon: Icon, value, label, delay = 0, color = "primary" }) => {
-  const colorClasses = {
+const StatsCard = ({
+  icon: Icon,
+  value,
+  label,
+  delay = 0,
+  color = "primary",
+}: {
+  icon: LucideIcon
+  value: number | string
+  label: string
+  delay?: number
+  color?: ColorKey
+}) => {
+  const colorClasses: Record<ColorKey, string> = {
     primary: "text-primary bg-primary/10 border-primary/20",
     gold: "text-yellow-600 bg-yellow-600/10 border-yellow-600/20",
     silver: "text-gray-600 bg-gray-600/10 border-gray-600/20",
@@ -344,15 +405,15 @@ const StatsCard = ({ icon: Icon, value, label, delay = 0, color = "primary" }) =
 }
 
 // Medal component
-const MedalIcon = ({ type, size = "md" }) => {
-  const sizeClasses = {
+const MedalIcon = ({ type, size = "md" }: { type: MedalType; size?: SizeKey }) => {
+  const sizeClasses: Record<SizeKey, string> = {
     sm: "w-6 h-6",
     md: "w-8 h-8",
     lg: "w-12 h-12",
     xl: "w-16 h-16",
   }
 
-  const colors = {
+  const colors: Record<MedalType, string> = {
     gold: "text-yellow-500",
     silver: "text-gray-400",
     bronze: "text-orange-600",
@@ -370,16 +431,18 @@ const MedalIcon = ({ type, size = "md" }) => {
 }
 
 // Enhanced competition card
-const CompetitionCard = ({ competition, index, type = "ml" }) => {
-  const getMedalType = () => {
-    if (type === "ml") {
+const CompetitionCard = ({ competition, index }: { competition: CompetitionEntry; index: number }) => {
+  const compType: CompetitionEntry["type"] = competition.type ?? "ml"
+
+  const getMedalType = (): MedalType => {
+    if (compType === "ml" || compType === "achievement") {
       return competition.medal
-    } else {
-      return competition.medal || "honorable"
     }
+
+    return competition.medal || "honorable"
   }
 
-  const getIconComponent = (iconName) => {
+  const getIconComponent = (iconName: IconName) => {
     switch (iconName) {
       case "ExternalLink":
         return <ExternalLink className="w-4 h-4" />
@@ -414,7 +477,7 @@ const CompetitionCard = ({ competition, index, type = "ml" }) => {
                 </motion.div>
                 <div>
                   <Badge variant="secondary" className="mb-2">
-                    {type === "ml" ? "ML Competition" : "Math Olympiad"}
+                    {compType === "ml" ? "ML Competition" : compType === "math" ? "Math Olympiad" : "Achievement"}
                   </Badge>
                   <div className="text-sm text-muted-foreground">{competition.year}</div>
                 </div>
@@ -432,7 +495,7 @@ const CompetitionCard = ({ competition, index, type = "ml" }) => {
             </CardTitle>
 
             <div className="text-sm text-muted-foreground space-y-2">
-              {type === "ml" ? (
+              {compType === "ml" || compType === "achievement" ? (
                 <>
                   {competition.place ? (
                     <>
@@ -576,7 +639,7 @@ const HeroSection = () => {
           </motion.p>
 
           {/* Achievement stats */}
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-4xl mx-auto">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 max-w-4xl mx-auto">
             <StatsCard icon={Trophy} value={kaggleGoldMedals} label="Kaggle Gold" delay={0.1} color="gold" />
             <StatsCard icon={Medal} value={kaggleSilverMedals} label="Kaggle Silver" delay={0.2} color="silver" />
             <StatsCard icon={Award} value={mathMedals} label="International Math Medals" delay={0.3} color="bronze" />
@@ -590,7 +653,7 @@ const HeroSection = () => {
 
 // Featured achievements section
 const FeaturedSection = () => {
-  const featuredCompetitions = [
+  const featuredCompetitions: CompetitionEntry[] = [
     {
       ...mlCompetitionsData.competitions[0], // NeurIPS EEG Foundation Challenge
       type: "ml",
@@ -602,6 +665,7 @@ const FeaturedSection = () => {
       highlight: "🥇 Winner out of 1,475 teams",
     },
     {
+      id: "kaggle-competitions-master",
       title: "Kaggle Competitions Master",
       description:
         "Achieved #14 global ranking on Kaggle, the world's largest platform for machine learning competitions and data science challenges. Kaggle hosts competitions where data scientists and ML engineers compete to solve real-world problems for companies like Google, Microsoft, and NASA. With over 200,000+ active competitors worldwide, reaching the top 14 represents exceptional performance across diverse ML domains including computer vision, NLP, and tabular data analysis.",
@@ -700,16 +764,16 @@ const FeaturedSection = () => {
 }
 
 export default function CompetitionsPage() {
-  const [searchQuery, setSearchQuery] = useState("")
-  const [activeFilter, setActiveFilter] = useState("all")
-  const [sortBy, setSortBy] = useState("year")
+  const [searchQuery, setSearchQuery] = useState<string>("")
+  const [activeFilter, setActiveFilter] = useState<"all" | "ml" | "math">("all")
+  const [sortBy, setSortBy] = useState<"year">("year")
 
   // Combine and filter competitions with proper ordering
-  const allCompetitions = useMemo(() => {
-    const mlCompetitions = mlCompetitionsData.competitions.map((c) => ({ ...c, type: "ml" }))
+  const allCompetitions = useMemo<CompetitionEntry[]>(() => {
+    const mlCompetitions = mlCompetitionsData.competitions.map((c) => ({ ...c, type: "ml" as const }))
 
     // Add ML Competitions Award (ODS Community recognition) as gold medal
-    const odsRecognition = {
+    const odsRecognition: CompetitionEntry = {
       id: "ods-recognition",
       title: "ML Competitions Award",
       description:
@@ -722,7 +786,7 @@ export default function CompetitionsPage() {
     }
 
     // Add math olympiads - XXI Asian Pacific Math Olympiad should come right after gold medals
-    const mathCompetitions = mathOlympiadsData.olympiads.map((o) => ({ ...o, type: "math" }))
+    const mathCompetitions = mathOlympiadsData.olympiads.map((o) => ({ ...o, type: "math" as const }))
 
     let combined = []
 
@@ -735,11 +799,11 @@ export default function CompetitionsPage() {
       goldMLCompetitions.sort((a, b) => {
         if (a.id === "ods-recognition") return 1 // ODS goes last among golds
         if (b.id === "ods-recognition") return -1
-        return Number.parseInt(a.place) - Number.parseInt(b.place)
+        return Number.parseInt(a.place ?? "0") - Number.parseInt(b.place ?? "0")
       })
 
       // Sort silver medals by place
-      silverMLCompetitions.sort((a, b) => Number.parseInt(a.place) - Number.parseInt(b.place))
+      silverMLCompetitions.sort((a, b) => Number.parseInt(a.place ?? "0") - Number.parseInt(b.place ?? "0"))
 
       combined = [...goldMLCompetitions, ...silverMLCompetitions]
     } else if (activeFilter === "math") {
@@ -747,10 +811,10 @@ export default function CompetitionsPage() {
     } else {
       // Create ordered array: Gold ML competitions + ODS recognition, then XXI Asian Pacific Math Olympiad, then silver ML competitions, then other math competitions
       const goldMLCompetitions = mlCompetitions.filter((c) => c.medal === "gold")
-      goldMLCompetitions.sort((a, b) => Number.parseInt(a.place) - Number.parseInt(b.place))
+      goldMLCompetitions.sort((a, b) => Number.parseInt(a.place ?? "0") - Number.parseInt(b.place ?? "0"))
 
       const silverMLCompetitions = mlCompetitions.filter((c) => c.medal === "silver")
-      silverMLCompetitions.sort((a, b) => Number.parseInt(a.place) - Number.parseInt(b.place))
+      silverMLCompetitions.sort((a, b) => Number.parseInt(a.place ?? "0") - Number.parseInt(b.place ?? "0"))
 
       const asianPacificOlympiad = mathCompetitions.find((c) => c.id === "apmo-2009")
       const otherMathCompetitions = mathCompetitions.filter((c) => c.id !== "apmo-2009")
@@ -818,7 +882,7 @@ export default function CompetitionsPage() {
                 />
               </div>
               <div className="flex gap-2">
-                {["all", "ml", "math"].map((filter) => (
+                {(["all", "ml", "math"] as const).map((filter) => (
                   <Button
                     key={filter}
                     variant={activeFilter === filter ? "default" : "outline"}
@@ -850,7 +914,6 @@ export default function CompetitionsPage() {
                     key={`${competition.type}-${competition.id}`}
                     competition={competition}
                     index={index}
-                    type={competition.type}
                   />
                 ))}
               </motion.div>

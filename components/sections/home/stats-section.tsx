@@ -118,7 +118,7 @@ export function StatsSection() {
   ]
 
   return (
-    <section className="py-32 relative overflow-hidden">
+    <section className="py-20 md:py-28 relative overflow-hidden">
       {/* Enhanced Background */}
       <div className="absolute inset-0 bg-gradient-to-br from-muted/30 via-background to-muted/20" />
       <div className="absolute top-0 left-1/2 w-96 h-96 bg-primary/10 rounded-full blur-3xl transform -translate-x-1/2 -translate-y-1/2" />
@@ -132,7 +132,7 @@ export function StatsSection() {
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
         >
-          <h2 className="text-4xl md:text-5xl font-bold tracking-tight mb-6">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight mb-6">
             Impact by{" "}
             <span className="bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">Numbers</span>
           </h2>
@@ -142,7 +142,7 @@ export function StatsSection() {
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 max-w-6xl mx-auto">
           {stats.map((stat, index) => (
             <StatItem key={stat.label} {...stat} delay={index * 0.1} />
           ))}
@@ -156,7 +156,7 @@ export function StatsSection() {
           viewport={{ once: true }}
           transition={{ duration: 0.8, delay: 0.6 }}
         >
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+          <p className="text-base sm:text-lg text-muted-foreground max-w-2xl mx-auto">
             These numbers represent years of dedication to advancing AI technology, fostering community growth, and
             creating real-world impact through innovative solutions.
           </p>

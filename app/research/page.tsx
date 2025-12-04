@@ -3,6 +3,7 @@
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
+import type { LucideIcon } from "lucide-react"
 import {
   ExternalLink,
   Download,
@@ -22,8 +23,27 @@ import Link from "next/link"
 import { motion, useInView } from "framer-motion"
 import { useRef } from "react"
 
+type StatColor = "primary" | "secondary" | "green" | "blue"
+type Metrics = Record<string, number>
+
+interface ResearchPaper {
+  title: string
+  journal: string
+  date: string
+  impactFactor?: string
+  authors: string
+  url: string
+  pdfUrl?: string
+  metrics?: Metrics
+  background?: string
+  findings?: string
+  interpretation?: string
+  abstract?: string
+  conclusion?: string
+}
+
 // Animated counter component
-const AnimatedCounter = ({ value, suffix = "", duration = 2 }) => {
+const AnimatedCounter = ({ value, suffix = "", duration = 2 }: { value: number | string; suffix?: string; duration?: number }) => {
   const ref = useRef(null)
   const isInView = useInView(ref, { once: true })
 
@@ -49,8 +69,20 @@ const AnimatedCounter = ({ value, suffix = "", duration = 2 }) => {
 }
 
 // Stats card component
-const StatsCard = ({ icon: Icon, value, label, delay = 0, color = "primary" }) => {
-  const colorClasses = {
+const StatsCard = ({
+  icon: Icon,
+  value,
+  label,
+  delay = 0,
+  color = "primary",
+}: {
+  icon: LucideIcon
+  value: number | string
+  label: string
+  delay?: number
+  color?: StatColor
+}) => {
+  const colorClasses: Record<StatColor, string> = {
     primary: "text-primary bg-primary/10",
     secondary: "text-secondary bg-secondary/10",
     green: "text-green-600 bg-green-600/10",
@@ -83,7 +115,7 @@ const StatsCard = ({ icon: Icon, value, label, delay = 0, color = "primary" }) =
 }
 
 // Enhanced research paper card
-const ResearchPaperCard = ({ paper, index, featured = false }) => {
+const ResearchPaperCard = ({ paper, index, featured = false }: { paper: ResearchPaper; index: number; featured?: boolean }) => {
   const cardRef = useRef(null)
   const isInView = useInView(cardRef, { once: true })
 
@@ -465,7 +497,7 @@ const ConferenceSection = () => {
 }
 
 export default function ResearchPage() {
-  const researchPapers = [
+  const researchPapers: ResearchPaper[] = [
     {
       title:
         "Effect of a comprehensive deep-learning model on the accuracy of chest x-ray interpretation by radiologists: a retrospective, multireader multicase study",
@@ -510,7 +542,7 @@ export default function ResearchPage() {
       <ConferenceSection />
 
       {/* Publications Section */}
-      <section className="py-20">
+      <section className="py-16 md:py-20">
         <div className="container px-4 md:px-6 max-w-7xl mx-auto">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -527,7 +559,7 @@ export default function ResearchPage() {
             </p>
           </motion.div>
 
-          <div className="grid gap-12 lg:grid-cols-2">
+          <div className="grid gap-8 sm:gap-10 lg:gap-12 lg:grid-cols-2">
             {researchPapers.map((paper, index) => (
               <ResearchPaperCard key={index} paper={paper} index={index} featured={index === 0} />
             ))}

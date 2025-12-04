@@ -1,3 +1,4 @@
+import Head from "next/head"
 import Link from "next/link"
 import {
   ArrowLeft,
@@ -18,9 +19,41 @@ import limonData from "@/locals/en/media/limon.json"
 
 export default function LimonArticlePage() {
   const article = limonData
+  const canonicalUrl = "https://anuar.best/media/limon"
+  const structuredData = {
+    "@context": "https://schema.org",
+    "@type": "NewsArticle",
+    headline: article.title,
+    description: article.preview || article.subtitle,
+    datePublished: article.publishedDate,
+    dateModified: article.publishedDate,
+    author: { "@type": "Person", name: "Anuar Aimoldin" },
+    publisher: {
+      "@type": "Organization",
+      name: article.source.name,
+      url: article.source.url,
+    },
+    image: article.imageUrl,
+    mainEntityOfPage: canonicalUrl,
+  }
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900">
+      <Head>
+        <title>{`${article.title} | Anuar Aimoldin`}</title>
+        <meta name="description" content={article.preview || article.subtitle} />
+        <link rel="canonical" href={canonicalUrl} />
+        <meta property="og:title" content={`${article.title} | Anuar Aimoldin`} />
+        <meta property="og:description" content={article.preview || article.subtitle} />
+        <meta property="og:url" content={canonicalUrl} />
+        <meta property="og:type" content="article" />
+        <meta property="og:image" content={article.imageUrl} />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content={`${article.title} | Anuar Aimoldin`} />
+        <meta name="twitter:description" content={article.preview || article.subtitle} />
+        <meta name="twitter:image" content={article.imageUrl} />
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }} />
+      </Head>
       {/* Hero Section with Parallax Effect */}
       <div className="relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-r from-blue-600/20 via-purple-600/20 to-pink-600/20" />

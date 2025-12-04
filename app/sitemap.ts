@@ -9,8 +9,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/competitions",
     "/community",
     "/media",
+    "/media/kazpravda",
     "/media/limon",
-    "/media/[slug]",
+    "/media/steppe",
+    "/media/data-science-job-market",
+    "/media/from-math-olympiads-to-ml",
     "/talks",
     "/test",
   ]
