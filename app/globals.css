@@ -44,14 +44,30 @@ html {
   scroll-behavior: smooth;
 }
 
+/* Add critical CSS to prevent FOUC */
 /* Prevent layout shift and flickering during page load */
 html,
 body {
   overflow-x: hidden;
+  /* Force dark theme immediately */
+  background-color: hsl(222.2 84% 4.9%);
+  color: hsl(210 40% 98%);
 }
 
 body {
   min-height: 100vh;
+}
+
+/* Prevent content from being visible before CSS loads */
+.dark {
+  color-scheme: dark;
+}
+
+/* Ensure immediate rendering without flash */
+@media (prefers-color-scheme: dark) {
+  html {
+    color-scheme: dark;
+  }
 }
 
 /* Custom scrollbar */
