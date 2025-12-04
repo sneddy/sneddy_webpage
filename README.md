@@ -327,8 +327,6 @@ cd personal-website
 2. Install dependencies:
 \`\`\`bash
 pnpm install
-# or
-npm install
 \`\`\`
 
 3. Set up environment variables:
@@ -346,8 +344,6 @@ SUPABASE_SERVICE_ROLE_KEY=your_service_role_key
 4. Run the development server:
 \`\`\`bash
 pnpm dev
-# or
-npm run dev
 \`\`\`
 
 5. Open [http://localhost:3000](http://localhost:3000) in your browser
