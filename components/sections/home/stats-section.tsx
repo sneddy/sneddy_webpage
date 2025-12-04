@@ -16,10 +16,15 @@ interface StatItemProps {
 function StatItem({ icon, value, label, description, delay }: StatItemProps) {
   const ref = useRef(null)
   const isInView = useInView(ref, { once: true })
-  const [displayValue, setDisplayValue] = useState("0")
+  const [displayValue, setDisplayValue] = useState(value)
+  const [mounted, setMounted] = useState(false)
 
   useEffect(() => {
-    if (isInView) {
+    setMounted(true)
+  }, [])
+
+  useEffect(() => {
+    if (isInView && mounted) {
       const numMatch = value.match(/\d+/)
       if (numMatch) {
         const targetNum = Number.parseInt(numMatch[0])
@@ -42,7 +47,7 @@ function StatItem({ icon, value, label, description, delay }: StatItemProps) {
         setDisplayValue(value)
       }
     }
-  }, [isInView, value])
+  }, [isInView, value, mounted])
 
   return (
     <motion.div

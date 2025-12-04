@@ -8,15 +8,22 @@ import { motion } from "framer-motion"
 import { useEffect, useState } from "react"
 
 export function HeroSection() {
+  const [mounted, setMounted] = useState(false)
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 })
 
   useEffect(() => {
+    setMounted(true)
+  }, [])
+
+  useEffect(() => {
+    if (!mounted) return
+
     const handleMouseMove = (e: MouseEvent) => {
       setMousePosition({ x: e.clientX, y: e.clientY })
     }
     window.addEventListener("mousemove", handleMouseMove)
     return () => window.removeEventListener("mousemove", handleMouseMove)
-  }, [])
+  }, [mounted])
 
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
@@ -24,12 +31,14 @@ export function HeroSection() {
       <div className="absolute inset-0">
         <div className="absolute inset-0 bg-gradient-to-br from-background via-background to-primary/5" />
         <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-secondary/5 to-transparent" />
-        <div
-          className="absolute inset-0 opacity-40 transition-opacity duration-300"
-          style={{
-            background: `radial-gradient(800px circle at ${mousePosition.x}px ${mousePosition.y}px, rgba(0, 174, 199, 0.15), transparent 50%)`,
-          }}
-        />
+        {mounted && (
+          <div
+            className="absolute inset-0 opacity-40 transition-opacity duration-300"
+            style={{
+              background: `radial-gradient(800px circle at ${mousePosition.x}px ${mousePosition.y}px, rgba(0, 174, 199, 0.15), transparent 50%)`,
+            }}
+          />
+        )}
       </div>
 
       {/* Enhanced Floating Elements */}
@@ -104,7 +113,7 @@ export function HeroSection() {
                 transition={{ duration: 0.3 }}
               >
                 <Image
-                  src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/profile_photo.png-pkjLRhHAiOTmMKrxYLATtKtoBn3BnI.jpeg"
+                  src="/images/profile-photo.jpeg"
                   alt="Profile photo"
                   fill
                   className="object-cover transition-transform duration-700 hover:scale-105"
