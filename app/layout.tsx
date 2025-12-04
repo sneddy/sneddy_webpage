@@ -3,7 +3,6 @@ import type { Metadata } from "next"
 import { Inter } from "next/font/google"
 import "./globals.css"
 import { Navigation } from "@/components/layout/navigation"
-import { ThemeProvider } from "@/components/theme-provider"
 
 const inter = Inter({ subsets: ["latin"] })
 
@@ -15,15 +14,6 @@ export const metadata: Metadata = {
     "AI researcher, machine learning engineer, computer vision, medical imaging, Kaggle, data science, artificial intelligence",
   authors: [{ name: "Anuar Aimoldin" }],
   creator: "Anuar Aimoldin",
-  icons: {
-    icon: [
-      { url: "/favicon.ico" },
-      { url: "/favicon-16x16.png", sizes: "16x16", type: "image/png" },
-      { url: "/icon", sizes: "32x32", type: "image/png" },
-    ],
-    apple: "/apple-touch-icon.png",
-    shortcut: "/favicon.ico",
-  },
   openGraph: {
     type: "website",
     locale: "en_US",
@@ -60,42 +50,10 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en" suppressHydrationWarning>
-      <head>
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `
-              (function() {
-                try {
-                  // Force dark mode immediately
-                  document.documentElement.classList.add('dark');
-                  document.documentElement.style.colorScheme = 'dark';
-                  document.documentElement.style.backgroundColor = 'hsl(222.2 84% 4.9%)';
-                  
-                  // Prevent any flash by setting styles on document element
-                  var style = document.createElement('style');
-                  style.innerHTML = 'html,body{background-color:hsl(222.2 84% 4.9%)!important;color:hsl(210 40% 98%)!important}';
-                  document.head.appendChild(style);
-                } catch (e) {}
-              })();
-            `,
-          }}
-        />
-        <link rel="icon" href="/favicon.ico" sizes="any" />
-        <link rel="icon" href="/favicon-16x16.png" type="image/png" sizes="16x16" />
-        <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
-      </head>
-      <body className={inter.className} suppressHydrationWarning>
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="dark"
-          enableSystem={false}
-          disableTransitionOnChange
-          forcedTheme="dark"
-        >
-          <Navigation />
-          <main>{children}</main>
-        </ThemeProvider>
+    <html lang="en" className="dark">
+      <body className={inter.className}>
+        <Navigation />
+        <main>{children}</main>
       </body>
     </html>
   )

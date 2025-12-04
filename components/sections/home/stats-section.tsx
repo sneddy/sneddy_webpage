@@ -16,15 +16,10 @@ interface StatItemProps {
 function StatItem({ icon, value, label, description, delay }: StatItemProps) {
   const ref = useRef(null)
   const isInView = useInView(ref, { once: true })
-  const [displayValue, setDisplayValue] = useState(value)
-  const [mounted, setMounted] = useState(false)
+  const [displayValue, setDisplayValue] = useState("0")
 
   useEffect(() => {
-    setMounted(true)
-  }, [])
-
-  useEffect(() => {
-    if (isInView && mounted) {
+    if (isInView) {
       const numMatch = value.match(/\d+/)
       if (numMatch) {
         const targetNum = Number.parseInt(numMatch[0])
@@ -43,31 +38,42 @@ function StatItem({ icon, value, label, description, delay }: StatItemProps) {
         }, 40)
 
         return () => clearInterval(timer)
+      } else {
+        setDisplayValue(value)
       }
     }
-  }, [isInView, value, mounted])
-
-  const ItemWrapper = mounted ? motion.div : "div"
-  const itemProps = mounted
-    ? {
-        initial: { opacity: 0, y: 60 },
-        animate: isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 60 },
-        transition: { duration: 0.8, delay },
-      }
-    : {}
+  }, [isInView, value])
 
   return (
-    <ItemWrapper ref={ref} className="group relative" {...itemProps}>
+    <motion.div
+      ref={ref}
+      className="group relative"
+      initial={{ opacity: 0, y: 60 }}
+      animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 60 }}
+      transition={{ duration: 0.8, delay }}
+    >
       <div className="relative p-8 bg-background/60 backdrop-blur-sm border border-border/50 rounded-2xl hover:border-primary/30 transition-all duration-500 group-hover:shadow-xl">
         {/* Background gradient on hover */}
         <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-secondary/5 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
 
         <div className="relative text-center space-y-4">
-          <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-r from-primary to-secondary rounded-2xl text-white shadow-lg">
+          <motion.div
+            className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-r from-primary to-secondary rounded-2xl text-white shadow-lg"
+            whileHover={{ scale: 1.1, rotate: 5 }}
+            transition={{ type: "spring", stiffness: 300 }}
+          >
             {icon}
-          </div>
+          </motion.div>
 
-          <div className="text-4xl font-bold text-foreground">{mounted ? displayValue : value}</div>
+          <motion.div
+            className="text-4xl font-bold text-foreground"
+            key={displayValue}
+            initial={{ scale: 1.2 }}
+            animate={{ scale: 1 }}
+            transition={{ duration: 0.3 }}
+          >
+            {displayValue}
+          </motion.div>
 
           <div className="space-y-2">
             <h3 className="text-lg font-semibold text-foreground">{label}</h3>
@@ -75,7 +81,7 @@ function StatItem({ icon, value, label, description, delay }: StatItemProps) {
           </div>
         </div>
       </div>
-    </ItemWrapper>
+    </motion.div>
   )
 }
 
