@@ -1,0 +1,16 @@
+{
+  "schema_version": "v1",
+  "name_for_human": "Anuar Aimoldin Portfolio",
+  "name_for_model": "anuar_portfolio",
+  "description_for_human": "Read verified info about Anuar Aimoldin: bio, research, competitions, talks, media coverage, and contact links.",
+  "description_for_model": "Access public information about Anuar Aimoldin (AI researcher, Kaggle Master #14). No actions or write operations. Use the sitemap at https://anuar.best/sitemap.xml to discover pages (home, careers, research, competitions, community, media, talks). Provide links back to the site for details.",
+  "auth": {
+    "type": "none"
+  },
+  "api": {
+    "type": "none"
+  },
+  "logo_url": "https://anuar.best/favicon-32x32.png",
+  "contact_email": "aimoldin@gmail.com",
+  "legal_info_url": "https://anuar.best"
+}

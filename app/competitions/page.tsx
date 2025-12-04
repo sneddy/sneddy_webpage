@@ -34,7 +34,7 @@ const mlCompetitionsData = {
       title: "NeurIPS EEG Foundation Challenge",
       year: "2025",
       place: "1",
-      totalTeams: "N/A",
+      totalTeams: "1,186",
       medal: "gold",
       description:
         "NeurIPS 2025 Competition Track challenge focused on EEG foundation models; achieved the top combined metric across two sub-challenges.",
@@ -44,6 +44,11 @@ const mlCompetitionsData = {
           text: "Competition Track",
           url: "https://www.codabench.org/competitions/9975/#/results-tab",
           icon: "ExternalLink",
+        },
+        {
+          text: "GitHub Solution",
+          url: "https://github.com/sneddy/neurosned",
+          icon: "GitHub",
         },
       ],
     },
@@ -587,9 +592,14 @@ const HeroSection = () => {
 const FeaturedSection = () => {
   const featuredCompetitions = [
     {
-      ...mlCompetitionsData.competitions[0], // SIIM-ACR Pneumothorax
+      ...mlCompetitionsData.competitions[0], // NeurIPS EEG Foundation Challenge
       type: "ml",
-      highlight: "🏆 Winner out of 1,475 teams",
+      highlight: "🏆 1st place (combined metric)",
+    },
+    {
+      ...mlCompetitionsData.competitions[1], // SIIM-ACR Pneumothorax
+      type: "ml",
+      highlight: "🥇 Winner out of 1,475 teams",
     },
     {
       title: "Kaggle Competitions Master",
@@ -599,11 +609,6 @@ const FeaturedSection = () => {
       medal: "gold",
       type: "achievement",
       highlight: "🌟 Top 14 globally out of 200,000+",
-    },
-    {
-      ...mathOlympiadsData.olympiads[0], // XXI Asian Pacific Math Olympiad
-      type: "math",
-      highlight: "🥉 International Bronze Medal",
     },
   ]
 
@@ -703,18 +708,17 @@ export default function CompetitionsPage() {
   const allCompetitions = useMemo(() => {
     const mlCompetitions = mlCompetitionsData.competitions.map((c) => ({ ...c, type: "ml" }))
 
-    // Add ODS Community Recognition as gold medal
+    // Add ML Competitions Award (ODS Community recognition) as gold medal
     const odsRecognition = {
       id: "ods-recognition",
-      title: "ODS Community Recognition",
+      title: "ML Competitions Award",
       description:
         "Awarded the ML Competition Progress Award at the annual Open Data Science conference in Moscow, recognizing consistent achievements and contributions to the machine learning competition community.",
       year: "2019",
       medal: "gold",
       type: "ml",
-      specialAchievement: "ML Competition Progress Award",
+      specialAchievement: "ODS Community Recognition",
       links: [],
-      place: "999", // Use high number for sorting purposes since it's not a placement-based award
     }
 
     // Add math olympiads - XXI Asian Pacific Math Olympiad should come right after gold medals

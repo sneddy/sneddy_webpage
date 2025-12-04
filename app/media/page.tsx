@@ -1,24 +1,18 @@
 "use client"
 
-import { useState, useMemo, useRef } from "react"
+import { useMemo, useRef } from "react"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
-import { Input } from "@/components/ui/input"
 import { Badge } from "@/components/ui/badge"
 import {
-  Search,
   Clock,
   ExternalLink,
-  Filter,
-  Grid,
-  List,
   Calendar,
   ArrowRight,
   Sparkles,
   Star,
   BookOpen,
   Award,
-  X,
   Building2,
   MapPin,
   Play,
@@ -30,15 +24,41 @@ import { motion, AnimatePresence, useScroll, useTransform } from "framer-motion"
 import kazpravdaData from "@/locals/en/media/kazpravda.json"
 import steppeData from "@/locals/en/media/steppe.json"
 import zertteyData from "@/locals/en/media/zerttey.json"
-import cdmoData from "@/locals/en/media/cdmo.json"
 import limonData from "@/locals/en/media/limon.json"
+import cdmoData from "@/locals/en/media/cdmo.json"
 
 // Enhanced article data with source information
 const articlesData = [
   {
+    ...kazpravdaData,
+    id: "kazpravda",
+    slug: "kazpravda",
+    category: "Interview",
+    readTime: "8 min read",
+    publishDate: "2019-09-05",
+    tags: ["AI", "Machine Learning", "Kazakhstan", "Career"],
+    featured: true,
+    difficulty: "Beginner",
+    color: "from-blue-500 via-cyan-500 to-teal-500",
+    accentColor: "bg-blue-500",
+    excerpt:
+      "A talk with Anuar Aimoldin about how he builds smart algorithms, wins global AI competitions, and helps grow a community of young machine learning engineers in Kazakhstan.",
+    keyTopics: ["Algorithm Basics", "Career Advice", "AI Accessibility", "Educational Content"],
+    authorNote:
+      "A foundational interview that made complex AI concepts accessible to the general public in Kazakhstan.",
+    sourceInfo: {
+      name: "Kazakhstanskaya Pravda",
+      description:
+        "Kazakhstan's leading national newspaper, established in 1920, serving as the country's primary source of news and analysis",
+      url: "https://kazpravda.kz/n/nehitrye-algoritmy/",
+      location: "Kazakhstan",
+      type: "National Newspaper",
+    },
+  },
+  {
     ...limonData,
     id: "limon",
-    slug: "from-kazakhstan-to-global-ai",
+    slug: "limon",
     category: "Interview",
     readTime: "25 min read",
     publishDate: "2024-12-15",
@@ -62,32 +82,6 @@ const articlesData = [
     },
   },
   {
-    ...kazpravdaData,
-    id: "kazpravda",
-    slug: "uncomplicated-algorithms",
-    category: "Interview",
-    readTime: "8 min read",
-    publishDate: "2019-09-05",
-    tags: ["AI", "Machine Learning", "Kazakhstan", "Career"],
-    featured: true,
-    difficulty: "Beginner",
-    color: "from-blue-500 via-cyan-500 to-teal-500",
-    accentColor: "bg-blue-500",
-    excerpt:
-      "Exploring the journey from mathematical foundations to cutting-edge AI applications in Kazakhstan's tech landscape.",
-    keyTopics: ["Algorithm Basics", "Career Advice", "AI Accessibility", "Educational Content"],
-    authorNote:
-      "A foundational interview that made complex AI concepts accessible to the general public in Kazakhstan.",
-    sourceInfo: {
-      name: "Kazakhstanskaya Pravda",
-      description:
-        "Kazakhstan's leading national newspaper, established in 1920, serving as the country's primary source of news and analysis",
-      url: "https://kazpravda.kz",
-      location: "Kazakhstan",
-      type: "National Newspaper",
-    },
-  },
-  {
     ...cdmoData,
     id: "cdmo",
     slug: "from-math-olympiads-to-ml",
@@ -95,7 +89,7 @@ const articlesData = [
     readTime: "12 min read",
     publishDate: "2021-01-03",
     tags: ["Mathematics", "Education", "Career Journey", "CDMO"],
-    featured: true,
+    featured: false,
     difficulty: "Intermediate",
     color: "from-purple-500 via-pink-500 to-rose-500",
     accentColor: "bg-purple-500",
@@ -115,16 +109,17 @@ const articlesData = [
   {
     ...steppeData,
     id: "steppe",
-    slug: "brain-drain-kazakhstan",
+    slug: "steppe",
     category: "Industry Analysis",
     readTime: "6 min read",
     publishDate: "2020-03-15",
     tags: ["Tech Industry", "Kazakhstan", "Talent", "BTS Digital"],
-    featured: false,
+    featured: true,
     difficulty: "Advanced",
     color: "from-green-500 via-emerald-500 to-cyan-500",
     accentColor: "bg-green-500",
-    excerpt: "Analyzing the talent migration patterns in Kazakhstan's tech sector and strategies for retention.",
+    excerpt:
+      "A talk with Anuar Aimoldin about his IT journey, how to grow Kazakhstan’s tech market, and how to stop brain drain and keep talent at home.",
     keyTopics: ["Talent Retention", "Tech Policy", "Economic Development", "Industry Analysis"],
     authorNote: "A critical examination of Kazakhstan's tech talent landscape and retention challenges.",
     sourceInfo: {
@@ -163,19 +158,7 @@ const articlesData = [
   },
 ]
 
-const categories = ["All", "Interview", "Personal Story", "Industry Analysis", "Research"]
-const difficulties = ["All", "Beginner", "Intermediate", "Advanced"]
-const allTags = Array.from(new Set(articlesData.flatMap((article) => article.tags)))
-
 export default function MediaPage() {
-  const [searchQuery, setSearchQuery] = useState("")
-  const [selectedCategory, setSelectedCategory] = useState("All")
-  const [selectedDifficulty, setSelectedDifficulty] = useState("All")
-  const [selectedTags, setSelectedTags] = useState<string[]>([])
-  const [viewMode, setViewMode] = useState<"grid" | "list">("grid")
-  const [showFilters, setShowFilters] = useState(false)
-  const [sortBy, setSortBy] = useState<"date" | "readTime">("date")
-
   const heroRef = useRef<HTMLDivElement>(null)
   const { scrollYProgress } = useScroll({
     target: heroRef,
@@ -187,47 +170,13 @@ export default function MediaPage() {
 
   // Filter and sort articles
   const filteredAndSortedArticles = useMemo(() => {
-    const filtered = articlesData.filter((article) => {
-      const matchesSearch =
-        article.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
-        article.subtitle.toLowerCase().includes(searchQuery.toLowerCase()) ||
-        article.excerpt.toLowerCase().includes(searchQuery.toLowerCase()) ||
-        article.keyTopics.some((topic) => topic.toLowerCase().includes(searchQuery.toLowerCase()))
-
-      const matchesCategory = selectedCategory === "All" || article.category === selectedCategory
-      const matchesDifficulty = selectedDifficulty === "All" || article.difficulty === selectedDifficulty
-      const matchesTags = selectedTags.length === 0 || selectedTags.some((tag) => article.tags.includes(tag))
-
-      return matchesSearch && matchesCategory && matchesDifficulty && matchesTags
-    })
-
-    // Sort articles
-    filtered.sort((a, b) => {
-      switch (sortBy) {
-        case "readTime":
-          return Number.parseInt(a.readTime) - Number.parseInt(b.readTime)
-        case "date":
-        default:
-          return new Date(b.publishDate).getTime() - new Date(a.publishDate).getTime()
-      }
-    })
-
-    return filtered
-  }, [searchQuery, selectedCategory, selectedDifficulty, selectedTags, sortBy])
+    return [...articlesData].sort(
+      (a, b) => new Date(b.publishDate).getTime() - new Date(a.publishDate).getTime(),
+    )
+  }, [])
 
   const featuredArticles = filteredAndSortedArticles.filter((article) => article.featured)
   const regularArticles = filteredAndSortedArticles.filter((article) => !article.featured)
-
-  const toggleTag = (tag: string) => {
-    setSelectedTags((prev) => (prev.includes(tag) ? prev.filter((t) => t !== tag) : [...prev, tag]))
-  }
-
-  const clearFilters = () => {
-    setSearchQuery("")
-    setSelectedCategory("All")
-    setSelectedDifficulty("All")
-    setSelectedTags([])
-  }
 
   const getDifficultyColor = (difficulty: string) => {
     switch (difficulty) {
@@ -309,207 +258,6 @@ export default function MediaPage() {
       </motion.section>
 
       <div className="container mx-auto px-4 pb-24">
-        {/* Refined Search and Filters */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.3 }}
-          className="mb-20 -mt-20 relative z-20"
-        >
-          <div className="bg-white/70 dark:bg-slate-800/70 backdrop-blur-2xl border border-slate-200/50 dark:border-slate-700/50 rounded-3xl p-8 shadow-2xl shadow-slate-900/5 dark:shadow-slate-900/20">
-            <div className="flex flex-col lg:flex-row gap-6 mb-6">
-              {/* Premium Search */}
-              <div className="relative flex-1">
-                <Search className="absolute left-6 top-1/2 transform -translate-y-1/2 text-slate-400 h-5 w-5" />
-                <Input
-                  placeholder="Search articles, topics, or keywords..."
-                  value={searchQuery}
-                  onChange={(e) => setSearchQuery(e.target.value)}
-                  className="pl-14 h-16 text-lg border-0 bg-slate-50/50 dark:bg-slate-900/50 focus:bg-white dark:focus:bg-slate-800 transition-all duration-300 rounded-2xl shadow-inner font-medium placeholder:text-slate-400"
-                />
-                {searchQuery && (
-                  <Button
-                    variant="ghost"
-                    size="icon"
-                    onClick={() => setSearchQuery("")}
-                    className="absolute right-3 top-1/2 transform -translate-y-1/2 h-10 w-10 rounded-xl hover:bg-slate-100 dark:hover:bg-slate-700"
-                  >
-                    <X className="h-4 w-4" />
-                  </Button>
-                )}
-              </div>
-
-              {/* Elegant Controls */}
-              <div className="flex gap-4">
-                <select
-                  value={sortBy}
-                  onChange={(e) => setSortBy(e.target.value as "date" | "readTime")}
-                  className="h-16 px-6 rounded-2xl border-0 bg-slate-50/50 dark:bg-slate-900/50 focus:bg-white dark:focus:bg-slate-800 transition-all duration-300 text-sm font-medium min-w-[140px] shadow-inner"
-                >
-                  <option value="date">Latest First</option>
-                  <option value="readTime">Quick Reads</option>
-                </select>
-
-                <div className="flex gap-3">
-                  <Button
-                    variant={viewMode === "grid" ? "default" : "outline"}
-                    size="icon"
-                    onClick={() => setViewMode("grid")}
-                    className="h-16 w-16 rounded-2xl border-0 shadow-sm"
-                  >
-                    <Grid className="h-5 w-5" />
-                  </Button>
-                  <Button
-                    variant={viewMode === "list" ? "default" : "outline"}
-                    size="icon"
-                    onClick={() => setViewMode("list")}
-                    className="h-16 w-16 rounded-2xl border-0 shadow-sm"
-                  >
-                    <List className="h-5 w-5" />
-                  </Button>
-                </div>
-
-                <Button
-                  variant={showFilters ? "default" : "outline"}
-                  onClick={() => setShowFilters(!showFilters)}
-                  className="h-16 px-8 rounded-2xl font-medium border-0 shadow-sm"
-                >
-                  <Filter className="h-5 w-5 mr-3" />
-                  Filters
-                  {(selectedCategory !== "All" || selectedDifficulty !== "All" || selectedTags.length > 0) && (
-                    <Badge variant="secondary" className="ml-3 bg-primary/20 text-primary border-0 font-medium">
-                      {[
-                        selectedCategory !== "All" ? 1 : 0,
-                        selectedDifficulty !== "All" ? 1 : 0,
-                        selectedTags.length,
-                      ].reduce((a, b) => a + b)}
-                    </Badge>
-                  )}
-                </Button>
-              </div>
-            </div>
-
-            {/* Enhanced Filters Panel */}
-            <AnimatePresence>
-              {showFilters && (
-                <motion.div
-                  initial={{ opacity: 0, height: 0 }}
-                  animate={{ opacity: 1, height: "auto" }}
-                  exit={{ opacity: 0, height: 0 }}
-                  className="border-t border-slate-200/50 dark:border-slate-700/50 pt-8 space-y-8"
-                >
-                  {/* Categories */}
-                  <div>
-                    <h3 className="font-semibold mb-4 text-lg flex items-center gap-3 text-slate-800 dark:text-slate-200">
-                      <Award className="h-5 w-5 text-blue-500" />
-                      Categories
-                    </h3>
-                    <div className="flex flex-wrap gap-3">
-                      {categories.map((category) => (
-                        <Button
-                          key={category}
-                          variant={selectedCategory === category ? "default" : "outline"}
-                          size="sm"
-                          onClick={() => setSelectedCategory(category)}
-                          className="rounded-full px-6 py-3 font-medium transition-all duration-300 hover:scale-105 border-0 shadow-sm"
-                        >
-                          {category}
-                          {category !== "All" && (
-                            <Badge
-                              variant="secondary"
-                              className="ml-2 bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-300 border-0"
-                            >
-                              {articlesData.filter((a) => a.category === category).length}
-                            </Badge>
-                          )}
-                        </Button>
-                      ))}
-                    </div>
-                  </div>
-
-                  {/* Difficulty */}
-                  <div>
-                    <h3 className="font-semibold mb-4 text-lg flex items-center gap-3 text-slate-800 dark:text-slate-200">
-                      <Star className="h-5 w-5 text-amber-500" />
-                      Difficulty Level
-                    </h3>
-                    <div className="flex flex-wrap gap-3">
-                      {difficulties.map((difficulty) => (
-                        <Button
-                          key={difficulty}
-                          variant={selectedDifficulty === difficulty ? "default" : "outline"}
-                          size="sm"
-                          onClick={() => setSelectedDifficulty(difficulty)}
-                          className="rounded-full px-6 py-3 font-medium transition-all duration-300 hover:scale-105 border-0 shadow-sm"
-                        >
-                          {difficulty}
-                          {difficulty !== "All" && (
-                            <Badge
-                              variant="secondary"
-                              className="ml-2 bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-300 border-0"
-                            >
-                              {articlesData.filter((a) => a.difficulty === difficulty).length}
-                            </Badge>
-                          )}
-                        </Button>
-                      ))}
-                    </div>
-                  </div>
-
-                  {/* Tags */}
-                  <div>
-                    <h3 className="font-semibold mb-4 text-lg flex items-center gap-3 text-slate-800 dark:text-slate-200">
-                      <BookOpen className="h-5 w-5 text-emerald-500" />
-                      Topics
-                    </h3>
-                    <div className="flex flex-wrap gap-2">
-                      {allTags.map((tag) => (
-                        <Badge
-                          key={tag}
-                          variant={selectedTags.includes(tag) ? "default" : "outline"}
-                          className="cursor-pointer hover:bg-primary/20 transition-all duration-300 px-4 py-2 text-sm font-medium rounded-full hover:scale-105 border-0 shadow-sm"
-                          onClick={() => toggleTag(tag)}
-                        >
-                          {tag}
-                          {selectedTags.includes(tag) && <X className="h-3 w-3 ml-2" />}
-                        </Badge>
-                      ))}
-                    </div>
-                  </div>
-
-                  {/* Filter Summary */}
-                  <div className="flex justify-between items-center pt-6 border-t border-slate-200/50 dark:border-slate-700/50">
-                    <div className="flex items-center gap-4">
-                      <span className="text-sm text-slate-600 dark:text-slate-400">
-                        <strong className="text-slate-900 dark:text-slate-100 font-semibold">
-                          {filteredAndSortedArticles.length}
-                        </strong>{" "}
-                        article
-                        {filteredAndSortedArticles.length !== 1 ? "s" : ""} found
-                      </span>
-                      {filteredAndSortedArticles.length !== articlesData.length && (
-                        <Badge
-                          variant="outline"
-                          className="text-xs border-0 bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-300"
-                        >
-                          Filtered from {articlesData.length} total
-                        </Badge>
-                      )}
-                    </div>
-                    <Button
-                      variant="ghost"
-                      onClick={clearFilters}
-                      className="text-sm hover:bg-slate-100 dark:hover:bg-slate-700 rounded-xl font-medium"
-                    >
-                      Clear all filters
-                    </Button>
-                  </div>
-                </motion.div>
-              )}
-            </AnimatePresence>
-          </div>
-        </motion.div>
-
         {/* Premium Featured Articles */}
         {featuredArticles.length > 0 && (
           <motion.section
@@ -675,7 +423,7 @@ export default function MediaPage() {
               </div>
             </div>
 
-            <div className={viewMode === "grid" ? "grid md:grid-cols-2 xl:grid-cols-3 gap-8" : "space-y-6"}>
+            <div className="grid md:grid-cols-2 xl:grid-cols-3 gap-8">
               {regularArticles.map((article, index) => (
                 <motion.div
                   key={article.id}
@@ -684,17 +432,9 @@ export default function MediaPage() {
                   transition={{ duration: 0.6, delay: 0.1 * index }}
                   className="group"
                 >
-                  <Card
-                    className={`h-full overflow-hidden hover:shadow-xl transition-all duration-500 group-hover:scale-[1.03] border-0 bg-white/80 dark:bg-slate-800/80 backdrop-blur-xl shadow-lg shadow-slate-900/5 dark:shadow-slate-900/20 rounded-2xl ${
-                      viewMode === "list" ? "flex flex-row" : ""
-                    }`}
-                  >
+                  <Card className="h-full overflow-hidden hover:shadow-xl transition-all duration-500 group-hover:scale-[1.03] border-0 bg-white/80 dark:bg-slate-800/80 backdrop-blur-xl shadow-lg shadow-slate-900/5 dark:shadow-slate-900/20 rounded-2xl">
                     {/* Premium Image Section */}
-                    <div
-                      className={`relative overflow-hidden ${
-                        viewMode === "list" ? "w-72 flex-shrink-0" : "aspect-[16/9]"
-                      }`}
-                    >
+                    <div className="relative overflow-hidden aspect-[16/9]">
                       <Image
                         src={article.imageUrl || "/placeholder.svg"}
                         alt={article.imageAlt}
@@ -724,16 +464,14 @@ export default function MediaPage() {
 
                     {/* Premium Content Section */}
                     <div className="flex-1 flex flex-col">
-                      <CardHeader className={viewMode === "list" ? "pb-4" : "pb-4"}>
+                      <CardHeader className="pb-4">
                         <CardTitle
-                          className={`group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors line-clamp-2 font-bold text-slate-900 dark:text-slate-100 ${
-                            viewMode === "list" ? "text-xl" : "text-xl"
-                          }`}
+                          className="group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors line-clamp-2 font-bold text-slate-900 dark:text-slate-100 text-xl"
                         >
                           {article.title}
                         </CardTitle>
                         <CardDescription
-                          className={`line-clamp-2 text-slate-600 dark:text-slate-400 leading-relaxed ${viewMode === "list" ? "text-base" : "text-base"}`}
+                          className="line-clamp-2 text-slate-600 dark:text-slate-400 leading-relaxed text-base"
                         >
                           {article.excerpt}
                         </CardDescription>

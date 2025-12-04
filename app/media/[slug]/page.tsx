@@ -20,12 +20,12 @@ export default function ArticlePage({ params }: { params: { slug: string } }) {
   // Get the article data based on the slug
   const getArticleData = () => {
     switch (params.slug) {
-      case "from-kazakhstan-to-global-ai":
+      case "limon":
         return {
           ...limonData,
           category: "Interview",
-          readTime: "25 min read",
-          publishDate: "2024-12-15",
+          readTime: limonData.readTime || "25 min read",
+          publishDate: limonData.publishedDate || "2024-12-15",
           tags: ["AI", "Community", "Kazakhstan", "Education", "dsml.kz", "Kaggle", "Career", "Math Olympiad"],
           difficulty: "Intermediate",
           views: "3.5k",
@@ -40,12 +40,12 @@ export default function ArticlePage({ params }: { params: { slug: string } }) {
           difficulty: "Beginner",
           views: "2.1k",
         }
-      case "brain-drain-kazakhstan":
+      case "steppe":
         return {
           ...steppeData,
           category: "Analysis",
-          readTime: "12 min read",
-          publishDate: "2023-02-20",
+          readTime: steppeData.readTime || "12 min read",
+          publishDate: steppeData.publishedDate || "2023-02-20",
           tags: ["Brain Drain", "Kazakhstan", "Education", "Policy"],
           difficulty: "Intermediate",
           views: "3.5k",

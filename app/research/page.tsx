@@ -308,7 +308,7 @@ const HeroSection = () => (
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-3xl mx-auto">
           <StatsCard icon={FileText} value="2" label="Publications" delay={0.1} color="primary" />
           <StatsCard icon={Users} value="240+" label="Citations" delay={0.2} color="green" />
-          <StatsCard icon={TrendingUp} value="250+" label="Clinics Deployed" delay={0.3} color="blue" />
+          <StatsCard icon={TrendingUp} value="2" label="Conference Presentations" delay={0.3} color="blue" />
         </div>
       </motion.div>
     </div>
