@@ -403,7 +403,7 @@ export default function CareersPage() {
               className="bg-gradient-to-r from-primary to-purple-600 hover:from-primary/90 hover:to-purple-600/90 text-white shadow-lg hover:shadow-xl transition-all duration-300 w-full sm:w-auto"
             >
               <Link
-                href="https://swfxusemimczhhhfzjhc.supabase.co/storage/v1/object/public/resume/personal/CV%20Anuar%20Long.pdf"
+                href="https://swfxusemimczhhhfzjhc.supabase.co/storage/v1/object/public/resume/personal/CV%20Anuar%20Latest.pdf"
                 target="_blank"
                 className="flex items-center gap-2"
               >
@@ -417,30 +417,6 @@ export default function CareersPage() {
                 </svg>
                 <span className="hidden sm:inline">Download Full CV (2 pages)</span>
                 <span className="sm:hidden">Full CV (2 pages)</span>
-              </Link>
-            </Button>
-
-            <Button
-              asChild
-              variant="outline"
-              size="lg"
-              className="border-2 hover:bg-primary/5 transition-all duration-300 bg-transparent w-full sm:w-auto"
-            >
-              <Link
-                href="https://swfxusemimczhhhfzjhc.supabase.co/storage/v1/object/public/resume/personal/CV%20Anuar.pdf"
-                target="_blank"
-                className="flex items-center gap-2"
-              >
-                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
-                  />
-                </svg>
-                <span className="hidden sm:inline">Download Compact CV (1 page)</span>
-                <span className="sm:hidden">Compact CV (1 page)</span>
               </Link>
             </Button>
           </motion.div>
