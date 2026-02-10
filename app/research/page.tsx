@@ -447,67 +447,65 @@ const ResearchServiceSection = () => {
   ]
 
   return (
-    <section className="py-20">
-      <div className="container px-4 md:px-6 max-w-7xl mx-auto">
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8 }}
-          className="text-center mb-12"
-        >
-          <h2 className="text-3xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
-            Research Service
-          </h2>
-          <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
-            Committee roles and scientific stewardship supporting the global AI community
-          </p>
-        </motion.div>
+    <div className="mt-20">
+      <motion.div
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.8 }}
+        className="text-center mb-12"
+      >
+        <h2 className="text-3xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
+          Research Service
+        </h2>
+        <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
+          Committee roles and scientific stewardship supporting the global AI community
+        </p>
+      </motion.div>
 
-        <div className="grid gap-6 md:grid-cols-2">
-          {roles.map((role, idx) => (
-            <motion.div
-              key={role.organization}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: idx * 0.1 }}
-              className="h-full"
-            >
-              <Card className="h-full border border-border/60 bg-card/80 backdrop-blur-sm">
-                <CardHeader className="pb-3">
-                  <div className="flex items-start justify-between gap-3">
-                    <div className="flex items-start gap-3">
-                      <div className="p-2 rounded-lg bg-primary/10 text-primary">
-                        <Users className="w-5 h-5" />
-                      </div>
-                      <div>
-                        <CardTitle className="text-xl">{role.organization}</CardTitle>
-                        <CardDescription className="text-sm">{role.role}</CardDescription>
-                      </div>
+      <div className="grid gap-6 md:grid-cols-2">
+        {roles.map((role, idx) => (
+          <motion.div
+            key={role.organization}
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: idx * 0.1 }}
+            className="h-full"
+          >
+            <Card className="h-full border border-border/60 bg-card/80 backdrop-blur-sm">
+              <CardHeader className="pb-3">
+                <div className="flex items-start justify-between gap-3">
+                  <div className="flex items-start gap-3">
+                    <div className="p-2 rounded-lg bg-primary/10 text-primary">
+                      <Users className="w-5 h-5" />
                     </div>
-                    <Badge variant="secondary" className="text-xs">
-                      {role.period}
-                    </Badge>
+                    <div>
+                      <CardTitle className="text-xl">{role.organization}</CardTitle>
+                      <CardDescription className="text-sm">{role.role}</CardDescription>
+                    </div>
                   </div>
-                </CardHeader>
-                <CardContent className="space-y-4">
-                  <p className="text-sm text-muted-foreground">{role.description}</p>
-                  <ul className="space-y-2">
-                    {role.contributions.map((item) => (
-                      <li key={item} className="text-sm text-muted-foreground flex gap-2">
-                        <span className="text-primary">•</span>
-                        <span>{item}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </CardContent>
-              </Card>
-            </motion.div>
-          ))}
-        </div>
+                  <Badge variant="secondary" className="text-xs">
+                    {role.period}
+                  </Badge>
+                </div>
+              </CardHeader>
+              <CardContent className="space-y-4">
+                <p className="text-sm text-muted-foreground">{role.description}</p>
+                <ul className="space-y-2">
+                  {role.contributions.map((item) => (
+                    <li key={item} className="text-sm text-muted-foreground flex gap-2">
+                      <span className="text-primary">•</span>
+                      <span>{item}</span>
+                    </li>
+                  ))}
+                </ul>
+              </CardContent>
+            </Card>
+          </motion.div>
+        ))}
       </div>
-    </section>
+    </div>
   )
 }
 
@@ -630,6 +628,11 @@ export default function ResearchPage() {
     <div className="w-full min-h-screen bg-gradient-to-b from-background via-primary/2 to-background">
       <HeroSection />
       <FocusAreasSection />
+      <section className="py-20">
+        <div className="container px-4 md:px-6 max-w-7xl mx-auto">
+          <ResearchServiceSection />
+        </div>
+      </section>
       <ConferenceSection />
 
       {/* Publications Section */}
@@ -657,8 +660,6 @@ export default function ResearchPage() {
           </div>
         </div>
       </section>
-
-      <ResearchServiceSection />
 
       {/* Call to Action */}
       <section className="py-20 bg-gradient-to-r from-primary/10 to-secondary/10">

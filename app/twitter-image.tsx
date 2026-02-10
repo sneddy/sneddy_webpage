@@ -20,7 +20,7 @@ export default function TwitterImage() {
           padding: "64px",
           backgroundColor: "#0b0f1a",
           backgroundImage:
-            "radial-gradient(800px 480px at 10% 0%, rgba(34,211,238,0.16), transparent 60%), radial-gradient(800px 480px at 90% 10%, rgba(250,204,21,0.16), transparent 60%)",
+            "radial-gradient(circle at 10% 0%, rgba(34,211,238,0.16), transparent 60%), radial-gradient(circle at 90% 10%, rgba(250,204,21,0.16), transparent 60%)",
           color: "#f8fafc",
           fontFamily: "system-ui, -apple-system, Segoe UI, sans-serif",
         }}

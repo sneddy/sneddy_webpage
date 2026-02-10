@@ -20,7 +20,7 @@ export default function OpenGraphImage() {
           padding: "72px",
           backgroundColor: "#0b0f1a",
           backgroundImage:
-            "radial-gradient(900px 500px at 10% 0%, rgba(34,211,238,0.18), transparent 60%), radial-gradient(900px 500px at 90% 10%, rgba(250,204,21,0.18), transparent 60%), radial-gradient(900px 600px at 50% 100%, rgba(16,185,129,0.16), transparent 65%)",
+            "radial-gradient(circle at 10% 0%, rgba(34,211,238,0.18), transparent 60%), radial-gradient(circle at 90% 10%, rgba(250,204,21,0.18), transparent 60%), radial-gradient(circle at 50% 100%, rgba(16,185,129,0.16), transparent 65%)",
           color: "#f8fafc",
           fontFamily: "system-ui, -apple-system, Segoe UI, sans-serif",
         }}
