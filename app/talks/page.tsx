@@ -21,7 +21,7 @@ const VideoCard = ({ talk, index, onPlay, isPlaying }) => {
       className="group h-full"
     >
       <div className="relative h-full rounded-xl p-[2px] overflow-hidden bg-gradient-to-r from-primary/20 to-secondary/20 hover:from-primary/40 hover:to-secondary/40 transition-all duration-300">
-        <div className="absolute inset-0 bg-gradient-to-r from-[#FFD700] to-[#00b2b2] opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+        <div className="absolute inset-0 bg-gradient-to-r from-primary to-secondary opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
         <Card className="relative h-full bg-card/95 backdrop-blur-sm border-0 overflow-hidden">
           <div className="relative aspect-video bg-gradient-to-br from-muted to-muted/50 overflow-hidden">
             {isPlaying ? (

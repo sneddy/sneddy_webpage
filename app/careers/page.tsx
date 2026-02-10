@@ -21,6 +21,27 @@ const careersData = {
   },
   education: [
     {
+      institution: "MBZUAI",
+      location: "Abu Dhabi, UAE",
+      degree: "PhD in Machine Learning",
+      period: "Aug 2025 - Present",
+      description:
+        "The world's first university dedicated to AI, ranked top-10 globally in AI, CV, and NLP (QS 2025). Research focus: Applications of AI in financial markets (supervised by Prof. Steve Liu).",
+      coursework: [
+        "CV805 Life-long Learning Agents for Vision",
+        "ML808 Causality and Machine Learning",
+        "ML8101 Foundations of Machine Learning",
+        "ML8102 Advanced Machine Learning",
+        "ML8103 Sequential Decision Making",
+        "ML813 Dimensionality Reduction and Manifold Learning",
+        "ML8501 Algorithms for Big Data",
+        "ML8504 Data Synthesis",
+      ],
+      achievements: [
+        "Invited Speaker, NeurIPS 2025 Competition Track & Foundation Models for the Brain and Body Workshop (San Diego, CA) — 1st place in the NeurIPS EEG Foundation Challenge (combined two-challenge metric)",
+      ],
+    },
+    {
       institution: "Yandex School of Data Analysis",
       location: "Moscow, Russia",
       degree: "Data Science & Machine Learning Program",
@@ -324,7 +345,7 @@ const getTypeColor = (type: string) => {
     case "Internship":
       return "bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-300"
     default:
-      return "bg-gray-100 text-gray-800 dark:bg-gray-900 dark:text-gray-300"
+      return "bg-muted/50 text-muted-foreground"
   }
 }
 
@@ -361,7 +382,7 @@ export default function CareersPage() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2, duration: 0.6 }}
           >
-            <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-primary via-purple-600 to-blue-600 bg-clip-text text-transparent">
+            <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-primary via-secondary to-accent bg-clip-text text-transparent">
               {careersData.title}
             </h1>
             <p className="text-lg sm:text-xl text-muted-foreground mb-12 max-w-3xl mx-auto leading-relaxed">
@@ -400,7 +421,7 @@ export default function CareersPage() {
             <Button
               asChild
               size="lg"
-              className="bg-gradient-to-r from-primary to-purple-600 hover:from-primary/90 hover:to-purple-600/90 text-white shadow-lg hover:shadow-xl transition-all duration-300 w-full sm:w-auto"
+              className="bg-gradient-to-r from-primary to-secondary hover:from-primary/90 hover:to-secondary/90 text-white shadow-lg hover:shadow-xl transition-all duration-300 w-full sm:w-auto"
             >
               <Link
                 href="https://swfxusemimczhhhfzjhc.supabase.co/storage/v1/object/public/resume/personal/CV%20Anuar%20Latest.pdf"
@@ -415,8 +436,8 @@ export default function CareersPage() {
                     d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
                   />
                 </svg>
-                <span className="hidden sm:inline">Download Full CV (2 pages)</span>
-                <span className="sm:hidden">Full CV (2 pages)</span>
+                <span className="hidden sm:inline">Download Full CV</span>
+                <span className="sm:hidden">Full CV</span>
               </Link>
             </Button>
           </motion.div>
@@ -573,7 +594,7 @@ export default function CareersPage() {
                             <div className="flex items-center gap-3 flex-wrap">
                               <CardTitle className="text-xl lg:text-2xl leading-tight">{exp.title}</CardTitle>
                               {exp.featured && (
-                                <Badge variant="secondary" className="bg-gradient-to-r from-primary/20 to-purple-600/20">
+                                <Badge variant="secondary" className="bg-gradient-to-r from-primary/20 to-secondary/20">
                                   <Star className="w-3 h-3 mr-1" />
                                   Featured
                                 </Badge>

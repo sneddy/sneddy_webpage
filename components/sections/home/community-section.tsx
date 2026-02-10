@@ -36,7 +36,7 @@ export function CommunitySection() {
   return (
     <section className="py-32 relative overflow-hidden">
       {/* Enhanced Background */}
-      <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-background to-secondary/5" />
+      <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-background to-secondary/10" />
       <div className="absolute top-1/4 left-0 w-96 h-96 bg-primary/10 rounded-full blur-3xl transform -translate-x-1/2" />
       <div className="absolute bottom-1/4 right-0 w-96 h-96 bg-secondary/10 rounded-full blur-3xl transform translate-x-1/2" />
 
@@ -56,13 +56,13 @@ export function CommunitySection() {
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: 0.2 }}
               >
-                <span className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-primary/10 via-secondary/10 to-primary/10 text-primary rounded-full text-sm font-medium border border-primary/20">
-                  🚀 Community Impact
+                <span className="inline-flex items-center gap-2 px-5 py-2 bg-white/5 text-primary rounded-full text-sm font-medium border border-white/10 backdrop-blur-sm">
+                  <span aria-hidden>🚀</span> Community Impact
                 </span>
               </motion.div>
 
               <motion.h2
-                className="text-4xl md:text-5xl font-bold tracking-tight leading-tight"
+                className="font-display text-4xl md:text-5xl font-semibold tracking-tight leading-tight text-balance"
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
@@ -93,7 +93,7 @@ export function CommunitySection() {
               {stats.map((stat, index) => (
                 <motion.div
                   key={stat.label}
-                  className="group p-6 rounded-2xl bg-background/60 backdrop-blur-sm border border-border/50 hover:border-primary/30 transition-all duration-300 hover:shadow-lg"
+                  className="group p-6 rounded-2xl bg-card/70 backdrop-blur-sm border border-border/60 hover:border-primary/30 transition-all duration-300 hover:shadow-glow"
                   whileHover={{ scale: 1.02, y: -2 }}
                   transition={{ type: "spring", stiffness: 300 }}
                 >
@@ -101,7 +101,7 @@ export function CommunitySection() {
                     <div className="p-2 rounded-lg bg-primary/10 text-primary group-hover:bg-primary group-hover:text-white transition-all duration-300">
                       {stat.icon}
                     </div>
-                    <div className="text-2xl font-bold text-foreground">{stat.value}</div>
+                    <div className="font-display text-2xl font-semibold text-foreground">{stat.value}</div>
                   </div>
                   <div className="space-y-1">
                     <div className="font-semibold text-foreground">{stat.label}</div>
@@ -121,7 +121,7 @@ export function CommunitySection() {
                 <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
                   <Button
                     size="lg"
-                    className="bg-gradient-to-r from-secondary to-primary hover:from-secondary/90 hover:to-primary/90 text-white font-semibold px-8 py-4 text-base shadow-lg"
+                    className="bg-gradient-to-r from-secondary to-primary hover:from-secondary/90 hover:to-primary/90 text-white font-semibold px-8 py-4 text-base shadow-[0_12px_30px_-16px_hsl(var(--secondary)/0.8)]"
                   >
                     {communityData.buttonText}
                     <ExternalLink className="ml-2 h-5 w-5" />
@@ -139,8 +139,8 @@ export function CommunitySection() {
             viewport={{ once: true }}
             transition={{ duration: 0.8, delay: 0.2 }}
           >
-            <div className="relative rounded-3xl overflow-hidden shadow-2xl bg-gradient-to-br from-primary/10 to-secondary/10 p-2">
-              <div className="bg-background rounded-2xl overflow-hidden">
+            <div className="relative rounded-3xl overflow-hidden shadow-[0_30px_60px_-40px_rgba(0,0,0,0.9)] bg-gradient-to-br from-primary/10 to-secondary/10 p-2">
+              <div className="bg-card rounded-2xl overflow-hidden">
                 <div className="aspect-video relative group">
                   <iframe
                     width="100%"
@@ -172,7 +172,7 @@ export function CommunitySection() {
           transition={{ duration: 0.8, delay: 0.4 }}
         >
           <div className="max-w-4xl mx-auto space-y-6">
-            <h3 className="text-3xl md:text-4xl font-bold mb-6">
+            <h3 className="font-display text-3xl md:text-4xl font-semibold mb-6 text-balance">
               Building Kazakhstan's{" "}
               <span className="bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
                 AI Ecosystem

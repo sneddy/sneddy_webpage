@@ -38,7 +38,7 @@ export function MediaSection() {
           <div className="flex flex-col items-center justify-center space-y-4 text-center">
             <div className="space-y-2">
               <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl">Public Speaking</h2>
-              <p className="max-w-[900px] text-gray-500 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed dark:text-gray-400">
+              <p className="max-w-[900px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
                 Talks, podcasts, and presentations about AI, ML, and technology
               </p>
             </div>
@@ -53,7 +53,7 @@ export function MediaSection() {
                 {featuredTalks.map((talk) => (
                   <div key={talk.videoId} className="space-y-2">
                     <h4 className="font-medium">{talk.title}</h4>
-                    <p className="text-sm text-gray-500 dark:text-gray-400 mb-2">{talk.description}</p>
+                    <p className="text-sm text-muted-foreground mb-2">{talk.description}</p>
 
                     <div className="relative aspect-video bg-muted rounded-md overflow-hidden">
                       {playingVideos[talk.videoId] ? (
@@ -94,7 +94,7 @@ export function MediaSection() {
               <CardContent className="space-y-4">
                 <div>
                   <h4 className="font-medium">Kitchen Podcast</h4>
-                  <p className="text-sm text-gray-500 dark:text-gray-400">
+                  <p className="text-sm text-muted-foreground">
                     Mathematics, "Smekalochka," and Artificial Intelligence
                   </p>
                   <iframe
@@ -108,7 +108,7 @@ export function MediaSection() {
                 </div>
                 <div>
                   <h4 className="font-medium">RCG Podcast</h4>
-                  <p className="text-sm text-gray-500 dark:text-gray-400">
+                  <p className="text-sm text-muted-foreground">
                     A casual conversation about data science and machine learning
                   </p>
                   <iframe

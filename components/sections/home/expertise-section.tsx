@@ -21,7 +21,7 @@ export function ExpertiseSection() {
         <div className="grid gap-8 md:grid-cols-3">
           {expertiseData.cards.map((card, index) => (
             <div key={index} className="relative h-full rounded-lg p-[2px] overflow-hidden">
-              <div className="absolute inset-0 bg-gradient-to-r from-[#FFD700] to-[#00b2b2]"></div>
+              <div className="absolute inset-0 bg-gradient-to-r from-primary to-secondary"></div>
               <Card className="relative h-full bg-card">
                 <CardHeader>
                   {icons[index]}

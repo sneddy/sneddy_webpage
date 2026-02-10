@@ -135,7 +135,7 @@ const ResearchPaperCard = ({ paper, index, featured = false }: { paper: Research
             : "bg-gradient-to-r from-primary/30 to-secondary/30 hover:from-primary/60 hover:to-secondary/60"
         } transition-all duration-500`}
       >
-        <div className="absolute inset-0 bg-gradient-to-r from-[#FFD700] to-[#00b2b2] opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+        <div className="absolute inset-0 bg-gradient-to-r from-primary to-secondary opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
         <Card className="relative h-full bg-card/95 backdrop-blur-sm border-0 rounded-2xl overflow-hidden">
           {featured && (
             <div className="absolute top-4 right-4 z-10">
@@ -288,10 +288,10 @@ const HeroSection = () => (
   <section className="relative py-20 overflow-hidden">
     {/* Animated background */}
     <div className="absolute inset-0 -z-10">
-      <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_30%_20%,rgba(0,174,199,0.15),transparent_50%)]"></div>
-      <div className="absolute bottom-0 right-0 w-full h-full bg-[radial-gradient(circle_at_70%_80%,rgba(255,243,42,0.1),transparent_50%)]"></div>
+      <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_30%_20%,hsl(var(--primary)/0.15),transparent_50%)]"></div>
+      <div className="absolute bottom-0 right-0 w-full h-full bg-[radial-gradient(circle_at_70%_80%,hsl(var(--secondary)/0.12),transparent_50%)]"></div>
       <motion.div
-        className="absolute top-1/2 left-1/2 w-full h-full bg-[radial-gradient(circle_at_50%_50%,rgba(0,174,199,0.05),transparent_70%)]"
+        className="absolute top-1/2 left-1/2 w-full h-full bg-[radial-gradient(circle_at_50%_50%,hsl(var(--primary)/0.05),transparent_70%)]"
         animate={{
           scale: [1, 1.1, 1],
           opacity: [0.3, 0.5, 0.3],
@@ -419,6 +419,97 @@ const FocusAreasSection = () => (
     </div>
   </section>
 )
+
+const ResearchServiceSection = () => {
+  const roles = [
+    {
+      organization: "IOAI - International Olympiad in AI",
+      role: "International Scientific Committee",
+      period: "Nov 2025 - Present",
+      description:
+        "Member of the International Scientific Committee of IOAI, the largest AI competition for school students.",
+      contributions: [
+        "Lead contributions on problem development, validation, and scientific integrity",
+        "Scoring methodology, results verification, and score finalization in coordination with the Jury/ISC",
+      ],
+    },
+    {
+      organization: "First Republican AI Olympiad for Kazakhstan Students",
+      role: "Scientific & Organizational Leadership",
+      period: "Dec 2024 - Oct 2025",
+      description:
+        "Pioneered the first national AI olympiad for high school students in Kazakhstan, fostering the next generation of AI talent and establishing educational standards for AI competitions.",
+      contributions: [
+        "Launched Kazakhstan's first national AI olympiad for school students",
+        "Shaped educational standards and competition design to grow AI talent",
+      ],
+    },
+  ]
+
+  return (
+    <section className="py-20">
+      <div className="container px-4 md:px-6 max-w-7xl mx-auto">
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8 }}
+          className="text-center mb-12"
+        >
+          <h2 className="text-3xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
+            Research Service
+          </h2>
+          <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
+            Committee roles and scientific stewardship supporting the global AI community
+          </p>
+        </motion.div>
+
+        <div className="grid gap-6 md:grid-cols-2">
+          {roles.map((role, idx) => (
+            <motion.div
+              key={role.organization}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: idx * 0.1 }}
+              className="h-full"
+            >
+              <Card className="h-full border border-border/60 bg-card/80 backdrop-blur-sm">
+                <CardHeader className="pb-3">
+                  <div className="flex items-start justify-between gap-3">
+                    <div className="flex items-start gap-3">
+                      <div className="p-2 rounded-lg bg-primary/10 text-primary">
+                        <Users className="w-5 h-5" />
+                      </div>
+                      <div>
+                        <CardTitle className="text-xl">{role.organization}</CardTitle>
+                        <CardDescription className="text-sm">{role.role}</CardDescription>
+                      </div>
+                    </div>
+                    <Badge variant="secondary" className="text-xs">
+                      {role.period}
+                    </Badge>
+                  </div>
+                </CardHeader>
+                <CardContent className="space-y-4">
+                  <p className="text-sm text-muted-foreground">{role.description}</p>
+                  <ul className="space-y-2">
+                    {role.contributions.map((item) => (
+                      <li key={item} className="text-sm text-muted-foreground flex gap-2">
+                        <span className="text-primary">•</span>
+                        <span>{item}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </CardContent>
+              </Card>
+            </motion.div>
+          ))}
+        </div>
+      </div>
+    </section>
+  )
+}
 
 const ConferenceSection = () => {
   const talks = [
@@ -566,6 +657,8 @@ export default function ResearchPage() {
           </div>
         </div>
       </section>
+
+      <ResearchServiceSection />
 
       {/* Call to Action */}
       <section className="py-20 bg-gradient-to-r from-primary/10 to-secondary/10">

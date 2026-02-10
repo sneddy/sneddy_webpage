@@ -467,7 +467,7 @@ const CompetitionCard = ({ competition, index }: { competition: CompetitionEntry
       className="group h-full"
     >
       <div className="relative h-full rounded-2xl p-[2px] overflow-hidden bg-gradient-to-r from-primary/20 to-secondary/20 group-hover:from-primary/40 group-hover:to-secondary/40 transition-all duration-500">
-        <div className="absolute inset-0 bg-gradient-to-r from-[#FFD700] to-[#00b2b2] opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+        <div className="absolute inset-0 bg-gradient-to-r from-primary to-secondary opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
         <Card className="relative h-full bg-card/95 backdrop-blur-sm border-0 rounded-2xl overflow-hidden">
           <CardHeader className="pb-4">
             <div className="flex items-start justify-between mb-4">
@@ -590,10 +590,10 @@ const HeroSection = () => {
     <section className="relative py-20 overflow-hidden">
       {/* Animated background */}
       <div className="absolute inset-0 -z-10">
-        <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_30%_20%,rgba(0,174,199,0.15),transparent_50%)]"></div>
-        <div className="absolute bottom-0 right-0 w-full h-full bg-[radial-gradient(circle_at_70%_80%,rgba(255,243,42,0.1),transparent_50%)]"></div>
+        <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_30%_20%,hsl(var(--primary)/0.15),transparent_50%)]"></div>
+        <div className="absolute bottom-0 right-0 w-full h-full bg-[radial-gradient(circle_at_70%_80%,hsl(var(--secondary)/0.12),transparent_50%)]"></div>
         <motion.div
-          className="absolute top-1/2 left-1/2 w-full h-full bg-[radial-gradient(circle_at_50%_50%,rgba(0,174,199,0.05),transparent_70%)]"
+          className="absolute top-1/2 left-1/2 w-full h-full bg-[radial-gradient(circle_at_50%_50%,hsl(var(--primary)/0.05),transparent_70%)]"
           animate={{
             scale: [1, 1.1, 1],
             opacity: [0.3, 0.5, 0.3],
@@ -706,7 +706,7 @@ const FeaturedSection = () => {
               className="group"
             >
               <div className="relative h-full rounded-2xl p-[3px] overflow-hidden bg-gradient-to-r from-yellow-400 via-primary to-secondary">
-                <div className="absolute inset-0 bg-gradient-to-r from-[#FFD700] to-[#00b2b2] opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                <div className="absolute inset-0 bg-gradient-to-r from-primary to-secondary opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                 <Card className="relative h-full bg-card/95 backdrop-blur-sm border-0 rounded-2xl overflow-hidden">
                   <CardHeader className="pb-4">
                     <div className="flex items-center justify-between mb-4">

@@ -5,20 +5,20 @@ import { Button } from "@/components/ui/button"
 
 export function ResearchSection() {
   return (
-    <section id="research" className="py-16 md:py-24 bg-primary/5">
+    <section id="research" className="py-16 md:py-24 bg-muted/20">
       <div className="container px-4 md:px-6">
         <div className="w-full">
           <div className="flex flex-col items-center justify-center space-y-4 text-center">
             <div className="space-y-2">
-              <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl">Research</h2>
-              <p className="max-w-[900px] text-gray-500 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed dark:text-gray-400">
+              <h2 className="font-display text-3xl font-semibold tracking-tight text-balance sm:text-5xl">Research</h2>
+              <p className="max-w-[900px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
                 Published research in top-tier medical and AI journals
               </p>
             </div>
           </div>
           <div className="gap-6 py-12 space-y-8">
-            <div className="relative h-full rounded-lg p-[2px] overflow-hidden">
-              <div className="absolute inset-0 bg-gradient-to-r from-[#FFD700] to-[#00b2b2]"></div>
+            <div className="relative h-full rounded-2xl p-[2px] overflow-hidden">
+              <div className="absolute inset-0 bg-gradient-to-r from-primary to-secondary"></div>
               <Card className="relative bg-card overflow-hidden">
                 <div>
                   <CardHeader>
@@ -102,8 +102,8 @@ export function ResearchSection() {
               </Card>
             </div>
 
-            <div className="relative h-full rounded-lg p-[2px] overflow-hidden">
-              <div className="absolute inset-0 bg-gradient-to-r from-[#FFD700] to-[#00b2b2]"></div>
+            <div className="relative h-full rounded-2xl p-[2px] overflow-hidden">
+              <div className="absolute inset-0 bg-gradient-to-r from-primary to-secondary"></div>
               <Card className="relative bg-card overflow-hidden">
                 <div>
                   <CardHeader>

@@ -13,7 +13,7 @@ const FeatureCard = ({ icon: Icon, title, description, stats, linkText, linkUrl 
   return (
     <motion.div whileHover={{ y: -5 }} transition={{ type: "spring", stiffness: 300 }} className="h-full">
       <div className="relative h-full rounded-lg p-[2px] overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-r from-[#FFD700] to-[#00b2b2]"></div>
+        <div className="absolute inset-0 bg-gradient-to-r from-primary to-secondary"></div>
         <Card className="flex flex-col h-full relative bg-card">
           <CardHeader className="pb-2">
             <div className="flex items-center gap-3">
@@ -50,9 +50,9 @@ export function CommunitySection() {
     <section id="community" className="py-20 md:py-28 relative overflow-hidden">
       {/* Background decoration */}
       <div className="absolute inset-0 -z-10 opacity-30">
-        <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_30%_20%,rgba(0,174,199,0.15),transparent_50%)]"></div>
-        <div className="absolute bottom-0 right-0 w-full h-full bg-[radial-gradient(circle_at_70%_80%,rgba(255,243,42,0.1),transparent_50%)]"></div>
-        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-full h-full bg-[radial-gradient(circle_at_50%_50%,rgba(0,174,199,0.05),transparent_70%)]"></div>
+        <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_30%_20%,hsl(var(--primary)/0.15),transparent_50%)]"></div>
+        <div className="absolute bottom-0 right-0 w-full h-full bg-[radial-gradient(circle_at_70%_80%,hsl(var(--secondary)/0.12),transparent_50%)]"></div>
+        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-full h-full bg-[radial-gradient(circle_at_50%_50%,hsl(var(--primary)/0.05),transparent_70%)]"></div>
       </div>
 
       <div className="container px-4 md:px-6">

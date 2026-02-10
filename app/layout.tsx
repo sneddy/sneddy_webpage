@@ -1,12 +1,13 @@
 import type React from "react"
 import type { Metadata } from "next"
-import { Inter } from "next/font/google"
+import { Manrope, Space_Grotesk } from "next/font/google"
 import "./globals.css"
 import { Navigation } from "@/components/layout/navigation"
 import { ThemeProvider } from "@/components/theme-provider"
 import { Analytics } from "@vercel/analytics/next"
 
-const inter = Inter({ subsets: ["latin"], display: "swap", preload: true })
+const manrope = Manrope({ subsets: ["latin"], display: "swap", preload: true, variable: "--font-sans" })
+const spaceGrotesk = Space_Grotesk({ subsets: ["latin"], display: "swap", preload: true, variable: "--font-display" })
 
 export const metadata: Metadata = {
   title: "Anuar Aimoldin - AI Researcher & ML Engineer",
@@ -53,7 +54,7 @@ export const metadata: Metadata = {
       "max-snippet": -1,
     },
   },
-    generator: 'v0.app'
+  generator: "v0.app",
 }
 
 export default function RootLayout({
@@ -67,7 +68,7 @@ export default function RootLayout({
         <style
           dangerouslySetInnerHTML={{
             __html: `
-          html,body{background-color:#0a0e27!important;color:#f8fafc!important;margin:0;padding:0}
+          html,body{background-color:#0b0f1a!important;color:#f8fafc!important;margin:0;padding:0}
           html{color-scheme:dark!important}
           *{box-sizing:border-box}
           img{opacity:1!important}
@@ -82,8 +83,8 @@ export default function RootLayout({
                   const html = document.documentElement;
                   html.classList.add('dark');
                   html.style.colorScheme = 'dark';
-                  html.style.backgroundColor = '#0a0e27';
-                  document.body.style.backgroundColor = '#0a0e27';
+                  html.style.backgroundColor = '#0b0f1a';
+                  document.body.style.backgroundColor = '#0b0f1a';
                   document.body.style.color = '#f8fafc';
                 } catch (e) {}
               })();
@@ -96,9 +97,9 @@ export default function RootLayout({
         <link rel="preload" as="image" href="/images/profile-photo.jpeg" fetchPriority="high" />
       </head>
       <body
-        className={inter.className}
+        className={`${manrope.variable} ${spaceGrotesk.variable} font-sans antialiased`}
         suppressHydrationWarning
-        style={{ backgroundColor: "#0a0e27", color: "#f8fafc" }}
+        style={{ backgroundColor: "#0b0f1a", color: "#f8fafc" }}
       >
         <ThemeProvider
           attribute="class"

@@ -56,16 +56,16 @@ function StatItem({ icon, value, label, description, delay }: StatItemProps) {
       animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 60 }}
       transition={{ duration: 0.8, delay }}
     >
-      <div className="relative p-8 bg-background/60 backdrop-blur-sm border border-border/50 rounded-2xl hover:border-primary/30 transition-all duration-500 group-hover:shadow-xl">
+      <div className="relative p-8 bg-card/70 backdrop-blur-sm border border-border/60 rounded-2xl hover:border-primary/30 transition-all duration-500 group-hover:shadow-glow">
         {/* Background gradient on hover */}
-        <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-secondary/5 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+        <div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-secondary/10 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
 
         <div className="relative text-center space-y-4">
-          <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-r from-primary to-secondary rounded-2xl text-white shadow-lg">
+          <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br from-primary to-secondary rounded-2xl text-white shadow-[0_10px_20px_-12px_hsl(var(--primary)/0.8)]">
             {icon}
           </div>
 
-          <div className="text-4xl font-bold text-foreground">{mounted ? displayValue : value}</div>
+          <div className="font-display text-4xl font-semibold text-foreground">{mounted ? displayValue : value}</div>
 
           <div className="space-y-2">
             <h3 className="text-lg font-semibold text-foreground">{label}</h3>
@@ -120,7 +120,7 @@ export function StatsSection() {
   return (
     <section className="py-20 md:py-28 relative overflow-hidden">
       {/* Enhanced Background */}
-      <div className="absolute inset-0 bg-gradient-to-br from-muted/30 via-background to-muted/20" />
+      <div className="absolute inset-0 bg-gradient-to-br from-muted/20 via-background to-muted/10" />
       <div className="absolute top-0 left-1/2 w-96 h-96 bg-primary/10 rounded-full blur-3xl transform -translate-x-1/2 -translate-y-1/2" />
       <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-secondary/10 rounded-full blur-3xl" />
 
@@ -132,7 +132,7 @@ export function StatsSection() {
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
         >
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight mb-6">
+          <h2 className="font-display text-3xl sm:text-4xl md:text-5xl font-semibold tracking-tight text-balance mb-6">
             Impact by{" "}
             <span className="bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">Numbers</span>
           </h2>

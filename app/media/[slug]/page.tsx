@@ -226,7 +226,7 @@ export default function ArticlePage({ params }: { params: { slug: string } }) {
       {/* Reading Progress Bar */}
       <div className="fixed top-0 left-0 w-full h-1 bg-slate-800 z-50">
         <motion.div
-          className="h-full bg-gradient-to-r from-[#FFD700] to-[#00b2b2]"
+          className="h-full bg-gradient-to-r from-primary to-secondary"
           style={{ width: `${readingProgress}%` }}
           initial={{ width: 0 }}
           animate={{ width: `${readingProgress}%` }}
@@ -287,7 +287,7 @@ export default function ArticlePage({ params }: { params: { slug: string } }) {
           <div className="space-y-6 mb-12">
             {/* Category and Metadata */}
             <div className="flex flex-wrap items-center gap-3">
-              <Badge className="bg-gradient-to-r from-[#FFD700] to-[#00b2b2] text-black font-medium">
+              <Badge className="bg-gradient-to-r from-primary to-secondary text-black font-medium">
                 {article.category}
               </Badge>
               <Badge variant="outline" className={`${getDifficultyColor(article.difficulty)} text-white border-0`}>
@@ -373,7 +373,7 @@ export default function ArticlePage({ params }: { params: { slug: string } }) {
                   transition={{ duration: 0.6, delay: 0.2 * sectionIndex }}
                   className="space-y-6"
                 >
-                  <h2 className="text-3xl font-bold mt-16 mb-8 bg-gradient-to-r from-[#FFD700] to-[#00b2b2] bg-clip-text text-transparent">
+                  <h2 className="text-3xl font-bold mt-16 mb-8 bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
                     {section.title}
                   </h2>
                   {section.content.map((paragraph, paragraphIndex) => (

@@ -12,7 +12,7 @@ export function MathematicsOlympiads() {
 
       {mathData.olympiads.map((olympiad, index) => (
         <div key={index} className="relative h-full rounded-lg p-[2px] overflow-hidden">
-          <div className="absolute inset-0 bg-gradient-to-r from-[#FFD700] to-[#00b2b2]"></div>
+          <div className="absolute inset-0 bg-gradient-to-r from-primary to-secondary"></div>
           <Card className="relative bg-card overflow-hidden">
             <div className="md:grid md:grid-cols-[1fr_300px] gap-6">
               <div>

@@ -72,7 +72,7 @@ export function ArticleDetail({ data }: ArticleProps) {
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.6 }}
-      className="relative h-full rounded-xl p-[2px] overflow-hidden bg-gradient-to-r from-[#FFD700] to-[#00b2b2] group"
+      className="relative h-full rounded-xl p-[2px] overflow-hidden bg-gradient-to-r from-primary to-secondary group"
     >
       <Card className="relative bg-slate-900 overflow-hidden h-full hover:shadow-2xl transition-all duration-500 border-0">
         <div className="relative aspect-video overflow-hidden">
