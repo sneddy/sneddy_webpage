@@ -27,7 +27,7 @@ export default function OpenGraphImage() {
       >
         <div
           style={{
-            display: "inline-flex",
+            display: "flex",
             alignItems: "center",
             gap: "12px",
             padding: "10px 18px",
@@ -36,6 +36,7 @@ export default function OpenGraphImage() {
             background: "rgba(255,255,255,0.05)",
             fontSize: "20px",
             letterSpacing: "-0.01em",
+            alignSelf: "flex-start",
           }}
         >
           anuar.best
