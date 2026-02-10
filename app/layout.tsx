@@ -10,11 +10,14 @@ const manrope = Manrope({ subsets: ["latin"], display: "swap", preload: true, va
 const spaceGrotesk = Space_Grotesk({ subsets: ["latin"], display: "swap", preload: true, variable: "--font-display" })
 
 export const metadata: Metadata = {
-  title: "Anuar Aimoldin - AI Researcher & ML Engineer",
+  title: {
+    default: "Anuar Aimoldin — AI Researcher & Industry Leader",
+    template: "%s | Anuar Aimoldin",
+  },
   description:
-    "AI Researcher and Machine Learning Engineer with expertise in computer vision, medical imaging, and competitive machine learning. Kaggle Competitions Master ranked #14 globally.",
+    "AI researcher and industry leader specializing in computer vision, medical imaging, and competitive machine learning. Kaggle Competitions Master ranked #14 globally.",
   keywords:
-    "AI researcher, machine learning engineer, computer vision, medical imaging, Kaggle, data science, artificial intelligence",
+    "AI researcher, industry leader, machine learning engineer, computer vision, medical imaging, Kaggle, data science, artificial intelligence",
   authors: [{ name: "Anuar Aimoldin" }],
   creator: "Anuar Aimoldin",
   icons: {
@@ -29,18 +32,20 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "en_US",
-    url: "https://aimoldin.com",
-    title: "Anuar Aimoldin - AI Researcher & ML Engineer",
+    url: "https://anuar.best",
+    title: "Anuar Aimoldin — AI Researcher & Industry Leader",
     description:
-      "AI Researcher and Machine Learning Engineer with expertise in computer vision, medical imaging, and competitive machine learning.",
-    siteName: "Anuar Aimoldin",
+      "AI researcher and industry leader specializing in computer vision, medical imaging, and competitive machine learning.",
+    siteName: "anuar.best",
+    images: [{ url: "/opengraph-image" }],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Anuar Aimoldin - AI Researcher & ML Engineer",
+    title: "Anuar Aimoldin — AI Researcher & Industry Leader",
     description:
-      "AI Researcher and Machine Learning Engineer with expertise in computer vision, medical imaging, and competitive machine learning.",
+      "AI researcher and industry leader specializing in computer vision, medical imaging, and competitive machine learning.",
     creator: "@sneddy",
+    images: ["/twitter-image"],
   },
   metadataBase: new URL("https://anuar.best"),
   robots: {

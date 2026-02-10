@@ -15,7 +15,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/media/data-science-job-market",
     "/media/from-math-olympiads-to-ml",
     "/talks",
-    "/test",
   ]
 
   const now = new Date().toISOString()
