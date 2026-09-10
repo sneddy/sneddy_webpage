@@ -1,0 +1,300 @@
+% !TeX program = xelatex
+\documentclass[11pt,a4paper]{article}
+
+\usepackage[a4paper,top=0.56cm,bottom=0.58cm,left=0.92cm,right=0.92cm]{geometry}
+\usepackage{fontspec}
+\usepackage{xcolor}
+\usepackage{tabularx}
+\usepackage{array}
+\usepackage{enumitem}
+\usepackage{hyperref}
+\usepackage[normalem]{ulem}
+\usepackage{fontawesome5}
+\usepackage{amssymb}
+\usepackage{microtype}
+\usepackage{needspace}
+
+\pagestyle{empty}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0pt}
+\setlength{\tabcolsep}{0pt}
+\setlength{\footskip}{0pt}
+\linespread{1.0}
+\emergencystretch=1.3em
+\raggedbottom
+
+\defaultfontfeatures{Ligatures=TeX}
+
+\setmainfont{Crimson Pro}[
+  Path = fonts/,
+  UprightFont = CrimsonPro-Regular.otf,
+  ItalicFont = CrimsonPro-Italic.otf,
+  BoldFont = CrimsonPro-SemiBold.otf,
+  BoldItalicFont = CrimsonPro-SemiBoldItalic.otf
+]
+
+\newfontfamily\contactfont{Glacial Indifference}[
+  Path = fonts/,
+  UprightFont = GlacialIndifference-Regular.otf,
+  BoldFont = GlacialIndifference-Bold.otf
+]
+
+\newcommand{\sectionletterspacing}[1]{{\addfontfeatures{LetterSpace=14}#1}}
+
+\definecolor{accent}{HTML}{136F75}
+\definecolor{textgray}{HTML}{262626}
+\definecolor{secondary}{HTML}{787878}
+\color{textgray}
+
+\hypersetup{
+  colorlinks=true,
+  urlcolor=secondary,
+  linkcolor=secondary,
+  citecolor=secondary,
+  pdfborder={0 0 0}
+}
+
+\setlist[itemize,1]{leftmargin=0.46cm,itemsep=1.0pt,topsep=0.34pt,parsep=0pt,partopsep=0pt,label=\textcolor{secondary}{\raisebox{0.10ex}{\small\textbullet}}}
+\setlist[itemize,2]{leftmargin=0.72cm,itemsep=0.6pt,topsep=0.12pt,parsep=0pt,partopsep=0pt,label=\textcolor{secondary}{\raisebox{0.12ex}{\small$\circ$}}}
+\setlist[itemize,3]{leftmargin=0.72cm,itemsep=0pt,topsep=0pt,parsep=0pt,partopsep=0pt,label=\textcolor{secondary}{\raisebox{0.18ex}{\scriptsize$\blacksquare$}}}
+
+\newcommand{\BodyFont}{\fontsize{11}{13.75}\selectfont}
+\newcommand{\ContactFont}{\contactfont\fontsize{10.8}{13.2}\selectfont}
+\newcommand{\HeaderContactFont}{\contactfont\fontsize{9.5}{11.4}\selectfont}
+\newcommand{\HeaderPlainFont}{\contactfont\fontsize{9.0}{10.8}\selectfont}
+\newcommand{\SectionFont}{\fontsize{15.2}{18.8}\selectfont}
+\newcommand{\TitleFont}{\fontsize{12.8}{15.8}\selectfont}
+\newcommand{\DateFont}{\fontsize{12.1}{15.0}\selectfont}
+\newcommand{\NameFont}{\fontsize{24.8}{28.3}\selectfont}
+\newcommand{\DescFont}{\fontsize{10.2}{12.7}\selectfont}
+
+\newcommand{\EduTitleFont}{\fontsize{12.4}{15.2}\selectfont}
+\newcommand{\EduInstFont}{\fontsize{11.1}{13.4}\selectfont}
+\newcommand{\EduDescFont}{\fontsize{9.5}{11.4}\selectfont}
+\newcommand{\EduDateFont}{\fontsize{11.6}{14.2}\selectfont}
+
+\newcommand{\muted}[1]{\textcolor{secondary}{#1}}
+\newcommand{\softuline}[1]{\textcolor{secondary}{\uline{#1}}}
+\newcommand{\linkicon}{\nobreak\hspace{0.10em}{\textcolor{secondary}{\raisebox{0.18ex}{\footnotesize$\nearrow$}}}}
+\newcommand{\headersep}{\textcolor{secondary}{\enspace\textbullet\enspace}}
+\newcommand{\headerplain}[1]{{\HeaderPlainFont\textcolor{textgray}{#1}}}
+
+\newcommand{\contactlink}[2]{%
+  \href{#2}{\textcolor{secondary}{#1}}%
+}
+\newcommand{\cvlink}[2]{%
+  \href{#2}{\softuline{#1}}%
+}
+\newcommand{\plainlink}[2]{%
+  \href{#2}{\textcolor{textgray}{#1}}%
+}
+\newcommand{\emlink}[1]{%
+  \textcolor{accent}{\textbf{#1}}%
+}
+\newcommand{\metric}[1]{%
+  \textcolor{accent}{\textbf{#1}}%
+}
+\newcommand{\companylink}[2]{%
+  \href{#2}{\textcolor{textgray}{#1}}%
+}
+
+\newcommand{\contactitem}[2]{\makebox[1.58em][l]{\textcolor{accent}{#1}}#2\par}
+\newcommand{\sectiontitle}[1]{%
+  \vspace{0.64em}
+  {\centering\SectionFont\bfseries\textcolor{accent}{\sectionletterspacing{#1}}\par}
+  \vspace{0.28em}
+}
+\newcommand{\jobtitle}[4]{%
+  {\TitleFont\bfseries #1}{\TitleFont\textnormal{\muted{\ (#2)}}}{\TitleFont\textnormal{, #3}}\hfill{\DateFont\textnormal{\muted{#4}}}\par
+}
+\newcommand{\edutitle}[2]{%
+  {\EduTitleFont\bfseries #1}\hfill{\EduDateFont\textnormal{\muted{#2}}}\par
+}
+\newcommand{\eduinst}[1]{%
+  {\EduInstFont\textcolor{textgray}{#1}}\par
+}
+\newcommand{\edudesc}[1]{%
+  \vspace{-0.05em}
+  {\hspace*{0.90em}\EduDescFont\muted{\textit{#1}}\par}
+}
+\newcommand{\edudetail}[1]{%
+  \vspace{0.05em}
+  {\leftskip=0.90em\BodyFont #1\par}
+}
+\newcommand{\roleline}[3]{%
+  {\TitleFont\bfseries #1}{\TitleFont\textnormal{, #2}}\hfill{\DateFont\textnormal{\muted{#3}}}\par
+}
+\newcommand{\jobgap}{\vspace{0.55em}}
+\newcommand{\edugap}{\vspace{0.45em}}
+
+\begin{document}
+\BodyFont
+
+\begin{center}
+{\NameFont\bfseries\addfontfeatures{LetterSpace=2} ANUAR AIMOLDIN\par}
+\vspace{0.55em}
+{%
+  \HeaderContactFont
+  \headerplain{+971 55 781 6390}
+  \headersep
+  \href{mailto:aimoldin@gmail.com}{\textcolor{secondary}{aimoldin@gmail.com}}
+  \headersep
+  \contactlink{Website}{https://anuar.best/}
+  \headersep
+  \contactlink{LinkedIn}{https://www.linkedin.com/in/anuar-aimoldin/}
+%   \headersep
+%   \contactlink{Community}{http://dsml.kz/}
+  \headersep
+  \contactlink{GitHub}{https://github.com/sneddy}
+  \headersep
+  \contactlink{Scholar}{https://scholar.google.com/citations?user=SE9vprcAAAAJ&hl=en}
+  \headersep
+  \contactlink{Kaggle}{http://kaggle.com/sneddy}\par
+}
+\end{center}
+
+\newcommand{\SummaryFont}{\fontsize{13.5}{16.5}\selectfont}
+\newcommand{\summarylabel}[1]{\textcolor{accent}{\textbf{#1:}}}
+
+\begin{center}
+\begin{minipage}{0.95\textwidth}
+{\SummaryFont
+\begin{tabularx}{\linewidth}{@{}r@{\hspace{0.70em}}X@{}}
+\summarylabel{Industry} & Applied AI leader with 10+ years of experience combining research, engineering, and leadership to deliver impact across diverse environments \\
+\summarylabel{Research} & Lancet co-author, Kaggle Top 14 globally, APMO medalist, PhD researcher at MBZUAI \\
+\summarylabel{Society} & Founder of a 10K+ member AI ecosystem, organizer of Central Asia’s first AI Olympiad, and member of the IOAI International Scientific \& Host Committee \\
+\end{tabularx}\par
+}
+\end{minipage}
+\end{center}
+
+\sectiontitle{ENTREPRENEURSHIP \& COMMUNITY LEADERSHIP}
+
+{\TitleFont\bfseries \plainlink{DSML.KZ}{https://dsml.kz}\textnormal{, Founder \& Product Lead}\hfill{\DateFont\textnormal{\muted{September 2017 -- Present}}}\par}
+\begin{itemize}
+\item Founded \textbf{DSML.KZ}, an AI/ML community in Kazakhstan and Central Asia, growing it to \metric{10K+ members across platforms}.
+\item Built and operate a \textbf{multichannel AI/ML media network}, publishing news, research updates, community stories, and career opportunities across Telegram, YouTube, LinkedIn, and the web.
+\item \textbf{Built and launched} the \plainlink{dsml.kz}{https://dsml.kz} \textbf{platform in 2025}, now with \metric{2,000+ registered users}. A \textbf{professional social network} for AI/ML engineers and researchers, it combines public profiles with \textbf{a community feed for member posts, research sharing, and discussions}. Integrated hiring workflows with \textbf{AI-assisted job-post creation}, direct applications, and recruiter tools for managing candidates.
+\item Developed \textbf{feed recommendations and research discovery}, alongside an \textbf{\plainlink{AI-powered news pipeline}{https://dsml.kz/ai-radar}} combining \textbf{ML relevance scoring} with \textbf{AI agents} for multi-source story synthesis and article and daily digest generation.
+\end{itemize}
+
+\jobgap
+
+{\TitleFont\bfseries Kazakhstan AI Olympiad\textnormal{, Organizer}\par}
+\begin{itemize}
+\item Organized Kazakhstan's first national AI Olympiad for high school students, helping build the national team that placed 4\textsuperscript{th} at IOAI 2025, winning 3 gold, 1 silver, and 3 bronze medals.
+\end{itemize}
+
+\jobgap
+
+{\TitleFont\bfseries \plainlink{International Olympiad in AI (IOAI)}{https://ioai-official.org/about/scientific-committee/}\textnormal{, International Scientific Committee}\hfill{\DateFont\textnormal{\muted{November 2025 -- Present}}}\par}
+\begin{itemize}
+    \item Serve as an IOAI 2026 jury member and Scientific Committee member, responsible for task design and validation, scoring integrity, competition deployment, contestant Q\&A, and appeals review.
+\end{itemize}
+
+\sectiontitle{INDUSTRY EXPERIENCE}
+
+\needspace{16\baselineskip}
+\jobtitle{\companylink{Careem}{https://www.careem.com/}\textnormal{, acquired by Uber}}{Dubai UAE}{Senior Data Scientist}{March 2023 -- December 2024}
+{\DescFont\muted{\textit{Super app operating in 70+ cities across 10 countries in the Middle East, Africa, and South Asia}}\par}
+Owned key dispatching, ETA prediction, and courier planning systems for food and grocery delivery.\par
+\begin{itemize}
+  \item Delivered \metric{\$1.5M in annual savings} by transitioning courier operations to a zone-based shift model, rolled out to \metric{35\% of the fleet}; led the planning stack across zone design, demand forecasting, supply planning, and shift optimization.
+  \item Proactively identified \textbf{courier GPS spoofing} that gave couriers priority for orders and made pickup ETAs unreliable; built real-time detection, reducing affected orders by \metric{93\%}, from \metric{218k to 15k per week}.
+  \item Improved \textbf{ETA accuracy} by \metric{10~pp} (share of predictions within \(\pm 5\) minutes of actual delivery time) by identifying delivery stages from courier GPS signals and applying stage-specific prediction models.
+  \item Launched \textbf{priority-based dispatching}, improving customer and courier delivery metrics by \metric{2~pp} and \metric{2.5~pp}, respectively, through redesigned matching logic validated using a high-fidelity simulator.
+\end{itemize}
+
+\jobgap
+\jobtitle{\companylink{Checklens GmbH}{https://checklens.ai/}}{Salzburg, Austria}{Senior AI Researcher}{March 2021 -- August 2022}
+{\DescFont\muted{\textit{Computer vision startup building automated checkout solutions for retailers including IKEA, Netto, and Lidl}}\par}
+\begin{itemize}
+  \item Led development of \textbf{Checkscan} from MVP to live-store deployment, automating checks of basket contents against receipts.
+  \item Built \textbf{real-time product recognition and counting} across \metric{15,000+ products}, including \textbf{multiple identical items in the same basket}, using two-stage tracking and \textbf{in-house GNN-based reranking}.
+  \item \textbf{Standardized the ML pipeline} from video ingestion and annotation to deployment.
+\end{itemize}
+
+\jobgap
+\needspace{7\baselineskip}
+\jobtitle{\companylink{Harrison.ai}{https://harrison.ai/}}{Sydney, Australia}{Senior AI Researcher}{March, 2020 - January, 2021}
+{\DescFont\muted{\textit{Healthcare AI startup developing deep learning systems for chest X-ray interpretation}}\par}
+\begin{itemize}
+  \item Built the \textbf{training pipeline and multi-task model architectures powering Annalise CXR}, supporting detection of \metric{120+ chest X-ray findings} across classification, attribute detection, and segmentation; the system was subsequently deployed across \metric{250+ Australian radiology clinics}.
+  \item Co-authored research in \textit{The Lancet Digital Health} demonstrating a \metric{45\% relative improvement} in radiologists' AUC above chance. A \textbf{separate 2024 study of Annalise CXR} showed potential for a \cvlink{\textbf{\textasciitilde20\%}}{https://pubs.rsna.org/doi/10.1148/radiol.240272} reduction in radiologist workload.
+\end{itemize}
+
+\jobgap
+\needspace{10\baselineskip}
+\jobtitle{\companylink{BTS Digital}{https://btsdigital.kz/eng}}{Astana, Kazakhstan}{Head of Artificial Intelligence}{June 2018 -- March 2020}
+{\DescFont\muted{\textit{Digital innovation arm of Eurasian Resources Group (natural resources holding, 75,000+ employees)}}\par}
+\begin{itemize}
+  \item Built the company's AI function from scratch, leading a team of \metric{15 research and development engineers} across \textbf{computer vision, natural language processing, and speech recognition}, and delivering several flagship products:
+  \begin{itemize}
+    \item \textbf{Digital ID:} facial recognition and anti-spoofing system enabling access to Kazakhstan's e-government services, supporting \cvlink{2M+ verifications per month}{https://www.csis.org/analysis/building-digital-public-infrastructure-lessons-learned-kazakhstan}
+    \item \textbf{ASR service:} speech recognition for Kazakhstan's e-government call center automation, supporting mixed bilingual dialogues.
+    \item \textbf{Ainews:} \cvlink{AI-driven news aggregation platform}{https://ai-news.kz/} with recommendations and duplicate removal
+  \end{itemize}
+  \item Set the roadmap for strategic AI initiatives and built regional talent pipelines through industry--academia partnerships, including Kazakhstan’s first AI course and open research seminars.
+\end{itemize}
+
+{\TitleFont\bfseries Selected Earlier Experience\hfill{\DateFont\textnormal{\muted{June 2014 -- June 2018}}}\par}
+\begin{itemize}
+  \item \textbf{Kazpost (Astana):} Built an integrated planning system for sales targets and compensation across \metric{3,000+} branches, increasing annual revenue by \metric{8\%} (\cvlink{KZT 1.6B / \$5M}{https://teletype.in/@ltt-kzp/r1qtHkMcm}) through time-series forecasting and performance-based branch clustering.
+  \item \textbf{Esculabs (Astana):} Built a computer-vision quality-control system for liver imaging workflows (ultrasound and MRI) used in chronic hepatitis C diagnosis and treatment monitoring.
+  \item \textbf{Yandex (Moscow):} Data Science Intern, Safe Search.
+\end{itemize}
+
+% \newpage
+
+\sectiontitle{RESEARCH AND EDUCATION}
+
+\edutitle{PhD in Machine Learning}{August 2025 -- Present}
+\eduinst{\plainlink{MBZUAI}{https://mbzuai.ac.ae/}\textnormal{ (Abu Dhabi, United Arab Emirates)}}
+\edudetail{\textbf{Research interests:} Computational neuroscience and EEG decoding; AI for prediction markets and market microstructure.}
+\edudetail{\textbf{Advisor:} \plainlink{Prof. Steve Liu}{https://mbzuai.ac.ae/study/faculty/steve-liu/}}
+\begin{itemize}
+  \item Developed probabilistic event-time models for EEG reaction-time decoding using behavioral latency as weak supervision, improving held-out prediction over scalar-regression baselines; first-author paper accepted in \textit{Neural Computation} (2026).
+  \item Won \textbf{1st place} in the EEG Foundation Challenge (NeurIPS 2025, combined two-challenge metric).
+\end{itemize}
+
+
+\edugap
+\edutitle{Advanced Program in Data Science and Machine Learning}{September 2016 -- May 2018}
+\eduinst{\plainlink{Yandex School of Data Analysis}{https://dataschool.yandex.com/}\textnormal{ (Moscow, Russia)}}
+\edudesc{Selective two-year, master’s-level program}
+
+\edugap
+\edutitle{MSc in Applied Mathematics and Computer Science}{September 2009 -- June 2014}
+\eduinst{\plainlink{Moscow State University}{https://msu.ru/en/}\textnormal{ (Moscow, Russia)}}
+
+\sectiontitle{PUBLICATIONS AND AWARDS}
+
+\begin{itemize}
+  \item \textbf{Selected Publications (300+ citations)}
+  \begin{itemize}
+    \item \textbf{Co-author:} \cvlink{``Effect of a Comprehensive Deep-Learning Model on the Accuracy of Chest X-Ray Interpretation by Radiologists: a Retrospective, Multireader Multicase Study''}{https://www.thelancet.com/journals/landig/article/PIIS2589-7500(21)00106-0}, published in \textit{The Lancet Digital Health}, Aug. 2021
+    \item \textbf{First author:} \cvlink{``Behavioral Latency as Weak Event-Time Supervision for EEG Reaction-Time Decoding''}{https://arxiv.org/abs/2608.29428}, accepted for publication in \textit{Neural Computation}, 2026
+  \end{itemize}
+
+  \item \textbf{Conference Presentations}
+  \begin{itemize}
+    \item \textbf{Invited Oral Speaker,} NeurIPS 2025 Foundation Models for the Brain and Body Workshop, San Diego, CA
+    \item \textbf{Invited Oral Speaker,} Conference on Machine Intelligence in Medical Imaging (C-MIMI 2019), Austin, TX
+  \end{itemize}
+
+  \item \textbf{Awards and Achievements}
+  \begin{itemize}
+    \item \textbf{Kaggle Competitions Master} — peak global rank \#14; 3 Gold and 6 Silver medals
+    \item \textbf{1st Place,} \cvlink{SIIM-ACR Pneumothorax Segmentation Challenge}{https://www.kaggle.com/competitions/siim-acr-pneumothorax-segmentation} — one-person team
+    \item \textbf{1st Place,} \cvlink{EEG Foundation Challenge}{https://www.codabench.org/competitions/9975/\#/results-tab} — NeurIPS 2025 Competition Track
+    \item \textbf{Bronze Medal,} \cvlink{Asian Pacific Mathematics Olympiad}{https://www.apmo-official.org/static/results/apmo2009_res.pdf}
+  \end{itemize}
+\end{itemize}
+
+\sectiontitle{TECHNICAL \& RESEARCH STRENGTHS}
+\begin{itemize}
+  \item \textbf{Technical:} Python, Machine Learning, Deep Learning, Optimization, Time Series Forecasting, Matching \& ETA Systems, Fraud Detection, Production ML.
+  \item \textbf{Research Areas:} Computational Neuroscience, EEG Decoding, Market Microstructure, AI for Healthcare, Computer Vision.
+\end{itemize}
+
+\end{document}

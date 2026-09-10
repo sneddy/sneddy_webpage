@@ -423,9 +423,10 @@ export default function CareersPage() {
               size="lg"
               className="bg-gradient-to-r from-primary to-secondary hover:from-primary/90 hover:to-secondary/90 text-white shadow-lg hover:shadow-xl transition-all duration-300 w-full sm:w-auto"
             >
-              <Link
-                href="https://swfxusemimczhhhfzjhc.supabase.co/storage/v1/object/public/resume/personal/CV%20Anuar%20Latest.pdf"
+              <a
+                href="/cv_latest.pdf"
                 target="_blank"
+                rel="noopener noreferrer"
                 className="flex items-center gap-2"
               >
                 <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -438,7 +439,7 @@ export default function CareersPage() {
                 </svg>
                 <span className="hidden sm:inline">Download Full CV</span>
                 <span className="sm:hidden">Full CV</span>
-              </Link>
+              </a>
             </Button>
           </motion.div>
         </div>

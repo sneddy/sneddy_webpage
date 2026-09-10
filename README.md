@@ -139,6 +139,12 @@ pnpm lint
 - Research papers and service: `app/research/page.tsx`
 - Media articles: `locals/en/media/*.json` and `app/media/[slug]/page.tsx`
 
+### Updating the CV
+
+- Current LaTeX source and approved PDF: `cv_latest/cv_latest.tex` and `cv_latest/cv_latest.pdf`.
+- Fonts and their licenses for rebuilding the CV: `cv_latest/fonts/`.
+- The Careers page serves `public/cv_latest.pdf` at `/cv_latest.pdf`. After updating the approved PDF, copy it to this public path and commit both copies together.
+
 ## Deployment
 
 Vercel is the recommended deployment platform. No environment variables are required for the current setup.
